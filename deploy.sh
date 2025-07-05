@@ -35,8 +35,19 @@ if [ -z "$COMMIT_MESSAGE" ]; then
     COMMIT_MESSAGE="Update documentation"
 fi
 
+# 最終的なコミットメッセージを表示して確認
+FINAL_MESSAGE="${COMMIT_MESSAGE} - ${TIMESTAMP}"
+echo -e "${YELLOW}コミットメッセージ: \"${FINAL_MESSAGE}\"${RESET}"
+echo -n "このメッセージでコミットしますか？ (y/n): "
+read -r CONFIRM
+
+if [ "$CONFIRM" != "y" ] && [ "$CONFIRM" != "Y" ]; then
+    echo -e "${YELLOW}❌ コミットをキャンセルしました。${RESET}"
+    exit 1
+fi
+
 # タイムスタンプを追加してコミット
-git commit -m "${COMMIT_MESSAGE} - ${TIMESTAMP}"
+git commit -m "${FINAL_MESSAGE}"
 
 git push origin main
 
