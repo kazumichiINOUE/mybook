@@ -12,8 +12,8 @@
 ```bash
 mdbook init mybook
 cd mybook
-# 何かしらmybookの中を制作
-mdbook build
+# 最初に，公開用のディクレトリをdocsという名前で作成する
+mkdir docs
 ```
 
 ## Githubで新しいリポジトリを作成する
@@ -22,28 +22,32 @@ mdbook build
 ## mybook/bookをgithubに連携させる
 ```bash
 # 現在の場所: mdbookのルート
-cd book
 git init
+echo "book" >> .gitignore
 git remote add origin https://github.com/<your-username>/mybook.git
-git checkout -b gh-pages
 git add .
 git commit -m "deploy to GitHub Pages"
-git push -f origin gh-pages
+git push -f origin main
 ```
 
 ## GitHub Pages を有効化
 GitHub のリポジトリページ → Settings → Pages に行く．
-* `Source`: gh-pages ブランチを選択
-* `Folder`: / (root) を選択
+* `Source`: main ブランチを選択
+* `Folder`: /docs を選択
 * 保存すると、数秒〜数分で https://\<your-username\>.github.io/mybook/ に公開される
+
+## mdbookを編集したら，ビルド・公開用ディレクトリにコピーをする
+```bash
+# 何かしらmybookの中を制作
+mdbook build
+cp -r book/* docs/
+```
 
 ## ページの更新
 ```bash
-mdbook build
-cd book
 git add .
 git commit -m "update"
-git push origin gh-pages
+git push origin main
 ```
 
 > <i class="fa fa-lightbulb-o"></i> 

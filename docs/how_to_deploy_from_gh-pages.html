@@ -154,34 +154,36 @@
 <h2 id="mdbookをローカルで用意する"><a class="header" href="#mdbookをローカルで用意する">mdbookをローカルで用意する</a></h2>
 <pre><code class="language-bash">mdbook init mybook
 cd mybook
-# 何かしらmybookの中を制作
-mdbook build
+# 最初に，公開用のディクレトリをdocsという名前で作成する
+mkdir docs
 </code></pre>
 <h2 id="githubで新しいリポジトリを作成する"><a class="header" href="#githubで新しいリポジトリを作成する">Githubで新しいリポジトリを作成する</a></h2>
 <p>ここでは，<code>mybook</code> というリポジトリを作成したとする．</p>
 <h2 id="mybookbookをgithubに連携させる"><a class="header" href="#mybookbookをgithubに連携させる">mybook/bookをgithubに連携させる</a></h2>
 <pre><code class="language-bash"># 現在の場所: mdbookのルート
-cd book
 git init
+echo &quot;book&quot; &gt;&gt; .gitignore
 git remote add origin https://github.com/&lt;your-username&gt;/mybook.git
-git checkout -b gh-pages
 git add .
 git commit -m &quot;deploy to GitHub Pages&quot;
-git push -f origin gh-pages
+git push -f origin main
 </code></pre>
 <h2 id="github-pages-を有効化"><a class="header" href="#github-pages-を有効化">GitHub Pages を有効化</a></h2>
 <p>GitHub のリポジトリページ → Settings → Pages に行く．</p>
 <ul>
-<li><code>Source</code>: gh-pages ブランチを選択</li>
-<li><code>Folder</code>: / (root) を選択</li>
+<li><code>Source</code>: main ブランチを選択</li>
+<li><code>Folder</code>: /docs を選択</li>
 <li>保存すると、数秒〜数分で https://&lt;your-username&gt;.github.io/mybook/ に公開される</li>
 </ul>
+<h2 id="mdbookを編集したらビルド公開用ディレクトリにコピーをする"><a class="header" href="#mdbookを編集したらビルド公開用ディレクトリにコピーをする">mdbookを編集したら，ビルド・公開用ディレクトリにコピーをする</a></h2>
+<pre><code class="language-bash"># 何かしらmybookの中を制作
+mdbook build
+cp -r book/* docs/
+</code></pre>
 <h2 id="ページの更新"><a class="header" href="#ページの更新">ページの更新</a></h2>
-<pre><code class="language-bash">mdbook build
-cd book
-git add .
+<pre><code class="language-bash">git add .
 git commit -m &quot;update&quot;
-git push origin gh-pages
+git push origin main
 </code></pre>
 <blockquote>
 <p><i class="fa fa-lightbulb-o"></i> 
