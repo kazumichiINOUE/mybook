@@ -221,9 +221,20 @@ fi
 echo -e &quot;${GREEN}📤 Git にコミット＆プッシュします...${RESET}&quot;
 git add .
 
-# 動的なコミットメッセージ生成
+# コミットメッセージの入力を求める
+echo -n &quot;コミットメッセージを入力してください (空白でデフォルト): &quot;
+read -r COMMIT_MESSAGE
+
+# タイムスタンプ生成
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
-git commit -m &quot;Update documentation - ${TIMESTAMP}&quot;
+
+# メッセージが空の場合はデフォルトメッセージを使用
+if [ -z &quot;$COMMIT_MESSAGE&quot; ]; then
+    COMMIT_MESSAGE=&quot;Update documentation&quot;
+fi
+
+# タイムスタンプを追加してコミット
+git commit -m &quot;${COMMIT_MESSAGE} - ${TIMESTAMP}&quot;
 
 git push origin main
 
