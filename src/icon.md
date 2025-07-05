@@ -1,7 +1,5 @@
 # Font Awesome 4 アイコン一覧（表示つき＋コピペ用）
-以下は，よく使われる `Font Awesome 4` のシンプルアイコン一覧です.
-
-表示例とコピペ用コードが並んでいます．
+よく使われる `Font Awesome 4` のシンプルアイコン一覧．
 
 | 表示 | 用途・意味 | コピペ用コード |
 |------|------------|----------------|
@@ -31,16 +29,5 @@
 | <i class="fa fa-comments"></i> | コメント・やりとり | `<i class="fa fa-comments"></i>` |
 | <i class="fa fa-cog"></i> | 設定・オプション | `<i class="fa fa-cog"></i>` |
 
----
-
-## 表示されないときは？
-
-Font Awesome のスタイルシートが読み込まれていることを確認してください。
-
-`theme/head.hbs` に以下を追加：
-
-```html
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-```
 
 [<i class="fa fa-arrow-left"></i> Home](./)
