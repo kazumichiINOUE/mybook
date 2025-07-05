@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e  # エラーで即終了
 
-GREEN='\e[32m'
-RESET='\e[0m'
+GREEN=$'\e[32m'
+RESET=$'\e[0m'
 
 echo -e "${GREEN}🔧 ビルド中...${RESET}"
 mdbook build

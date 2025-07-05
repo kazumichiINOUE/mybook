@@ -194,8 +194,8 @@ git push origin main
 <pre><code class="language-shell  numberLines">#!/bin/bash
 set -e  # エラーで即終了
 
-GREEN='\e[32m'
-RESET='\e[0m'
+GREEN=$'\e[32m'
+RESET=$'\e[0m'
 
 echo -e &quot;${GREEN}🔧 ビルド中...${RESET}&quot;
 mdbook build
