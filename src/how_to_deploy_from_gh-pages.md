@@ -8,6 +8,10 @@
 <i class="fa fa-arrow-right"></i>
 [What is GitHub Pages?](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages?utm_source=chatgpt.com)
 
+> <i class="fa fa-lightbulb-o"></i> 
+> このページ自体も`gh-pages`を使って公開しています．
+
+
 ## mdbookをローカルで用意する
 ```bash
 mdbook init mybook
@@ -34,7 +38,7 @@ git push -f origin main
 GitHub のリポジトリページ → Settings → Pages に行く．
 * `Source`: main ブランチを選択
 * `Folder`: /docs を選択
-* 保存すると、数秒〜数分で https://\<your-username\>.github.io/mybook/ に公開される
+* 保存すると、数秒〜数分で *https://\<your-username\>.github.io/mybook/* に公開される
 
 ## mdbookを編集したら，ビルド・公開用ディレクトリにコピーをする
 ```bash
@@ -62,5 +66,3 @@ chmod +x deplay.h # 実行権限を付与．最初だけで良い
 ./deplay.h
 ```
 
-> <i class="fa fa-lightbulb-o"></i> 
-> このページ自体も`gh-pages`を使って公開しています．

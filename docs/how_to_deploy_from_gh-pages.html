@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="nested/index.html"><strong aria-hidden="true">1.</strong> Nested example</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="my-first-chapter.html"><strong aria-hidden="true">1.1.</strong> My First Chapter</a></li><li class="chapter-item expanded "><a href="nested/sub-chapter.html"><strong aria-hidden="true">1.2.</strong> Sub-chapter</a></li><li class="chapter-item expanded "><a href="nested/det.html"><strong aria-hidden="true">1.3.</strong> なぜ</a></li></ol></li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html" class="active"><strong aria-hidden="true">2.</strong> gh-pagesでmdbookを公開する</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html" class="active"><strong aria-hidden="true">1.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">2.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">3.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded affix "><li class="part-title">その他の例</li><li class="chapter-item expanded "><a href="nested/index.html"><strong aria-hidden="true">4.</strong> Nested example</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="my-first-chapter.html"><strong aria-hidden="true">4.1.</strong> My First Chapter</a></li><li class="chapter-item expanded "><a href="nested/sub-chapter.html"><strong aria-hidden="true">4.2.</strong> Sub-chapter</a></li><li class="chapter-item expanded "><a href="nested/det.html"><strong aria-hidden="true">4.3.</strong> なぜ固有ベクトルで行列の対角化ができるか</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">About</li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -151,6 +151,10 @@
 <p><code>gh-pages</code>とは，GitHubのリポジトリをWeb公開する，GitHubが提供している仕組み．<br />
 <i class="fa fa-arrow-right"></i>
 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages?utm_source=chatgpt.com">What is GitHub Pages?</a></p>
+<blockquote>
+<p><i class="fa fa-lightbulb-o"></i> 
+このページ自体も<code>gh-pages</code>を使って公開しています．</p>
+</blockquote>
 <h2 id="mdbookをローカルで用意する"><a class="header" href="#mdbookをローカルで用意する">mdbookをローカルで用意する</a></h2>
 <pre><code class="language-bash">mdbook init mybook
 cd mybook
@@ -173,7 +177,7 @@ git push -f origin main
 <ul>
 <li><code>Source</code>: main ブランチを選択</li>
 <li><code>Folder</code>: /docs を選択</li>
-<li>保存すると、数秒〜数分で https://&lt;your-username&gt;.github.io/mybook/ に公開される</li>
+<li>保存すると、数秒〜数分で <em>https://&lt;your-username&gt;.github.io/mybook/</em> に公開される</li>
 </ul>
 <h2 id="mdbookを編集したらビルド公開用ディレクトリにコピーをする"><a class="header" href="#mdbookを編集したらビルド公開用ディレクトリにコピーをする">mdbookを編集したら，ビルド・公開用ディレクトリにコピーをする</a></h2>
 <pre><code class="language-bash"># 何かしらmybookの中を制作
@@ -210,19 +214,18 @@ echo &quot;✅ 完了しました！&quot;
 chmod +x deplay.h # 実行権限を付与．最初だけで良い
 ./deplay.h
 </code></pre>
-<blockquote>
-<p><i class="fa fa-lightbulb-o"></i> 
-このページ自体も<code>gh-pages</code>を使って公開しています．</p>
-</blockquote>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="nested/det.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next" href="how_to_embed_code_from_files.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -230,10 +233,13 @@ chmod +x deplay.h # 実行権限を付与．最初だけで良い
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="nested/det.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next" href="how_to_embed_code_from_files.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
