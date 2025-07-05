@@ -51,6 +51,16 @@ git push origin main
 ```
 
 ## シェルスクリプトで更新を自動化
+以下のシェルスクリプトにより，ビルドからプッシュまでを自動化できる．
+```shell, numberLines
+{{#include ../deploy.sh}}
+```
+**使い方**
+```bash
+nvim deplay.sh # 上記スクリプトを作成
+chmod +x deplay.h # 実行権限を付与．最初だけで良い
+./deplay.h
+```
 
 > <i class="fa fa-lightbulb-o"></i> 
 > このページ自体も`gh-pages`を使って公開しています．

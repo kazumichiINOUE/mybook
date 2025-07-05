@@ -282,6 +282,30 @@ git commit -m &quot;update&quot;
 git push origin main
 </code></pre>
 <h2 id="シェルスクリプトで更新を自動化"><a class="header" href="#シェルスクリプトで更新を自動化">シェルスクリプトで更新を自動化</a></h2>
+<p>以下のシェルスクリプトにより，ビルドからプッシュまでを自動化できる．</p>
+<pre><code class="language-shell  numberLines">#!/bin/bash
+set -e  # エラーで即終了
+
+echo &quot;🔧 ビルド中...&quot;
+mdbook build
+
+echo &quot;📦 book/ を docs/ にコピー中...&quot;
+rm -rf docs
+mkdir -p docs
+cp -r book/* docs/
+
+echo &quot;📤 Git にコミット＆プッシュします...&quot;
+git add .
+git commit -m &quot;update&quot;
+git push origin main
+
+echo &quot;✅ 完了しました！&quot;
+</code></pre>
+<p><strong>使い方</strong></p>
+<pre><code class="language-bash">nvim deplay.sh # 上記スクリプトを作成
+chmod +x deplay.h # 実行権限を付与．最初だけで良い
+./deplay.h
+</code></pre>
 <blockquote>
 <p><i class="fa fa-lightbulb-o"></i> 
 このページ自体も<code>gh-pages</code>を使って公開しています．</p>
