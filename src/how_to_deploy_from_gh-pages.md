@@ -50,5 +50,7 @@ git commit -m "update"
 git push origin main
 ```
 
+## シェルスクリプトで更新を自動化
+
 > <i class="fa fa-lightbulb-o"></i> 
 > このページ自体も`gh-pages`を使って公開しています．
