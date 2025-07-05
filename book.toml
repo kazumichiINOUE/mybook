@@ -1,0 +1,11 @@
+[book]
+authors = ["KazumichiINOUE"]
+language = "jp"
+multilingual = false
+src = "src"
+title = "My First Book"
+
+[output.html]
+mathjax-support = true
+
+#[output.pdf]
