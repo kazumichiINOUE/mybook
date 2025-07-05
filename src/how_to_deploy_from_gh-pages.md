@@ -66,3 +66,4 @@ chmod +x deplay.h # 実行権限を付与．最初だけで良い
 ./deplay.h
 ```
 
+[<i class="fa fa-arrow-left"></i> Home](./)

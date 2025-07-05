@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">1.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">2.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">3.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded affix "><li class="part-title">その他の例</li><li class="chapter-item expanded "><a href="nested/index.html"><strong aria-hidden="true">4.</strong> Nested example</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="my-first-chapter.html"><strong aria-hidden="true">4.1.</strong> My First Chapter</a></li><li class="chapter-item expanded "><a href="nested/sub-chapter.html"><strong aria-hidden="true">4.2.</strong> Sub-chapter</a></li><li class="chapter-item expanded "><a href="nested/det.html"><strong aria-hidden="true">4.3.</strong> なぜ固有ベクトルで行列の対角化ができるか</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">About</li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">1.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">2.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">3.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">4.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">5.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">その他の例</li><li class="chapter-item expanded "><a href="nested/index.html"><strong aria-hidden="true">6.</strong> Nested example</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="my-first-chapter.html"><strong aria-hidden="true">6.1.</strong> My First Chapter</a></li><li class="chapter-item expanded "><a href="nested/sub-chapter.html"><strong aria-hidden="true">6.2.</strong> Sub-chapter</a></li><li class="chapter-item expanded "><a href="nested/det.html"><strong aria-hidden="true">6.3.</strong> なぜ固有ベクトルで行列の対角化ができるか</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">About</li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -219,6 +219,7 @@ echo &quot;✅ 完了しました！&quot;
 chmod +x deplay.h # 実行権限を付与．最初だけで良い
 ./deplay.h
 </code></pre>
+<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mdbookにコードやファイルの内容を埋め込む"><a class="header" href="#mdbookにコードやファイルの内容を埋め込む">mdbookにコードやファイルの内容を埋め込む</a></h1>
 <p>参照: <a href="https://rust-lang.github.io/mdBook/format/mdbook.html?highlight=include#including-files">https://rust-lang.github.io/mdBook/format/mdbook.html?highlight=include#including-files</a></p>
 <p>mdbookには，ローカルファイルを取り込む機能が提供されている．
@@ -283,6 +284,12 @@ title = &quot;My First Book&quot;
 mathjax-support = true
 
 #[output.pdf]
+
+[output.html.playground]
+runnable = true
+editable = true     # true にするとコードの編集が可能になる
+copyable = true     # コピーボタンを表示
+line-numbers = true # 行番号を表示
 </code></pre>
 <p><strong>指定した行まで</strong></p>
 <pre><code class="language-toml">```toml
@@ -295,12 +302,68 @@ language = &quot;jp&quot;
 multilingual = false
 src = &quot;src&quot;
 </code></pre>
+<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="画像の埋め込み"><a class="header" href="#画像の埋め込み">画像の埋め込み</a></h1>
 <p><img src="images/image.jpeg" alt="image" /></p>
 <video controls style="width: 100%; height: auto;">
   <source src="images/movie.mp4" type="video/mp4">
   お使いのブラウザは動画に対応していません
 </video>
+<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mdbook内でrustコードの実行"><a class="header" href="#mdbook内でrustコードの実行">mdbook内でRustコードの実行</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>  println!(&quot;Hello, World!&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+  println!(&quot;Hello, World!&quot;);
+}
+</code></pre></pre>
+<blockquote>
+<p><i class="fa fa-exclamation-circle"></i>
+Note: Rust以外の言語は実行できません．</p>
+<pre><code class="language-python">print(&quot;hello, mdbook&quot;)  # プレイボタンは表示されない
+</code></pre>
+</blockquote>
+<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="font-awesome-4-アイコン一覧表示つきコピペ用"><a class="header" href="#font-awesome-4-アイコン一覧表示つきコピペ用">Font Awesome 4 アイコン一覧（表示つき＋コピペ用）</a></h1>
+<p>以下は，よく使われる <code>Font Awesome 4</code> のシンプルアイコン一覧です.</p>
+<p>表示例とコピペ用コードが並んでいます．</p>
+<div class="table-wrapper"><table><thead><tr><th>表示</th><th>用途・意味</th><th>コピペ用コード</th></tr></thead><tbody>
+<tr><td><i class="fa fa-bars"></i></td><td>メニュー・構造表示</td><td><code>&lt;i class=&quot;fa fa-bars&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-ellipsis-h"></i></td><td>オプション（横）</td><td><code>&lt;i class=&quot;fa fa-ellipsis-h&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-ellipsis-v"></i></td><td>オプション（縦）</td><td><code>&lt;i class=&quot;fa fa-ellipsis-v&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-list"></i></td><td>項目リスト</td><td><code>&lt;i class=&quot;fa fa-list&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-th-list"></i></td><td>表形式リスト</td><td><code>&lt;i class=&quot;fa fa-th-list&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-info-circle"></i></td><td>情報・補足</td><td><code>&lt;i class=&quot;fa fa-info-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-lightbulb-o"></i></td><td>ヒント・ひらめき</td><td><code>&lt;i class=&quot;fa fa-lightbulb-o&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-question-circle"></i></td><td>ヘルプ・疑問</td><td><code>&lt;i class=&quot;fa fa-question-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-exclamation-circle"></i></td><td>警告・注意</td><td><code>&lt;i class=&quot;fa fa-exclamation-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-arrow-right"></i></td><td>次へ</td><td><code>&lt;i class=&quot;fa fa-arrow-right&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-arrow-left"></i></td><td>戻る</td><td><code>&lt;i class=&quot;fa fa-arrow-left&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-chevron-down"></i></td><td>開く・展開</td><td><code>&lt;i class=&quot;fa fa-chevron-down&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-chevron-up"></i></td><td>閉じる・折りたたむ</td><td><code>&lt;i class=&quot;fa fa-chevron-up&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-file-text-o"></i></td><td>文書・ファイル</td><td><code>&lt;i class=&quot;fa fa-file-text-o&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-link"></i></td><td>リンク</td><td><code>&lt;i class=&quot;fa fa-link&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-external-link"></i></td><td>外部リンク</td><td><code>&lt;i class=&quot;fa fa-external-link&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-paperclip"></i></td><td>添付資料</td><td><code>&lt;i class=&quot;fa fa-paperclip&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-check-circle"></i></td><td>成功・完了</td><td><code>&lt;i class=&quot;fa fa-check-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-times-circle"></i></td><td>エラー・失敗</td><td><code>&lt;i class=&quot;fa fa-times-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-spinner"></i></td><td>処理中・ロード中</td><td><code>&lt;i class=&quot;fa fa-spinner&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-refresh"></i></td><td>再読み込み</td><td><code>&lt;i class=&quot;fa fa-refresh&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-star"></i></td><td>おすすめ・注目</td><td><code>&lt;i class=&quot;fa fa-star&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-book"></i></td><td>資料・教科書</td><td><code>&lt;i class=&quot;fa fa-book&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-comments"></i></td><td>コメント・やりとり</td><td><code>&lt;i class=&quot;fa fa-comments&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-cog"></i></td><td>設定・オプション</td><td><code>&lt;i class=&quot;fa fa-cog&quot;&gt;&lt;/i&gt;</code></td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="表示されないときは"><a class="header" href="#表示されないときは">表示されないときは？</a></h2>
+<p>Font Awesome のスタイルシートが読み込まれていることを確認してください。</p>
+<p><code>theme/head.hbs</code> に以下を追加：</p>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css&quot;&gt;
+</code></pre>
+<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nested-example"><a class="header" href="#nested-example">Nested example</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="my-first-chapter"><a class="header" href="#my-first-chapter">My First Chapter</a></h1>
 <p>test.
@@ -412,11 +475,19 @@ $$</p>
 
 
 
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
 
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
 
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
 
         <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>

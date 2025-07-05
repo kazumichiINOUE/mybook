@@ -77,3 +77,4 @@ mdbookには，ローカルファイルを取り込む機能が提供されて�
 {{#include ../book.toml::5}}
 ```
 
+[<i class="fa fa-arrow-left"></i> Home](./)

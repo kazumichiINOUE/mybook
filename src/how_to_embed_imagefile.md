@@ -7,3 +7,4 @@
   お使いのブラウザは動画に対応していません
 </video>
 
+[<i class="fa fa-arrow-left"></i> Home](./)

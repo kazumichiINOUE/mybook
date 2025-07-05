@@ -9,3 +9,9 @@ title = "My First Book"
 mathjax-support = true
 
 #[output.pdf]
+
+[output.html.playground]
+runnable = true
+editable = true     # true にするとコードの編集が可能になる
+copyable = true     # コピーボタンを表示
+line-numbers = true # 行番号を表示
