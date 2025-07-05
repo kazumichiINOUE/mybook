@@ -199,20 +199,23 @@ git push origin main
 <pre><code class="language-shell  numberLines">#!/bin/bash
 set -e  # エラーで即終了
 
-echo &quot;🔧 ビルド中...&quot;
+GREEN='\e[32m'
+RESET='\e[0m'
+
+echo -e &quot;${GREEN}🔧 ビルド中...${RESET}&quot;
 mdbook build
 
-echo &quot;📦 book/ を docs/ にコピー中...&quot;
+echo -e &quot;${GREEN}📦 book/ を docs/ にコピー中...${RESET}&quot;
 rm -rf docs
 mkdir -p docs
 cp -r book/* docs/
 
-echo &quot;📤 Git にコミット＆プッシュします...&quot;
+echo -e &quot;${GREEN}📤 Git にコミット＆プッシュします...${RESET}&quot;
 git add .
 git commit -m &quot;update&quot;
 git push origin main
 
-echo &quot;✅ 完了しました！&quot;
+echo -e &quot;${GREEN}✅ 完了しました！${RESET}&quot;
 </code></pre>
 <p><strong>使い方</strong></p>
 <pre><code class="language-bash">nvim deplay.sh # 上記スクリプトを作成

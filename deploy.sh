@@ -1,17 +1,20 @@
 #!/bin/bash
 set -e  # エラーで即終了
 
-echo "🔧 ビルド中..."
+GREEN='\e[32m'
+RESET='\e[0m'
+
+echo -e "${GREEN}🔧 ビルド中...${RESET}"
 mdbook build
 
-echo "📦 book/ を docs/ にコピー中..."
+echo -e "${GREEN}📦 book/ を docs/ にコピー中...${RESET}"
 rm -rf docs
 mkdir -p docs
 cp -r book/* docs/
 
-echo "📤 Git にコミット＆プッシュします..."
+echo -e "${GREEN}📤 Git にコミット＆プッシュします...${RESET}"
 git add .
 git commit -m "update"
 git push origin main
 
-echo "✅ 完了しました！"
+echo -e "${GREEN}✅ 完了しました！${RESET}"
