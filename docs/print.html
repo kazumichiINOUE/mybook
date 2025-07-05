@@ -199,7 +199,9 @@ git push origin main
 <pre><code class="language-shell  numberLines">#!/bin/bash
 set -e  # エラーで即終了
 
+# 色設定
 GREEN=$'\e[32m'
+YELLOW=$'\e[33m'
 RESET=$'\e[0m'
 
 echo -e &quot;${GREEN}🔧 ビルド中...${RESET}&quot;
@@ -210,9 +212,19 @@ rm -rf docs
 mkdir -p docs
 cp -r book/* docs/
 
+# 変更がない場合のハンドリング
+if git diff --quiet &amp;&amp; git diff --staged --quiet; then
+    echo -e &quot;${YELLOW}📋 変更がありません。スキップします。${RESET}&quot;
+    exit 0
+fi
+
 echo -e &quot;${GREEN}📤 Git にコミット＆プッシュします...${RESET}&quot;
 git add .
-git commit -m &quot;update&quot;
+
+# 動的なコミットメッセージ生成
+TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+git commit -m &quot;Update documentation - ${TIMESTAMP}&quot;
+
 git push origin main
 
 echo -e &quot;${GREEN}✅ 完了しました！${RESET}&quot;
