@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">1.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">2.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">3.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">4.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">5.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">その他の例</li><li class="chapter-item expanded "><a href="nested/index.html"><strong aria-hidden="true">6.</strong> Nested example</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="my-first-chapter.html"><strong aria-hidden="true">6.1.</strong> My First Chapter</a></li><li class="chapter-item expanded "><a href="nested/sub-chapter.html"><strong aria-hidden="true">6.2.</strong> Sub-chapter</a></li><li class="chapter-item expanded "><a href="nested/det.html"><strong aria-hidden="true">6.3.</strong> なぜ固有ベクトルで行列の対角化ができるか</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">About</li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">1.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">2.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">3.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">4.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">5.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">6.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded "><a href="oled_connector_250717.html"><strong aria-hidden="true">7.</strong> OLEDコネクタ ハンダ付け手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">8.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">その他の例</li><li class="chapter-item expanded "><a href="nested/index.html"><strong aria-hidden="true">9.</strong> Nested example</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="my-first-chapter.html"><strong aria-hidden="true">9.1.</strong> My First Chapter</a></li><li class="chapter-item expanded "><a href="nested/sub-chapter.html"><strong aria-hidden="true">9.2.</strong> Sub-chapter</a></li><li class="chapter-item expanded "><a href="nested/det.html"><strong aria-hidden="true">9.3.</strong> なぜ固有ベクトルで行列の対角化ができるか</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">About</li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -413,6 +413,595 @@ Note: Rust以外の言語は実行できません．</p>
 <tr><td><i class="fa fa-cog"></i></td><td>設定・オプション</td><td><code>&lt;i class=&quot;fa fa-cog&quot;&gt;&lt;/i&gt;</code></td></tr>
 </tbody></table>
 </div>
+<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ロボット制御基礎手順書"><a class="header" href="#ロボット制御基礎手順書">ロボット制御基礎手順書</a></h1>
+<p>2025/7/10 (Thu) 13:00 -- 14:30
+<strong>実験の様子を写真に残しておいてください．</strong></p>
+<h2 id="作業分担2名1組"><a class="header" href="#作業分担2名1組">作業分担（2名1組）</a></h2>
+<p><strong>全体（13:00-14:30）：協力作業</strong></p>
+<ul>
+<li><strong>担当者A・B</strong>: 協力してプログラミング実験を実施</li>
+</ul>
+<h2 id="実験内容"><a class="header" href="#実験内容">実験内容</a></h2>
+<ol>
+<li>ロボットの前進・後退制御</li>
+<li>超音波センサーを使ったモーターのON/OFF 制御</li>
+<li>前方障害物手前での停止処理</li>
+</ol>
+<hr />
+<h2 id="1-ロボットの前進後退制御"><a class="header" href="#1-ロボットの前進後退制御">1. ロボットの前進・後退制御</a></h2>
+<p>ロボットは2個のモーターで左右の車輪を制御します．両方のタイヤが正しく前進・後退方向に回転するようにしてください．</p>
+<h3 id="基本的な制御方法"><a class="header" href="#基本的な制御方法">基本的な制御方法</a></h3>
+<pre><code class="language-python">board.motorOn(MOTOR_NUM, DIRECTION, SPEED)
+# MOTOR_NUM: 1, 2 で指令を出すモーターを変更
+# DIRECTION: &quot;f&quot;, &quot;r&quot; で正回転/逆回転を切り替え
+# SPEED: 0 -- 100% でモータースピードを制御
+</code></pre>
+<h3 id="両輪制御の考え方"><a class="header" href="#両輪制御の考え方">両輪制御の考え方</a></h3>
+<p>ロボットの前進・後退は，左右のモーターの回転方向の組み合わせで決まります．
+<strong>配線の向きによって，前進に必要な回転方向の組み合わせが異なります</strong>．</p>
+<p><strong>想定される組み合わせパターン：</strong></p>
+<ul>
+<li>パターン1：<code>motor1=&quot;f&quot;, motor2=&quot;r&quot;</code></li>
+<li>パターン2：<code>motor1=&quot;f&quot;, motor2=&quot;f&quot;</code></li>
+<li>パターン3：<code>motor1=&quot;r&quot;, motor2=&quot;r&quot;</code></li>
+<li>パターン4：<code>motor1=&quot;r&quot;, motor2=&quot;f&quot;</code></li>
+</ul>
+<h3 id="実験手順"><a class="header" href="#実験手順">実験手順</a></h3>
+<ol>
+<li>
+<p><strong>事前準備</strong></p>
+<ul>
+<li><strong>拡張ボードのスライドスイッチをONにする</strong>（モーター動作に必要）</li>
+</ul>
+<p><img src="images/%E6%8B%A1%E5%BC%B5%E3%83%9C%E3%83%BC%E3%83%89%E9%9B%BB%E6%BA%90%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81.JPG" alt="拡張ボード電源スイッチ" /></p>
+<ul>
+<li>安全な場所で実験を行う</li>
+</ul>
+</li>
+<li>
+<p><strong>テスト用プログラムの作成</strong></p>
+<ul>
+<li>下記のHintプログラムを参考に，両輪を同時に制御するプログラムを作成</li>
+<li>まず<code>SPEED = 30</code>程度の低速で動作確認</li>
+</ul>
+</li>
+<li>
+<p><strong>前進方向の確認</strong></p>
+<ul>
+<li>各パターンを試し，ロボットが前進する組み合わせを見つける</li>
+<li>前進が確認できたら，後退（逆の組み合わせ）も確認</li>
+</ul>
+</li>
+<li>
+<p><strong>最適速度の調整</strong></p>
+<ul>
+<li>前進・後退の組み合わせが確定したら，適切な速度を調整</li>
+<li>推奨値：<code>SPEED = 50</code>（制御しやすい速度）</li>
+</ul>
+</li>
+<li>
+<p><strong>実験終了</strong></p>
+<ul>
+<li><strong>実験終了時は，スライドスイッチをOFFにする</strong></li>
+</ul>
+</li>
+</ol>
+<p><strong>注意事項：</strong></p>
+<ul>
+<li><strong>モーター実験前に必ずスライドスイッチをON，実験後にOFFにする</strong></li>
+<li>必ず低速（30以下）から開始し，安全を確認してから速度を上げる</li>
+<li>ロボットが予期しない方向に動いた場合は，すぐに停止する</li>
+<li>各グループで配線状態が異なる可能性があるため，必ず実際に動作確認を行う</li>
+<li>エラーが発生した場合は<a href="robot_basis_250710.html#%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">トラブルシューティング</a>を参照</li>
+</ul>
+<h3 id="前進後退パターン確認プログラム"><a class="header" href="#前進後退パターン確認プログラム">前進・後退パターン確認プログラム</a></h3>
+<p>4つの組み合わせパターンを順番にテストして，どのパターンで前進するかを確認してください．</p>
+<pre><code class="language-python">import PicoRobotics
+import utime
+
+# --- ボードとモーター設定
+board = PicoRobotics.KitronikPicoRobotics()
+
+# 初期状態：両輪停止
+board.motorOn(1, &quot;f&quot;, 0)
+board.motorOn(2, &quot;f&quot;, 0)
+
+# --- 前進・後退のテスト
+print(&quot;前進・後退テスト開始&quot;)
+
+# パターン1: motor1=&quot;f&quot;, motor2=&quot;r&quot; を試す
+print(&quot;パターン1: motor1=f, motor2=r&quot;)
+board.motorOn(1, &quot;f&quot;, 30)  # 左輪
+board.motorOn(2, &quot;r&quot;, 30)  # 右輪
+utime.sleep_ms(2000)      # 2秒間動作
+
+# 停止
+board.motorOn(1, &quot;f&quot;, 0)
+board.motorOn(2, &quot;f&quot;, 0)
+utime.sleep_ms(1000)      # 1秒間停止
+
+# パターン2: motor1=&quot;f&quot;, motor2=&quot;f&quot; を試す
+print(&quot;パターン2: motor1=f, motor2=f&quot;)
+board.motorOn(1, &quot;f&quot;, 30)
+board.motorOn(2, &quot;f&quot;, 30)
+utime.sleep_ms(2000)
+
+# 停止
+board.motorOn(1, &quot;f&quot;, 0)
+board.motorOn(2, &quot;f&quot;, 0)
+utime.sleep_ms(1000)
+
+# パターン3: motor1=&quot;r&quot;, motor2=&quot;r&quot; を試す
+print(&quot;パターン3: motor1=r, motor2=r&quot;)
+board.motorOn(1, &quot;r&quot;, 30)
+board.motorOn(2, &quot;r&quot;, 30)
+utime.sleep_ms(2000)
+
+# 停止
+board.motorOn(1, &quot;f&quot;, 0)
+board.motorOn(2, &quot;f&quot;, 0)
+utime.sleep_ms(1000)
+
+# パターン4: motor1=&quot;r&quot;, motor2=&quot;f&quot; を試す
+print(&quot;パターン4: motor1=r, motor2=f&quot;)
+board.motorOn(1, &quot;r&quot;, 30)
+board.motorOn(2, &quot;f&quot;, 30)
+utime.sleep_ms(2000)
+
+# 最終停止
+board.motorOn(1, &quot;f&quot;, 0)
+board.motorOn(2, &quot;f&quot;, 0)
+print(&quot;テスト完了&quot;)
+</code></pre>
+<h3 id="hint-モーターの回転制御プログラム"><a class="header" href="#hint-モーターの回転制御プログラム">Hint: モーターの回転制御プログラム</a></h3>
+<p>前進パターンが分かったら，以下の雛形を使って指定秒だけ前進するプログラムを作成してください．</p>
+<pre><code class="language-python">import PicoRobotics
+import utime
+
+# --- ボードとモーター設定
+board = PicoRobotics.KitronikPicoRobotics()
+
+# 初期状態：両輪停止
+board.motorOn(1, &quot;f&quot;, 0)
+board.motorOn(2, &quot;f&quot;, 0)
+
+# --- 前進設定（確認プログラムで見つけたパターンを使用）
+MOTOR1_DIR = &quot;f&quot;  # 前進時のモーター1の方向（&quot;f&quot;または&quot;r&quot;に設定）
+MOTOR2_DIR = &quot;r&quot;  # 前進時のモーター2の方向（&quot;f&quot;または&quot;r&quot;に設定）
+SPEED = 50        # モーター速度（0-100）
+FORWARD_TIME = 3000  # 前進時間（ミリ秒）
+
+# --- 前進動作
+print(&quot;前進開始&quot;)
+board.motorOn(1, MOTOR1_DIR, SPEED)
+board.motorOn(2, MOTOR2_DIR, SPEED)
+utime.sleep_ms(FORWARD_TIME)
+
+# --- 停止
+board.motorOn(1, &quot;f&quot;, 0)
+board.motorOn(2, &quot;f&quot;, 0)
+print(&quot;停止&quot;)
+</code></pre>
+<h2 id="2-超音波センサーを使ったモーターのonoff-制御"><a class="header" href="#2-超音波センサーを使ったモーターのonoff-制御">2. 超音波センサーを使ったモーターのON/OFF 制御</a></h2>
+<p>車体前方に設置した超音波センサーで，前方の障害物までの距離を読み取ってください．
+障害物判定をする距離を，ここでは<code>DIST_OBS</code>と呼ぶことにします．</p>
+<h3 id="超音波センサーの接続について"><a class="header" href="#超音波センサーの接続について">超音波センサーの接続について</a></h3>
+<p><strong>重要：コネクター接続時は端子の役割を必ず合わせてください</strong></p>
+<p>超音波センサーには4つの端子があります：</p>
+<ul>
+<li><strong>VCC</strong>: 電源（3.3V）- 赤線</li>
+<li><strong>TRIG</strong>: トリガー信号（GP0/Pin 0に接続）- 黄線</li>
+<li><strong>ECHO</strong>: エコー信号（GP1/Pin 1に接続）- 白線</li>
+<li><strong>GND</strong>: グラウンド - 黒線</li>
+</ul>
+<p><strong>接続手順：</strong></p>
+<ol>
+<li>センサー側とボード側のコネクター端子配置を確認</li>
+<li>線の色と役割を確認：赤（VCC-3.3V），黄（TRIG-GP0），白（ECHO-GP1），黒（GND）</li>
+<li>逆接続すると故障の原因となるため，接続前に必ず確認</li>
+</ol>
+<h3 id="dist_obsの値設定について"><a class="header" href="#dist_obsの値設定について">DIST_OBSの値設定について</a></h3>
+<p><strong>推奨値：<code>DIST_OBS = 20</code>（cm）</strong></p>
+<p>値の設定における検討事項：</p>
+<ul>
+<li><strong>安全性</strong>：ロボットが障害物に衝突する前に十分な余裕を持って停止できる</li>
+<li><strong>センサー特性</strong>：超音波センサーは近距離（5cm未満）では正確な測定が困難</li>
+<li><strong>実験環境</strong>：テーブル上での実験に適した距離で，壁や机の端を適切に検出可能</li>
+<li><strong>反応時間</strong>：モーターの停止やプログラムの処理時間を考慮した安全マージン</li>
+</ul>
+<p><strong>実験手順：</strong></p>
+<ol>
+<li>まず<code>DIST_OBS = 20</code>で動作確認</li>
+<li>動作が安定したら，10cm，30cmなど異なる値で動作の違いを観察</li>
+<li>最適な値を各グループで検討</li>
+</ol>
+<p><code>DIST_OBS</code>の値を設定し，計測距離とそれを比較して，
+障害物が前方になければモーターを回転，そうでなければ停止としてください．</p>
+<h3 id="プログラミング課題"><a class="header" href="#プログラミング課題">プログラミング課題</a></h3>
+<p>以下の2つのHintプログラムを参考にして，<strong>超音波センサーとモーター制御を組み合わせた完成プログラム</strong>を作成してください．</p>
+<p><strong>課題の要求仕様：</strong></p>
+<ol>
+<li>超音波センサーで前方の距離を測定</li>
+<li>測定距離が<code>DIST_OBS</code>より大きい場合：モーターを回転（前進）</li>
+<li>測定距離が<code>DIST_OBS</code>以下の場合：モーターを停止</li>
+<li>上記の処理を繰り返し実行</li>
+</ol>
+<p><strong>プログラム作成手順：</strong></p>
+<ol>
+<li>
+<p><strong>前進パターンの確認</strong></p>
+<ul>
+<li>「## 1」で確定した前進パターンを確認（MOTOR1_DIR, MOTOR2_DIR）</li>
+</ul>
+</li>
+<li>
+<p><strong>基本構造の準備</strong></p>
+<ul>
+<li>「Hint: モーターの回転制御プログラム」のimport部分とboard設定をコピー</li>
+<li>「Hint: 超音波センサー距離計測プログラム」のmeasure_distance()関数をコピー</li>
+<li>「Hint: 超音波センサー距離計測プログラム」のピン設定（TRIG, ECHO）をコピー</li>
+</ul>
+</li>
+<li>
+<p><strong>統合プログラムの作成</strong></p>
+<ul>
+<li><code>DIST_OBS = 20</code>を設定</li>
+<li>前進パターンを変数で設定（MOTOR1_DIR, MOTOR2_DIR）</li>
+<li>while文でループ処理を作成</li>
+<li>条件分岐で距離に応じたモーター制御を実装</li>
+</ul>
+</li>
+<li>
+<p><strong>動作確認</strong></p>
+<ul>
+<li>障害物なしの状態で前進するかテスト</li>
+<li>障害物ありの状態で停止するかテスト</li>
+</ul>
+</li>
+</ol>
+<p><strong>具体的な統合のポイント：</strong></p>
+<ul>
+<li><strong>measure_distance()関数</strong>：超音波センサーHintから全体をコピー</li>
+<li><strong>ピン設定</strong>：TRIG = Pin(0, Pin.OUT), ECHO = Pin(1, Pin.IN)</li>
+<li><strong>前進制御</strong>：「## 1」で確定したパターンを使用</li>
+<li><strong>ループ制御</strong>：while文でutime.sleep_ms(100)程度の間隔で繰り返し</li>
+</ul>
+<p><strong>エラー処理について：</strong>
+<code>distance</code>が<code>None</code>の場合は，安全のためモーターを停止する</p>
+<pre><code class="language-python"># ## 1で確定した前進パターンを使用
+MOTOR1_DIR = &quot;f&quot;  # 前進時のモーター1方向（実際の値に変更）
+MOTOR2_DIR = &quot;r&quot;  # 前進時のモーター2方向（実際の値に変更）
+SPEED = 50
+
+distance = measure_distance()
+if distance is None:
+    # 測定失敗時は停止
+    board.motorOn(1, &quot;f&quot;, 0)
+    board.motorOn(2, &quot;f&quot;, 0)
+else:
+    # 通常の距離判定処理
+    if distance &gt; DIST_OBS:
+        # 前進
+        board.motorOn(1, MOTOR1_DIR, SPEED)
+        board.motorOn(2, MOTOR2_DIR, SPEED)
+    else:
+        # 停止
+        board.motorOn(1, &quot;f&quot;, 0)
+        board.motorOn(2, &quot;f&quot;, 0)
+</code></pre>
+<h3 id="統合プログラムのヒント"><a class="header" href="#統合プログラムのヒント">統合プログラムのヒント</a></h3>
+<p>以下の雛形を参考に，統合プログラムを作成してください．</p>
+<pre><code class="language-python"># ここにimport文を書く（PicoRobotics, utime, machine関連）
+
+# ここに超音波センサー距離計測関数をコピー
+def measure_distance():
+    # 超音波センサーHintから全体をコピー
+    pass
+
+# ここにピン設定をコピー（TRIG, ECHO）
+
+# ここにボード設定を書く（PicoRobotics.KitronikPicoRobotics()）
+
+# 初期状態：両輪停止
+# ここにモーター停止命令を書く
+
+# 設定値
+DIST_OBS = 20  # 障害物判定距離（cm）
+MOTOR1_DIR = &quot;f&quot;  # 前進時のモーター1方向（## 1の結果に変更）
+MOTOR2_DIR = &quot;r&quot;  # 前進時のモーター2方向（## 1の結果に変更）
+SPEED = 50
+
+# メインループ
+MAX_RUN_COUNT = 1000
+count = 0
+
+while count &lt; MAX_RUN_COUNT:
+    # ここで距離を測定
+    # distance = measure_distance()
+    
+    # ここでエラー処理（distance is None）
+    if distance is None:
+        # 測定失敗時：両輪停止
+        pass
+    else:
+        # 通常の距離判定
+        if distance &gt; DIST_OBS:
+            # 前進：両輪を前進パターンで回転
+            pass
+        else:
+            # 停止：両輪停止
+            pass
+    
+    # ここで短い待機時間
+    # utime.sleep_ms(100)
+    
+    count += 1
+
+# 最終停止
+# ここに最終的な両輪停止命令を書く
+</code></pre>
+<h3 id="hint-超音波センサー距離計測プログラムのサンプル"><a class="header" href="#hint-超音波センサー距離計測プログラムのサンプル">Hint: 超音波センサー距離計測プログラムのサンプル</a></h3>
+<pre><code class="language-python"># 超音波センサー距離計測実験プログラム
+import utime
+from machine import Pin, PWM, reset, time_pulse_us, I2C
+import time
+
+#======&lt;ここから超音波センサーの準備として必要&gt;=====
+def measure_distance():
+    # Trigピンを10us HIGHにする
+    TRIG.value(1)
+    time.sleep_us(10)
+    TRIG.value(0)
+    
+    # EchoピンのHIGHパルスの長さを計測
+    duration = time_pulse_us(ECHO, 1, 30000)  # タイムアウト: 30ms
+    
+    # タイムアウト時の処理
+    if duration &lt; 0:
+        return None  # 測定失敗
+
+    # 音速を340 m/sと仮定して距離を計算
+    distance = (duration * 0.0343) / 2  # 単位: cm
+    
+    return distance
+
+# 超音波センサーの設定
+# - TrigとEchoピンの設定
+TRIG = Pin(0, Pin.OUT)
+ECHO = Pin(1, Pin.IN)
+# - TrigピンをLOWに設定しておく
+TRIG.value(0)
+utime.sleep_ms(2000)
+#======&lt;ここまで&gt;=====
+
+#======&lt;超音波センサーの使い方&gt;=====
+distance = measure_distance()
+print(&quot;Dist : {} cm&quot;.format(float(distance)))
+utime.sleep_ms(10)
+#======&lt;ここまで&gt;=====
+</code></pre>
+<h2 id="3-前方障害物手前での停止処理"><a class="header" href="#3-前方障害物手前での停止処理">3. 前方障害物手前での停止処理</a></h2>
+<p>「## 2」で作成したプログラムを使用して，実際の動作確認を行います．</p>
+<h3 id="実験手順-1"><a class="header" href="#実験手順-1">実験手順</a></h3>
+<ol>
+<li><strong>安全な場所でテスト</strong>：床またはテーブル上で実施</li>
+<li><strong>障害物の設置</strong>：本，箱などをロボットの前方に配置</li>
+<li><strong>プログラム実行</strong>：作成したプログラムを実行し，停止動作を確認</li>
+<li><strong>距離の調整</strong>：必要に応じてDIST_OBSの値を調整</li>
+</ol>
+<h3 id="確認ポイント"><a class="header" href="#確認ポイント">確認ポイント</a></h3>
+<ul>
+<li>障害物手前で確実に停止するか</li>
+<li>障害物がない時は前進するか</li>
+</ul>
+<hr />
+<h2 id="トラブルシューティング"><a class="header" href="#トラブルシューティング">トラブルシューティング</a></h2>
+<h3 id="モーター制御でエラーが発生する場合"><a class="header" href="#モーター制御でエラーが発生する場合">モーター制御でエラーが発生する場合</a></h3>
+<h4 id="oserror-errno-5-eio-エラー"><a class="header" href="#oserror-errno-5-eio-エラー">OSError: [Errno 5] EIO エラー</a></h4>
+<p><strong>症状：</strong> <code>board.motorOn()</code>実行時にI/Oエラーが発生</p>
+<p><strong>主な原因と対処法：</strong></p>
+<ol>
+<li>
+<p><strong>金属部品のショート</strong></p>
+<ul>
+<li>エンコーダー基板周辺でネジなどの金属部品が吸着していないか確認</li>
+<li>異物を除去し，金属部品が基板に接触していないことを確認</li>
+</ul>
+</li>
+<li>
+<p><strong>配線の問題</strong></p>
+<ul>
+<li>モーター配線が正しく接続されているか確認</li>
+<li>配線の断線や接触不良がないか確認</li>
+</ul>
+</li>
+<li>
+<p><strong>電源の問題</strong></p>
+<ul>
+<li>バッテリー残量を確認</li>
+<li>電源供給が安定しているか確認</li>
+</ul>
+</li>
+</ol>
+<h4 id="超音波センサーで異常な値が表示される場合"><a class="header" href="#超音波センサーで異常な値が表示される場合">超音波センサーで異常な値が表示される場合</a></h4>
+<p><strong>症状：</strong> 距離測定で<code>None</code>や異常に大きな値が返される</p>
+<p><strong>対処法：</strong></p>
+<ul>
+<li>センサー前方に障害物がないか確認</li>
+<li>TRIGピン，ECHOピンの配線確認</li>
+<li>センサーの向きが正しいか確認</li>
+</ul>
+<h4 id="プログラムが途中で停止する場合"><a class="header" href="#プログラムが途中で停止する場合">プログラムが途中で停止する場合</a></h4>
+<p><strong>対処法：</strong></p>
+<ul>
+<li>エラーメッセージを確認し，該当するエラーの対処法を実施</li>
+<li>ハードウェアの接続状態を再確認</li>
+<li>プログラムを最初から再実行</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="oledコネクタ-ハンダ付け手順書"><a class="header" href="#oledコネクタ-ハンダ付け手順書">OLEDコネクタ ハンダ付け手順書</a></h1>
+<p>2025/7/17 (Thu) 13:00 -- 14:30</p>
+<p><strong>実験の様子を写真に残しておいてください．</strong></p>
+<h2 id="作業分担2名1組-1"><a class="header" href="#作業分担2名1組-1">作業分担（2名1組）</a></h2>
+<p><strong>前半（13:00-13:30）：並行作業</strong></p>
+<ul>
+<li><strong>担当者A</strong>: OLED用コネクタのハンダ付け作業</li>
+<li><strong>担当者B</strong>: プログラミング検討（コード理解・動作確認）</li>
+</ul>
+<p><strong>後半（13:30-14:30）：合流作業</strong></p>
+<ul>
+<li><strong>担当者A・B</strong>: 合流してプログラミング実験を実施</li>
+</ul>
+<h2 id="実験内容-1"><a class="header" href="#実験内容-1">実験内容</a></h2>
+<ol>
+<li>OLED用コネクタのハンダ付け（担当者A）</li>
+</ol>
+<hr />
+<h2 id="1-oled用コネクタのハンダ付け担当者a"><a class="header" href="#1-oled用コネクタのハンダ付け担当者a">1. OLED用コネクタのハンダ付け（担当者A）</a></h2>
+<p>ロボットの状態表示用OLEDディスプレイを接続するためのコネクタをハンダ付けします．</p>
+<h3 id="必要な材料工具"><a class="header" href="#必要な材料工具">必要な材料・工具</a></h3>
+<ul>
+<li>OLED用コネクタ（4ピン）・配布</li>
+<li>ハンダごて</li>
+<li>ハンダ</li>
+<li>(必要な場合)ハンダ吸い取り線</li>
+</ul>
+<h3 id="手順"><a class="header" href="#手順">手順</a></h3>
+<ol>
+<li>ハンダごての電源を入れる</li>
+<li>基板のハンダ付け箇所を確認</li>
+<li>ケーブル端をピンに合わせて配置</li>
+<li>ケーブル端を順番にハンダ付け</li>
+<li>ハンダ付け箇所の確認・修正</li>
+<li>完了後，担当者Bのプログラミング検討に合流</li>
+</ol>
+<h3 id="注意事項"><a class="header" href="#注意事項">注意事項</a></h3>
+<ul>
+<li>ハンダごての取り扱いに注意し，やけどを避ける</li>
+<li>ハンダ付け後は必ず導通確認を行う</li>
+<li>エラーが発生した場合は<a href="oled_connector_250717.html#%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">トラブルシューティング</a>を参照</li>
+</ul>
+<hr />
+<h2 id="トラブルシューティング-1"><a class="header" href="#トラブルシューティング-1">トラブルシューティング</a></h2>
+<h3 id="ハンダ付けでトラブルが発生する場合"><a class="header" href="#ハンダ付けでトラブルが発生する場合">ハンダ付けでトラブルが発生する場合</a></h3>
+<h4 id="ハンダが流れない"><a class="header" href="#ハンダが流れない">ハンダが流れない</a></h4>
+<p><strong>対処法：</strong></p>
+<ul>
+<li>ハンダごての温度を確認（350°C程度）</li>
+<li>接続部分の汚れを除去</li>
+<li>フラックスを使用して接続性を改善</li>
+</ul>
+<h4 id="接続が不安定"><a class="header" href="#接続が不安定">接続が不安定</a></h4>
+<p><strong>対処法：</strong></p>
+<ul>
+<li>ハンダ付け箇所を再確認</li>
+<li>冷接続の可能性を確認し，再ハンダ付け</li>
+<li>導通テスターで接続確認</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nvimでカーソルジャンプ"><a class="header" href="#nvimでカーソルジャンプ">nvimでカーソルジャンプ</a></h1>
+<p>Neovimでのカーソル移動は効率的な編集の基本です．基本的な移動から高度なジャンプまで，主要な機能を紹介します．</p>
+<h2 id="基本的なカーソル移動"><a class="header" href="#基本的なカーソル移動">基本的なカーソル移動</a></h2>
+<h3 id="文字単位の移動"><a class="header" href="#文字単位の移動">文字単位の移動</a></h3>
+<ul>
+<li><code>h</code> - 左に1文字</li>
+<li><code>j</code> - 下に1行</li>
+<li><code>k</code> - 上に1行</li>
+<li><code>l</code> - 右に1文字</li>
+</ul>
+<h3 id="単語単位の移動"><a class="header" href="#単語単位の移動">単語単位の移動</a></h3>
+<ul>
+<li><code>w</code> - 次の単語の先頭へ</li>
+<li><code>b</code> - 前の単語の先頭へ</li>
+<li><code>e</code> - 現在の単語の末尾へ</li>
+<li><code>ge</code> - 前の単語の末尾へ</li>
+</ul>
+<h2 id="行内での移動"><a class="header" href="#行内での移動">行内での移動</a></h2>
+<h3 id="行の端への移動"><a class="header" href="#行の端への移動">行の端への移動</a></h3>
+<ul>
+<li><code>0</code> - 行の先頭へ</li>
+<li><code>^</code> - 行の最初の非空白文字へ</li>
+<li><code>$</code> - 行の末尾へ</li>
+</ul>
+<h3 id="文字検索"><a class="header" href="#文字検索">文字検索</a></h3>
+<ul>
+<li><code>f{文字}</code> - 行内で指定文字を右方向に検索</li>
+<li><code>F{文字}</code> - 行内で指定文字を左方向に検索</li>
+<li><code>t{文字}</code> - 指定文字の直前まで右方向に移動</li>
+<li><code>T{文字}</code> - 指定文字の直後まで左方向に移動</li>
+<li><code>;</code> - 直前の検索を繰り返す</li>
+<li><code>,</code> - 直前の検索を逆方向に繰り返す</li>
+</ul>
+<h2 id="ページ単位での移動"><a class="header" href="#ページ単位での移動">ページ単位での移動</a></h2>
+<h3 id="スクロール"><a class="header" href="#スクロール">スクロール</a></h3>
+<ul>
+<li><code>Ctrl+f</code> - 1ページ下へ</li>
+<li><code>Ctrl+b</code> - 1ページ上へ</li>
+<li><code>Ctrl+d</code> - 半ページ下へ</li>
+<li><code>Ctrl+u</code> - 半ページ上へ</li>
+</ul>
+<h3 id="ファイル内の移動"><a class="header" href="#ファイル内の移動">ファイル内の移動</a></h3>
+<ul>
+<li><code>gg</code> - ファイルの先頭へ</li>
+<li><code>G</code> - ファイルの末尾へ</li>
+<li><code>{行番号}G</code> - 指定行番号へ</li>
+<li><code>:{行番号}</code> - 指定行番号へ（コマンドモード）</li>
+</ul>
+<h2 id="高度なジャンプ機能"><a class="header" href="#高度なジャンプ機能">高度なジャンプ機能</a></h2>
+<h3 id="検索ジャンプ"><a class="header" href="#検索ジャンプ">検索ジャンプ</a></h3>
+<ul>
+<li><code>/{検索文字列}</code> - 前方検索</li>
+<li><code>?{検索文字列}</code> - 後方検索</li>
+<li><code>n</code> - 次の検索結果へ</li>
+<li><code>N</code> - 前の検索結果へ</li>
+<li><code>*</code> - カーソル下の単語を前方検索</li>
+<li><code>#</code> - カーソル下の単語を後方検索</li>
+</ul>
+<h3 id="マーク機能"><a class="header" href="#マーク機能">マーク機能</a></h3>
+<ul>
+<li><code>m{文字}</code> - 現在位置にマークを設定</li>
+<li><code>'{文字}</code> - 指定マークの行へジャンプ</li>
+<li><code>\</code>{文字}`` - 指定マークの正確な位置へジャンプ</li>
+<li><code>''</code> - 直前の位置へ戻る</li>
+<li><code>\</code>`` - 直前の正確な位置へ戻る</li>
+</ul>
+<h3 id="ジャンプリスト"><a class="header" href="#ジャンプリスト">ジャンプリスト</a></h3>
+<ul>
+<li><code>Ctrl+o</code> - 古いジャンプ位置へ戻る</li>
+<li><code>Ctrl+i</code> - 新しいジャンプ位置へ進む</li>
+<li><code>:jumps</code> - ジャンプリストを表示</li>
+</ul>
+<h3 id="括弧のマッチング"><a class="header" href="#括弧のマッチング">括弧のマッチング</a></h3>
+<ul>
+<li><code>%</code> - 対応する括弧にジャンプ（<code>()</code>, <code>[]</code>, <code>{}</code>）</li>
+</ul>
+<h2 id="実用的なテクニック"><a class="header" href="#実用的なテクニック">実用的なテクニック</a></h2>
+<h3 id="数値指定での移動"><a class="header" href="#数値指定での移動">数値指定での移動</a></h3>
+<ul>
+<li><code>5j</code> - 5行下へ</li>
+<li><code>3w</code> - 3単語先へ</li>
+<li><code>2f'</code> - 2番目の<code>'</code>へ</li>
+</ul>
+<h3 id="段落ブロック移動"><a class="header" href="#段落ブロック移動">段落・ブロック移動</a></h3>
+<ul>
+<li><code>{</code> - 前の空行へ</li>
+<li><code>}</code> - 次の空行へ</li>
+<li><code>(</code> - 前の文の開始へ</li>
+<li><code>)</code> - 次の文の開始へ</li>
+</ul>
+<h3 id="画面内での移動"><a class="header" href="#画面内での移動">画面内での移動</a></h3>
+<ul>
+<li><code>H</code> - 画面上部へ</li>
+<li><code>M</code> - 画面中央へ</li>
+<li><code>L</code> - 画面下部へ</li>
+</ul>
+<blockquote>
+<p><i class="fa fa-lightbulb-o"></i> 
+カーソル移動は練習により自然に身につきます．まずは基本的な <code>hjkl</code> と <code>w</code>, <code>b</code> から始めましょう．</p>
+</blockquote>
+<blockquote>
+<p><i class="fa fa-exclamation-circle"></i>
+注意: 移動コマンドは Normal モードでのみ有効です．</p>
+</blockquote>
 <p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nested-example"><a class="header" href="#nested-example">Nested example</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="my-first-chapter"><a class="header" href="#my-first-chapter">My First Chapter</a></h1>

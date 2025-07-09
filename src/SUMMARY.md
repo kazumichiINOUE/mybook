@@ -9,6 +9,11 @@
 - [画像の埋め込み](how_to_embed_imagefile.md)
 - [mdbook内でRustコードの実行](how_to_use_playground.md)
 - [よく使うアイコン一覧](icon.md)
+- [ロボット制御基礎手順書](robot_basis_250710.md)
+- [OLEDコネクタ ハンダ付け手順書](oled_connector_250717.md)
+
+# エディタ・ツール
+- [nvimでカーソルジャンプ](nvim_cursor_jump.md)
 
 # その他の例
 - [Nested example](nested/README.md)

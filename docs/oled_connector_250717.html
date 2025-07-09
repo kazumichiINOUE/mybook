@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduction - My First Book</title>
+        <title>OLEDコネクタ ハンダ付け手順書 - My First Book</title>
 
 
         <!-- Custom HTML head -->
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html" class="active">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">1.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">2.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">3.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">4.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">5.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">6.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded "><a href="oled_connector_250717.html"><strong aria-hidden="true">7.</strong> OLEDコネクタ ハンダ付け手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">8.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">その他の例</li><li class="chapter-item expanded "><a href="nested/index.html"><strong aria-hidden="true">9.</strong> Nested example</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="my-first-chapter.html"><strong aria-hidden="true">9.1.</strong> My First Chapter</a></li><li class="chapter-item expanded "><a href="nested/sub-chapter.html"><strong aria-hidden="true">9.2.</strong> Sub-chapter</a></li><li class="chapter-item expanded "><a href="nested/det.html"><strong aria-hidden="true">9.3.</strong> なぜ固有ベクトルで行列の対角化ができるか</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">About</li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">1.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">2.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">3.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">4.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">5.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">6.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded "><a href="oled_connector_250717.html" class="active"><strong aria-hidden="true">7.</strong> OLEDコネクタ ハンダ付け手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">8.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">その他の例</li><li class="chapter-item expanded "><a href="nested/index.html"><strong aria-hidden="true">9.</strong> Nested example</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="my-first-chapter.html"><strong aria-hidden="true">9.1.</strong> My First Chapter</a></li><li class="chapter-item expanded "><a href="nested/sub-chapter.html"><strong aria-hidden="true">9.2.</strong> Sub-chapter</a></li><li class="chapter-item expanded "><a href="nested/det.html"><strong aria-hidden="true">9.3.</strong> なぜ固有ベクトルで行列の対角化ができるか</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">About</li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,17 +144,75 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>これは，<code>mdBook</code> を作成する練習です．いろいろな機能を試しています．
-まずは，公式のユーザーガイドである，<a href="https://rust-lang.github.io/mdBook/">mdBook Documentation</a>
-を参照していくのが良いでしょう．</p>
+                        <h1 id="oledコネクタ-ハンダ付け手順書"><a class="header" href="#oledコネクタ-ハンダ付け手順書">OLEDコネクタ ハンダ付け手順書</a></h1>
+<p>2025/7/17 (Thu) 13:00 -- 14:30</p>
+<p><strong>実験の様子を写真に残しておいてください．</strong></p>
+<h2 id="作業分担2名1組"><a class="header" href="#作業分担2名1組">作業分担（2名1組）</a></h2>
+<p><strong>前半（13:00-13:30）：並行作業</strong></p>
+<ul>
+<li><strong>担当者A</strong>: OLED用コネクタのハンダ付け作業</li>
+<li><strong>担当者B</strong>: プログラミング検討（コード理解・動作確認）</li>
+</ul>
+<p><strong>後半（13:30-14:30）：合流作業</strong></p>
+<ul>
+<li><strong>担当者A・B</strong>: 合流してプログラミング実験を実施</li>
+</ul>
+<h2 id="実験内容"><a class="header" href="#実験内容">実験内容</a></h2>
+<ol>
+<li>OLED用コネクタのハンダ付け（担当者A）</li>
+</ol>
+<hr />
+<h2 id="1-oled用コネクタのハンダ付け担当者a"><a class="header" href="#1-oled用コネクタのハンダ付け担当者a">1. OLED用コネクタのハンダ付け（担当者A）</a></h2>
+<p>ロボットの状態表示用OLEDディスプレイを接続するためのコネクタをハンダ付けします．</p>
+<h3 id="必要な材料工具"><a class="header" href="#必要な材料工具">必要な材料・工具</a></h3>
+<ul>
+<li>OLED用コネクタ（4ピン）・配布</li>
+<li>ハンダごて</li>
+<li>ハンダ</li>
+<li>(必要な場合)ハンダ吸い取り線</li>
+</ul>
+<h3 id="手順"><a class="header" href="#手順">手順</a></h3>
+<ol>
+<li>ハンダごての電源を入れる</li>
+<li>基板のハンダ付け箇所を確認</li>
+<li>ケーブル端をピンに合わせて配置</li>
+<li>ケーブル端を順番にハンダ付け</li>
+<li>ハンダ付け箇所の確認・修正</li>
+<li>完了後，担当者Bのプログラミング検討に合流</li>
+</ol>
+<h3 id="注意事項"><a class="header" href="#注意事項">注意事項</a></h3>
+<ul>
+<li>ハンダごての取り扱いに注意し，やけどを避ける</li>
+<li>ハンダ付け後は必ず導通確認を行う</li>
+<li>エラーが発生した場合は<a href="#%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">トラブルシューティング</a>を参照</li>
+</ul>
+<hr />
+<h2 id="トラブルシューティング"><a class="header" href="#トラブルシューティング">トラブルシューティング</a></h2>
+<h3 id="ハンダ付けでトラブルが発生する場合"><a class="header" href="#ハンダ付けでトラブルが発生する場合">ハンダ付けでトラブルが発生する場合</a></h3>
+<h4 id="ハンダが流れない"><a class="header" href="#ハンダが流れない">ハンダが流れない</a></h4>
+<p><strong>対処法：</strong></p>
+<ul>
+<li>ハンダごての温度を確認（350°C程度）</li>
+<li>接続部分の汚れを除去</li>
+<li>フラックスを使用して接続性を改善</li>
+</ul>
+<h4 id="接続が不安定"><a class="header" href="#接続が不安定">接続が不安定</a></h4>
+<p><strong>対処法：</strong></p>
+<ul>
+<li>ハンダ付け箇所を再確認</li>
+<li>冷接続の可能性を確認し，再ハンダ付け</li>
+<li>導通テスターで接続確認</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="robot_basis_250710.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next" href="how_to_deploy_from_gh-pages.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="nvim_cursor_jump.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -164,8 +222,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="robot_basis_250710.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next" href="how_to_deploy_from_gh-pages.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="nvim_cursor_jump.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
