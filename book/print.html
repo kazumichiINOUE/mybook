@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>My First Book</title>
+        <title>IRLab. Essential Notes</title>
         <meta name="robots" content="noindex" />
 
 
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">1.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">2.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">3.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">4.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">5.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">6.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded "><a href="oled_connector_250717.html"><strong aria-hidden="true">7.</strong> OLEDコネクタ ハンダ付け手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">8.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">その他の例</li><li class="chapter-item expanded "><a href="nested/index.html"><strong aria-hidden="true">9.</strong> Nested example</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="my-first-chapter.html"><strong aria-hidden="true">9.1.</strong> My First Chapter</a></li><li class="chapter-item expanded "><a href="nested/sub-chapter.html"><strong aria-hidden="true">9.2.</strong> Sub-chapter</a></li><li class="chapter-item expanded "><a href="nested/det.html"><strong aria-hidden="true">9.3.</strong> なぜ固有ベクトルで行列の対角化ができるか</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">About</li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">ロボット制御基礎手順書</li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">2.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">3.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">4.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">5.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">6.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">7.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -113,7 +113,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">My First Book</h1>
+                    <h1 class="menu-title">IRLab. Essential Notes</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -146,274 +146,11 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>これは，<code>mdBook</code> を作成する練習です．いろいろな機能を試しています．
-まずは，公式のユーザーガイドである，<a href="https://rust-lang.github.io/mdBook/">mdBook Documentation</a>
-を参照していくのが良いでしょう．</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="gh-pagesでmdbookを公開する"><a class="header" href="#gh-pagesでmdbookを公開する">gh-pagesでmdbookを公開する</a></h1>
-<p><code>mdbook</code>とは，rust製のオンラインドキュメント制作ツールの名称．<br />
-<i class="fa fa-arrow-right"></i>
-<a href="https://rust-lang.github.io/mdBook/">mdBook Documentation</a></p>
-<p><code>gh-pages</code>とは，GitHubのリポジトリをWeb公開する，GitHubが提供している仕組み．<br />
-<i class="fa fa-arrow-right"></i>
-<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages?utm_source=chatgpt.com">What is GitHub Pages?</a></p>
-<blockquote>
-<p><i class="fa fa-lightbulb-o"></i> 
-このページ自体も<code>gh-pages</code>を使って公開しています．</p>
-</blockquote>
-<h2 id="mdbookをローカルで用意する"><a class="header" href="#mdbookをローカルで用意する">mdbookをローカルで用意する</a></h2>
-<pre><code class="language-bash">mdbook init mybook
-cd mybook
-# 最初に，公開用のディクレトリをdocsという名前で作成する
-mkdir docs
-</code></pre>
-<h2 id="githubで新しいリポジトリを作成する"><a class="header" href="#githubで新しいリポジトリを作成する">Githubで新しいリポジトリを作成する</a></h2>
-<p>ここでは，<code>mybook</code> というリポジトリを作成したとする．</p>
-<h2 id="mybookbookをgithubに連携させる"><a class="header" href="#mybookbookをgithubに連携させる">mybook/bookをgithubに連携させる</a></h2>
-<pre><code class="language-bash"># 現在の場所: mdbookのルート
-git init
-echo &quot;book&quot; &gt;&gt; .gitignore
-git remote add origin https://github.com/&lt;your-username&gt;/mybook.git
-git add .
-git commit -m &quot;deploy to GitHub Pages&quot;
-git push -f origin main
-</code></pre>
-<h2 id="github-pages-を有効化"><a class="header" href="#github-pages-を有効化">GitHub Pages を有効化</a></h2>
-<p>GitHub のリポジトリページ → Settings → Pages に行く．</p>
-<ul>
-<li><code>Source</code>: main ブランチを選択</li>
-<li><code>Folder</code>: /docs を選択</li>
-<li>保存すると、数秒〜数分で <em>https://&lt;your-username&gt;.github.io/mybook/</em> に公開される</li>
-</ul>
-<h2 id="mdbookを編集したらビルド公開用ディレクトリにコピーをする"><a class="header" href="#mdbookを編集したらビルド公開用ディレクトリにコピーをする">mdbookを編集したら，ビルド・公開用ディレクトリにコピーをする</a></h2>
-<pre><code class="language-bash"># 何かしらmybookの中を制作
-mdbook build
-cp -r book/* docs/
-</code></pre>
-<h2 id="ページの更新"><a class="header" href="#ページの更新">ページの更新</a></h2>
-<pre><code class="language-bash">git add .
-git commit -m &quot;update&quot;
-git push origin main
-</code></pre>
-<h2 id="シェルスクリプトで更新を自動化"><a class="header" href="#シェルスクリプトで更新を自動化">シェルスクリプトで更新を自動化</a></h2>
-<p>以下のシェルスクリプトにより，ビルドからプッシュまでを自動化できる．</p>
-<pre><code class="language-shell  numberLines">#!/bin/bash
-#
-# mdbook自動デプロイスクリプト
-# ================================
-#
-# 【背景】
-# mdbookのデプロイを効率化するため，
-# mdbookのビルドからGit pushまでを自動化
-#
-# 【概要】
-# 1. mdbookでビルド実行
-# 2. book/からdocs/にファイルコピー
-# 3. Git差分チェック（変更なしの場合はスキップ）
-# 4. コミットメッセージ入力（カスタム or デフォルト）
-# 5. 最終確認後にcommit/push
-#
-# 【使用方法】
-# ./deploy.sh
-#
-# 作成日: 2025年7月5日
-
-set -e  # エラーで即終了
-
-# 色設定
-GREEN=$'\e[32m'
-YELLOW=$'\e[33m'
-RESET=$'\e[0m'
-
-echo -e &quot;${GREEN}🔧 ビルド中...${RESET}&quot;
-mdbook build
-
-echo -e &quot;${GREEN}📦 book/ を docs/ にコピー中...${RESET}&quot;
-rm -rf docs
-mkdir -p docs
-cp -r book/* docs/
-
-# 変更がない場合のハンドリング
-if git diff --quiet &amp;&amp; git diff --staged --quiet; then
-    echo -e &quot;${YELLOW}📋 変更がありません。スキップします。${RESET}&quot;
-    exit 0
-fi
-
-echo -e &quot;${GREEN}📤 Git にコミット＆プッシュします...${RESET}&quot;
-git add .
-
-# コミットメッセージの入力を求める
-echo -n &quot;コミットメッセージを入力してください (空白でデフォルト): &quot;
-read -r COMMIT_MESSAGE
-
-# タイムスタンプ生成
-TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
-
-# メッセージが空の場合はデフォルトメッセージを使用
-if [ -z &quot;$COMMIT_MESSAGE&quot; ]; then
-    COMMIT_MESSAGE=&quot;Update documentation&quot;
-fi
-
-# 最終的なコミットメッセージを表示して確認
-FINAL_MESSAGE=&quot;${COMMIT_MESSAGE} - ${TIMESTAMP}&quot;
-echo -e &quot;${YELLOW}コミットメッセージ: \&quot;${FINAL_MESSAGE}\&quot;${RESET}&quot;
-echo -n &quot;このメッセージでコミットしますか？ (y/n): &quot;
-read -r CONFIRM
-
-if [ &quot;$CONFIRM&quot; != &quot;y&quot; ] &amp;&amp; [ &quot;$CONFIRM&quot; != &quot;Y&quot; ]; then
-    echo -e &quot;${YELLOW}❌ コミットをキャンセルしました。${RESET}&quot;
-    exit 1
-fi
-
-# タイムスタンプを追加してコミット
-git commit -m &quot;${FINAL_MESSAGE}&quot;
-
-git push origin main
-
-echo -e &quot;${GREEN}✅ 完了しました！${RESET}&quot;
-</code></pre>
-<p><strong>使い方</strong></p>
-<pre><code class="language-bash">nvim deplay.sh # 上記スクリプトを作成
-chmod +x deplay.h # 実行権限を付与．最初だけで良い
-./deplay.h
-</code></pre>
-<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="mdbookにコードやファイルの内容を埋め込む"><a class="header" href="#mdbookにコードやファイルの内容を埋め込む">mdbookにコードやファイルの内容を埋め込む</a></h1>
-<p>参照: <a href="https://rust-lang.github.io/mdBook/format/mdbook.html?highlight=include#including-files">https://rust-lang.github.io/mdBook/format/mdbook.html?highlight=include#including-files</a></p>
-<p>mdbookには，ローカルファイルを取り込む機能が提供されている．
-手元にあるソースコードを，そのまま共有したい場合に重宝する．
-ローカルファイルを修正すれば，そのままmdbookにも反映されるので，一貫性を保ちやすい．</p>
-<h2 id="基本"><a class="header" href="#基本">基本</a></h2>
-<pre><code class="language-markdown">{{#include relative/path/to/file}}
-</code></pre>
-<p>これで，<code>relative/path/to/file</code>の部分を，埋め込みたいファイルへの相対パスに変えればよい．
-これは，任意のファイルの中身を埋め込む方法として使えるが，ソースコードの場合，ほとんどは
-コードブロックとして表示したいと思われる．以下が，コードブロックとしての使い方である．</p>
-<pre><code class="language-code">```filetype
-{{#include relative/path/to/file}}
-```
-</code></pre>
-<p><code>filetype</code>の部分には，埋め込むファイルの種類を書いておく．シンタックスハイライトが効く．</p>
-<p>上の書き方で実際に使うと，以下のように埋め込まれる．</p>
-<p><strong>markdown中の書き方</strong></p>
-<pre><code class="language-toml">```toml
-{{#include ../book.toml}}
-```
-</code></pre>
-<p><strong>実際の表示</strong></p>
-<pre><code class="language-toml">[book]
-authors = [&quot;KazumichiINOUE&quot;]
-language = &quot;jp&quot;
-multilingual = false
-src = &quot;src&quot;
-title = &quot;My First Book&quot;
-
-[output.html]
-mathjax-support = true
-</code></pre>
-<h2 id="高度な使い方"><a class="header" href="#高度な使い方">高度な使い方</a></h2>
-<h3 id="埋め込む範囲を指定する"><a class="header" href="#埋め込む範囲を指定する">埋め込む範囲を指定する</a></h3>
-<p><strong>指定した行だけ</strong></p>
-<pre><code class="language-toml">```toml
-{{#include ../book.toml:2}}
-```
-</code></pre>
-<pre><code class="language-toml">authors = [&quot;KazumichiINOUE&quot;]
-</code></pre>
-<p><strong>行の範囲指定</strong></p>
-<pre><code class="language-toml">```toml
-{{#include ../book.toml:2:5}}
-```
-</code></pre>
-<pre><code class="language-toml">authors = [&quot;KazumichiINOUE&quot;]
-language = &quot;jp&quot;
-multilingual = false
-src = &quot;src&quot;
-</code></pre>
-<p><strong>指定した行以降</strong></p>
-<pre><code class="language-toml">```toml
-{{#include ../book.toml:5:}}
-```
-</code></pre>
-<pre><code class="language-toml">src = &quot;src&quot;
-title = &quot;My First Book&quot;
-
-[output.html]
-mathjax-support = true
-
-#[output.pdf]
-
-[output.html.playground]
-runnable = true
-editable = true     # true にするとコードの編集が可能になる
-copyable = true     # コピーボタンを表示
-line-numbers = true # 行番号を表示
-</code></pre>
-<p><strong>指定した行まで</strong></p>
-<pre><code class="language-toml">```toml
-{{#include ../book.toml::5}}
-```
-</code></pre>
-<pre><code class="language-toml">[book]
-authors = [&quot;KazumichiINOUE&quot;]
-language = &quot;jp&quot;
-multilingual = false
-src = &quot;src&quot;
-</code></pre>
-<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="画像の埋め込み"><a class="header" href="#画像の埋め込み">画像の埋め込み</a></h1>
-<p><img src="images/image.jpeg" alt="image" /></p>
-<video controls style="width: 100%; height: auto;">
-  <source src="images/movie.mp4" type="video/mp4">
-  お使いのブラウザは動画に対応していません
-</video>
-<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="mdbook内でrustコードの実行"><a class="header" href="#mdbook内でrustコードの実行">mdbook内でRustコードの実行</a></h1>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
-</span>  println!(&quot;Hello, World!&quot;);
-<span class="boring">}
-</span></code></pre></pre>
-<pre><pre class="playground"><code class="language-rust editable">fn main() {
-  println!(&quot;Hello, World!&quot;);
-}
-</code></pre></pre>
-<blockquote>
-<p><i class="fa fa-exclamation-circle"></i>
-Note: Rust以外の言語は実行できません．</p>
-<pre><code class="language-python">print(&quot;hello, mdbook&quot;)  # プレイボタンは表示されない
-</code></pre>
-</blockquote>
-<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="font-awesome-4-アイコン一覧表示つきコピペ用"><a class="header" href="#font-awesome-4-アイコン一覧表示つきコピペ用">Font Awesome 4 アイコン一覧（表示つき＋コピペ用）</a></h1>
-<p>よく使われる <code>Font Awesome 4</code> のシンプルアイコン一覧．</p>
-<div class="table-wrapper"><table><thead><tr><th>表示</th><th>用途・意味</th><th>コピペ用コード</th></tr></thead><tbody>
-<tr><td><i class="fa fa-bars"></i></td><td>メニュー・構造表示</td><td><code>&lt;i class=&quot;fa fa-bars&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-ellipsis-h"></i></td><td>オプション（横）</td><td><code>&lt;i class=&quot;fa fa-ellipsis-h&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-ellipsis-v"></i></td><td>オプション（縦）</td><td><code>&lt;i class=&quot;fa fa-ellipsis-v&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-list"></i></td><td>項目リスト</td><td><code>&lt;i class=&quot;fa fa-list&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-th-list"></i></td><td>表形式リスト</td><td><code>&lt;i class=&quot;fa fa-th-list&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-info-circle"></i></td><td>情報・補足</td><td><code>&lt;i class=&quot;fa fa-info-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-lightbulb-o"></i></td><td>ヒント・ひらめき</td><td><code>&lt;i class=&quot;fa fa-lightbulb-o&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-question-circle"></i></td><td>ヘルプ・疑問</td><td><code>&lt;i class=&quot;fa fa-question-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-exclamation-circle"></i></td><td>警告・注意</td><td><code>&lt;i class=&quot;fa fa-exclamation-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-arrow-right"></i></td><td>次へ</td><td><code>&lt;i class=&quot;fa fa-arrow-right&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-arrow-left"></i></td><td>戻る</td><td><code>&lt;i class=&quot;fa fa-arrow-left&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-chevron-down"></i></td><td>開く・展開</td><td><code>&lt;i class=&quot;fa fa-chevron-down&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-chevron-up"></i></td><td>閉じる・折りたたむ</td><td><code>&lt;i class=&quot;fa fa-chevron-up&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-file-text-o"></i></td><td>文書・ファイル</td><td><code>&lt;i class=&quot;fa fa-file-text-o&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-link"></i></td><td>リンク</td><td><code>&lt;i class=&quot;fa fa-link&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-external-link"></i></td><td>外部リンク</td><td><code>&lt;i class=&quot;fa fa-external-link&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-paperclip"></i></td><td>添付資料</td><td><code>&lt;i class=&quot;fa fa-paperclip&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-check-circle"></i></td><td>成功・完了</td><td><code>&lt;i class=&quot;fa fa-check-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-times-circle"></i></td><td>エラー・失敗</td><td><code>&lt;i class=&quot;fa fa-times-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-spinner"></i></td><td>処理中・ロード中</td><td><code>&lt;i class=&quot;fa fa-spinner&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-refresh"></i></td><td>再読み込み</td><td><code>&lt;i class=&quot;fa fa-refresh&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-star"></i></td><td>おすすめ・注目</td><td><code>&lt;i class=&quot;fa fa-star&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-book"></i></td><td>資料・教科書</td><td><code>&lt;i class=&quot;fa fa-book&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-comments"></i></td><td>コメント・やりとり</td><td><code>&lt;i class=&quot;fa fa-comments&quot;&gt;&lt;/i&gt;</code></td></tr>
-<tr><td><i class="fa fa-cog"></i></td><td>設定・オプション</td><td><code>&lt;i class=&quot;fa fa-cog&quot;&gt;&lt;/i&gt;</code></td></tr>
-</tbody></table>
-</div>
-<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
+<!--
+これは，`mdBook` を作成する練習です．いろいろな機能を試しています．
+まずは，公式のユーザーガイドである，[mdBook Documentation](https://rust-lang.github.io/mdBook/)
+を参照していくのが良いでしょう．
+-->
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ロボット制御基礎手順書"><a class="header" href="#ロボット制御基礎手順書">ロボット制御基礎手順書</a></h1>
 <p>2025/7/10 (Thu) 13:00 -- 14:30
 <strong>実験の様子を写真に残しておいてください．</strong></p>
@@ -839,65 +576,6 @@ utime.sleep_ms(10)
 <li>ハードウェアの接続状態を再確認</li>
 <li>プログラムを最初から再実行</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="oledコネクタ-ハンダ付け手順書"><a class="header" href="#oledコネクタ-ハンダ付け手順書">OLEDコネクタ ハンダ付け手順書</a></h1>
-<p>2025/7/17 (Thu) 13:00 -- 14:30</p>
-<p><strong>実験の様子を写真に残しておいてください．</strong></p>
-<h2 id="作業分担2名1組-1"><a class="header" href="#作業分担2名1組-1">作業分担（2名1組）</a></h2>
-<p><strong>前半（13:00-13:30）：並行作業</strong></p>
-<ul>
-<li><strong>担当者A</strong>: OLED用コネクタのハンダ付け作業</li>
-<li><strong>担当者B</strong>: プログラミング検討（コード理解・動作確認）</li>
-</ul>
-<p><strong>後半（13:30-14:30）：合流作業</strong></p>
-<ul>
-<li><strong>担当者A・B</strong>: 合流してプログラミング実験を実施</li>
-</ul>
-<h2 id="実験内容-1"><a class="header" href="#実験内容-1">実験内容</a></h2>
-<ol>
-<li>OLED用コネクタのハンダ付け（担当者A）</li>
-</ol>
-<hr />
-<h2 id="1-oled用コネクタのハンダ付け担当者a"><a class="header" href="#1-oled用コネクタのハンダ付け担当者a">1. OLED用コネクタのハンダ付け（担当者A）</a></h2>
-<p>ロボットの状態表示用OLEDディスプレイを接続するためのコネクタをハンダ付けします．</p>
-<h3 id="必要な材料工具"><a class="header" href="#必要な材料工具">必要な材料・工具</a></h3>
-<ul>
-<li>OLED用コネクタ（4ピン）・配布</li>
-<li>ハンダごて</li>
-<li>ハンダ</li>
-<li>(必要な場合)ハンダ吸い取り線</li>
-</ul>
-<h3 id="手順"><a class="header" href="#手順">手順</a></h3>
-<ol>
-<li>ハンダごての電源を入れる</li>
-<li>基板のハンダ付け箇所を確認</li>
-<li>ケーブル端をピンに合わせて配置</li>
-<li>ケーブル端を順番にハンダ付け</li>
-<li>ハンダ付け箇所の確認・修正</li>
-<li>完了後，担当者Bのプログラミング検討に合流</li>
-</ol>
-<h3 id="注意事項"><a class="header" href="#注意事項">注意事項</a></h3>
-<ul>
-<li>ハンダごての取り扱いに注意し，やけどを避ける</li>
-<li>ハンダ付け後は必ず導通確認を行う</li>
-<li>エラーが発生した場合は<a href="oled_connector_250717.html#%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">トラブルシューティング</a>を参照</li>
-</ul>
-<hr />
-<h2 id="トラブルシューティング-1"><a class="header" href="#トラブルシューティング-1">トラブルシューティング</a></h2>
-<h3 id="ハンダ付けでトラブルが発生する場合"><a class="header" href="#ハンダ付けでトラブルが発生する場合">ハンダ付けでトラブルが発生する場合</a></h3>
-<h4 id="ハンダが流れない"><a class="header" href="#ハンダが流れない">ハンダが流れない</a></h4>
-<p><strong>対処法：</strong></p>
-<ul>
-<li>ハンダごての温度を確認（350°C程度）</li>
-<li>接続部分の汚れを除去</li>
-<li>フラックスを使用して接続性を改善</li>
-</ul>
-<h4 id="接続が不安定"><a class="header" href="#接続が不安定">接続が不安定</a></h4>
-<p><strong>対処法：</strong></p>
-<ul>
-<li>ハンダ付け箇所を再確認</li>
-<li>冷接続の可能性を確認し，再ハンダ付け</li>
-<li>導通テスターで接続確認</li>
-</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nvimでカーソルジャンプ"><a class="header" href="#nvimでカーソルジャンプ">nvimでカーソルジャンプ</a></h1>
 <p>Neovimでのカーソル移動は効率的な編集の基本です．基本的な移動から高度なジャンプまで，主要な機能を紹介します．</p>
 <h2 id="基本的なカーソル移動"><a class="header" href="#基本的なカーソル移動">基本的なカーソル移動</a></h2>
@@ -1003,97 +681,271 @@ utime.sleep_ms(10)
 注意: 移動コマンドは Normal モードでのみ有効です．</p>
 </blockquote>
 <p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="nested-example"><a class="header" href="#nested-example">Nested example</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="my-first-chapter"><a class="header" href="#my-first-chapter">My First Chapter</a></h1>
-<p>test.
-test.</p>
-<p>さらにテスト．
-これはテストの文章です．こんにちは．</p>
-<p><i class="fa fa-bars"></i></p>
-<p><i class="fa fa-paint-brush"></i></p>
-<p>ここはテストです．</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="sub-chapter"><a class="header" href="#sub-chapter">Sub-chapter</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="なぜ固有ベクトルで行列の対角化ができるか"><a class="header" href="#なぜ固有ベクトルで行列の対角化ができるか">なぜ固有ベクトルで行列の対角化ができるか</a></h1>
-<p>これは \( x = 2y \) です．</p>
-<p>\( n \) 次正方行列 \( A \)は対角化できるとし，それを\( \Lambda \)とする．
-対角化の前後で行列\(A\)のサイズは変わらないとすると，
-行列\(\Lambda\)も\(n\)次正方行列である．
-具体的な成分は次のように書ける．</p>
-<p>[
-\Lambda = \left[ 
-\begin{matrix}
-\lambda_1 &amp; 0         &amp; 0         &amp; \cdots     &amp; 0 \
-0         &amp; \lambda_2 &amp; 0         &amp; \cdots     &amp; 0 \
-0         &amp; 0         &amp; \ddots    &amp;            &amp; \vdots \
-\vdots    &amp; \vdots    &amp;           &amp; \ddots     &amp; 0 \
-0         &amp; 0         &amp; \cdots    &amp; 0          &amp; \lambda_n
-\end{matrix}
-\right]
-]</p>
-<p>\[
-\Lambda = \left[ 
-\begin{matrix}
-\lambda _1 &amp;  \
-&amp; \lambda_2 &amp; &amp; \text{\huge{0}} \ 
-&amp;           &amp; \ddots \
-&amp; \text{\huge{0}} &amp; &amp; \ddots \
-&amp; &amp; &amp; &amp; \lambda _n
-\end{matrix}
-\right]
-\]</p>
-<p>それでは，行列$\Lambda$の成分や，対角化するために必要な変換行列を求める．逆行列が存在する行列$T$を仮定し，以下のような変換が成り立つとする．
-$$
-T^{-1} A T  = \Lambda 
-$$
-すなわち，行列$T$およびその逆行列$T^{-1}$を行列$A$の両側からかけると，その結果が対角化した行列$\Lambda$となる，と仮定する．</p>
-<p>さらに式を変形する．</p>
-<p>$$
-\begin{aligned}
-T^{-1} A T  &amp;= \Lambda \
-T (T^{-1} A T)  &amp;= T \Lambda \quad \text{（両辺に左から$T$をかける）} \
-A T  &amp;= T \Lambda
-\end{aligned}
-$$
-逆行列の定義より，$T , T^{-1} = I$に注意する．$I$は単位行列である．</p>
-<p>$T = [\mathbf{v}_1 \quad \mathbf{v}_2 \quad \cdots \quad \mathbf{v}<em>n]$と置き，式を展開する．$\mathbf{v}</em>{i}$ はサイズ$n$の列ベクトルとする．
-見やすいように行列$\Lambda$のゼロ成分を明示して展開する．</p>
-<p>$$
-\begin{aligned}
-A T &amp;= T \Lambda \
-A , [\mathbf{v}_1 \quad \mathbf{v}_2 \quad \cdots \quad \mathbf{v}_n] &amp;= 
-[\mathbf{v}_1 \quad \mathbf{v}_2 \quad \cdots \quad \mathbf{v}_n] 
-\left[ 
-\begin{matrix}
-\lambda _1 &amp;  0        &amp; 0     &amp; \cdots &amp; 0\
-0 &amp; \lambda_2 &amp; 0     &amp; \cdots &amp; \vdots\ 
-\vdots &amp;         0 &amp; \ddots &amp; &amp; \vdots  \
-\vdots &amp;    \vdots &amp;        &amp; \ddots &amp; \vdots \
-0 &amp;         0 &amp;      \cdots &amp;       &amp; \lambda _n
-\end{matrix}
-\right] \
-\
-[A , \mathbf{v}_1 \quad A , \mathbf{v}_2 \quad \cdots \quad A , \mathbf{v}_n] &amp;= 
-[\lambda _1 \mathbf{v}_1 \quad \lambda _2 \mathbf{v}_2 \quad \cdots \quad \lambda _n \mathbf{v}_n] 
-\end{aligned}
-$$</p>
-<p>両辺のベクトルの，同じ成分同士を以下のように並べてみる．
-$$
-\begin{aligned}
-A , \mathbf{v}_1 &amp;= \lambda _1 \mathbf{v}_1 \
-A , \mathbf{v}_2 &amp;= \lambda _2 \mathbf{v}_2 \
-&amp;\vdots \
-A , \mathbf{v}_n &amp;= \lambda _n \mathbf{v}_n
-\end{aligned}
-$$</p>
-<p>これは，それぞれの式が行列$A$に対する固有方程式になっている．これらの方程式を満たすベクトル$\mathbf{v}_{i}$とスカラー$\lambda _{i}$を固有ベクトル・固有値と呼ぶのであった．したがって，行列$T$は固有ベクトルを並べた行列であり，対角行列$\Lambda$の対角成分は固有値であることがわかった．</p>
-<p>最初の質問に回答するならば，以下のように言えるだろう．</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gh-pagesでmdbookを公開する"><a class="header" href="#gh-pagesでmdbookを公開する">gh-pagesでmdbookを公開する</a></h1>
+<p><code>mdbook</code>とは，rust製のオンラインドキュメント制作ツールの名称．<br />
+<i class="fa fa-arrow-right"></i>
+<a href="https://rust-lang.github.io/mdBook/">mdBook Documentation</a></p>
+<p><code>gh-pages</code>とは，GitHubのリポジトリをWeb公開する，GitHubが提供している仕組み．<br />
+<i class="fa fa-arrow-right"></i>
+<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages?utm_source=chatgpt.com">What is GitHub Pages?</a></p>
 <blockquote>
-<p>[!TIP]
-対角化された行列の対角成分は固有方程式を満たす</p>
+<p><i class="fa fa-lightbulb-o"></i> 
+このページ自体も<code>gh-pages</code>を使って公開しています．</p>
 </blockquote>
-<hr />
-<h3 id="関連"><a class="header" href="#関連">関連</a></h3>
-<p>[[固有方程式はどのような座標変換を表現するか]]</p>
+<h2 id="mdbookをローカルで用意する"><a class="header" href="#mdbookをローカルで用意する">mdbookをローカルで用意する</a></h2>
+<pre><code class="language-bash">mdbook init mybook
+cd mybook
+# 最初に，公開用のディクレトリをdocsという名前で作成する
+mkdir docs
+</code></pre>
+<h2 id="githubで新しいリポジトリを作成する"><a class="header" href="#githubで新しいリポジトリを作成する">Githubで新しいリポジトリを作成する</a></h2>
+<p>ここでは，<code>mybook</code> というリポジトリを作成したとする．</p>
+<h2 id="mybookbookをgithubに連携させる"><a class="header" href="#mybookbookをgithubに連携させる">mybook/bookをgithubに連携させる</a></h2>
+<pre><code class="language-bash"># 現在の場所: mdbookのルート
+git init
+echo &quot;book&quot; &gt;&gt; .gitignore
+git remote add origin https://github.com/&lt;your-username&gt;/mybook.git
+git add .
+git commit -m &quot;deploy to GitHub Pages&quot;
+git push -f origin main
+</code></pre>
+<h2 id="github-pages-を有効化"><a class="header" href="#github-pages-を有効化">GitHub Pages を有効化</a></h2>
+<p>GitHub のリポジトリページ → Settings → Pages に行く．</p>
+<ul>
+<li><code>Source</code>: main ブランチを選択</li>
+<li><code>Folder</code>: /docs を選択</li>
+<li>保存すると、数秒〜数分で <em>https://&lt;your-username&gt;.github.io/mybook/</em> に公開される</li>
+</ul>
+<h2 id="mdbookを編集したらビルド公開用ディレクトリにコピーをする"><a class="header" href="#mdbookを編集したらビルド公開用ディレクトリにコピーをする">mdbookを編集したら，ビルド・公開用ディレクトリにコピーをする</a></h2>
+<pre><code class="language-bash"># 何かしらmybookの中を制作
+mdbook build
+cp -r book/* docs/
+</code></pre>
+<h2 id="ページの更新"><a class="header" href="#ページの更新">ページの更新</a></h2>
+<pre><code class="language-bash">git add .
+git commit -m &quot;update&quot;
+git push origin main
+</code></pre>
+<h2 id="シェルスクリプトで更新を自動化"><a class="header" href="#シェルスクリプトで更新を自動化">シェルスクリプトで更新を自動化</a></h2>
+<p>以下のシェルスクリプトにより，ビルドからプッシュまでを自動化できる．</p>
+<pre><code class="language-shell  numberLines">#!/bin/bash
+#
+# mdbook自動デプロイスクリプト
+# ================================
+#
+# 【背景】
+# mdbookのデプロイを効率化するため，
+# mdbookのビルドからGit pushまでを自動化
+#
+# 【概要】
+# 1. mdbookでビルド実行
+# 2. book/からdocs/にファイルコピー
+# 3. Git差分チェック（変更なしの場合はスキップ）
+# 4. コミットメッセージ入力（カスタム or デフォルト）
+# 5. 最終確認後にcommit/push
+#
+# 【使用方法】
+# ./deploy.sh
+#
+# 作成日: 2025年7月5日
+
+set -e  # エラーで即終了
+
+# 色設定
+GREEN=$'\e[32m'
+YELLOW=$'\e[33m'
+RESET=$'\e[0m'
+
+echo -e &quot;${GREEN}🔧 ビルド中...${RESET}&quot;
+mdbook build
+
+echo -e &quot;${GREEN}📦 book/ を docs/ にコピー中...${RESET}&quot;
+rm -rf docs
+mkdir -p docs
+cp -r book/* docs/
+
+# 変更がない場合のハンドリング
+if git diff --quiet &amp;&amp; git diff --staged --quiet; then
+    echo -e &quot;${YELLOW}📋 変更がありません。スキップします。${RESET}&quot;
+    exit 0
+fi
+
+echo -e &quot;${GREEN}📤 Git にコミット＆プッシュします...${RESET}&quot;
+git add .
+
+# コミットメッセージの入力を求める
+echo -n &quot;コミットメッセージを入力してください (空白でデフォルト): &quot;
+read -r COMMIT_MESSAGE
+
+# タイムスタンプ生成
+TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+
+# メッセージが空の場合はデフォルトメッセージを使用
+if [ -z &quot;$COMMIT_MESSAGE&quot; ]; then
+    COMMIT_MESSAGE=&quot;Update documentation&quot;
+fi
+
+# 最終的なコミットメッセージを表示して確認
+FINAL_MESSAGE=&quot;${COMMIT_MESSAGE} - ${TIMESTAMP}&quot;
+echo -e &quot;${YELLOW}コミットメッセージ: \&quot;${FINAL_MESSAGE}\&quot;${RESET}&quot;
+echo -n &quot;このメッセージでコミットしますか？ (y/n): &quot;
+read -r CONFIRM
+
+if [ &quot;$CONFIRM&quot; != &quot;y&quot; ] &amp;&amp; [ &quot;$CONFIRM&quot; != &quot;Y&quot; ]; then
+    echo -e &quot;${YELLOW}❌ コミットをキャンセルしました。${RESET}&quot;
+    exit 1
+fi
+
+# タイムスタンプを追加してコミット
+git commit -m &quot;${FINAL_MESSAGE}&quot;
+
+git push origin main
+
+echo -e &quot;${GREEN}✅ 完了しました！${RESET}&quot;
+</code></pre>
+<p><strong>使い方</strong></p>
+<pre><code class="language-bash">nvim deplay.sh # 上記スクリプトを作成
+chmod +x deplay.h # 実行権限を付与．最初だけで良い
+./deplay.h
+</code></pre>
+<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mdbookにコードやファイルの内容を埋め込む"><a class="header" href="#mdbookにコードやファイルの内容を埋め込む">mdbookにコードやファイルの内容を埋め込む</a></h1>
+<p>参照: <a href="https://rust-lang.github.io/mdBook/format/mdbook.html?highlight=include#including-files">https://rust-lang.github.io/mdBook/format/mdbook.html?highlight=include#including-files</a></p>
+<p>mdbookには，ローカルファイルを取り込む機能が提供されている．
+手元にあるソースコードを，そのまま共有したい場合に重宝する．
+ローカルファイルを修正すれば，そのままmdbookにも反映されるので，一貫性を保ちやすい．</p>
+<h2 id="基本"><a class="header" href="#基本">基本</a></h2>
+<pre><code class="language-markdown">{{#include relative/path/to/file}}
+</code></pre>
+<p>これで，<code>relative/path/to/file</code>の部分を，埋め込みたいファイルへの相対パスに変えればよい．
+これは，任意のファイルの中身を埋め込む方法として使えるが，ソースコードの場合，ほとんどは
+コードブロックとして表示したいと思われる．以下が，コードブロックとしての使い方である．</p>
+<pre><code class="language-code">```filetype
+{{#include relative/path/to/file}}
+```
+</code></pre>
+<p><code>filetype</code>の部分には，埋め込むファイルの種類を書いておく．シンタックスハイライトが効く．</p>
+<p>上の書き方で実際に使うと，以下のように埋め込まれる．</p>
+<p><strong>markdown中の書き方</strong></p>
+<pre><code class="language-toml">```toml
+{{#include ../book.toml}}
+```
+</code></pre>
+<p><strong>実際の表示</strong></p>
+<pre><code class="language-toml">[book]
+authors = [&quot;KazumichiINOUE&quot;]
+language = &quot;jp&quot;
+multilingual = false
+src = &quot;src&quot;
+title = &quot;IRLab. Essential Notes&quot;
+
+[output.html]
+mathjax-support = true
+</code></pre>
+<h2 id="高度な使い方"><a class="header" href="#高度な使い方">高度な使い方</a></h2>
+<h3 id="埋め込む範囲を指定する"><a class="header" href="#埋め込む範囲を指定する">埋め込む範囲を指定する</a></h3>
+<p><strong>指定した行だけ</strong></p>
+<pre><code class="language-toml">```toml
+{{#include ../book.toml:2}}
+```
+</code></pre>
+<pre><code class="language-toml">authors = [&quot;KazumichiINOUE&quot;]
+</code></pre>
+<p><strong>行の範囲指定</strong></p>
+<pre><code class="language-toml">```toml
+{{#include ../book.toml:2:5}}
+```
+</code></pre>
+<pre><code class="language-toml">authors = [&quot;KazumichiINOUE&quot;]
+language = &quot;jp&quot;
+multilingual = false
+src = &quot;src&quot;
+</code></pre>
+<p><strong>指定した行以降</strong></p>
+<pre><code class="language-toml">```toml
+{{#include ../book.toml:5:}}
+```
+</code></pre>
+<pre><code class="language-toml">src = &quot;src&quot;
+title = &quot;IRLab. Essential Notes&quot;
+
+[output.html]
+mathjax-support = true
+
+#[output.pdf]
+
+[output.html.playground]
+runnable = true
+editable = true     # true にするとコードの編集が可能になる
+copyable = true     # コピーボタンを表示
+line-numbers = true # 行番号を表示
+</code></pre>
+<p><strong>指定した行まで</strong></p>
+<pre><code class="language-toml">```toml
+{{#include ../book.toml::5}}
+```
+</code></pre>
+<pre><code class="language-toml">[book]
+authors = [&quot;KazumichiINOUE&quot;]
+language = &quot;jp&quot;
+multilingual = false
+src = &quot;src&quot;
+</code></pre>
+<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="画像の埋め込み"><a class="header" href="#画像の埋め込み">画像の埋め込み</a></h1>
+<p><img src="images/image.jpeg" alt="image" /></p>
+<video controls style="width: 100%; height: auto;">
+  <source src="images/movie.mp4" type="video/mp4">
+  お使いのブラウザは動画に対応していません
+</video>
+<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mdbook内でrustコードの実行"><a class="header" href="#mdbook内でrustコードの実行">mdbook内でRustコードの実行</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>  println!(&quot;Hello, World!&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+  println!(&quot;Hello, World!&quot;);
+}
+</code></pre></pre>
+<blockquote>
+<p><i class="fa fa-exclamation-circle"></i>
+Note: Rust以外の言語は実行できません．</p>
+<pre><code class="language-python">print(&quot;hello, mdbook&quot;)  # プレイボタンは表示されない
+</code></pre>
+</blockquote>
+<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="font-awesome-4-アイコン一覧表示つきコピペ用"><a class="header" href="#font-awesome-4-アイコン一覧表示つきコピペ用">Font Awesome 4 アイコン一覧（表示つき＋コピペ用）</a></h1>
+<p>よく使われる <code>Font Awesome 4</code> のシンプルアイコン一覧．</p>
+<div class="table-wrapper"><table><thead><tr><th>表示</th><th>用途・意味</th><th>コピペ用コード</th></tr></thead><tbody>
+<tr><td><i class="fa fa-bars"></i></td><td>メニュー・構造表示</td><td><code>&lt;i class=&quot;fa fa-bars&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-ellipsis-h"></i></td><td>オプション（横）</td><td><code>&lt;i class=&quot;fa fa-ellipsis-h&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-ellipsis-v"></i></td><td>オプション（縦）</td><td><code>&lt;i class=&quot;fa fa-ellipsis-v&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-list"></i></td><td>項目リスト</td><td><code>&lt;i class=&quot;fa fa-list&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-th-list"></i></td><td>表形式リスト</td><td><code>&lt;i class=&quot;fa fa-th-list&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-info-circle"></i></td><td>情報・補足</td><td><code>&lt;i class=&quot;fa fa-info-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-lightbulb-o"></i></td><td>ヒント・ひらめき</td><td><code>&lt;i class=&quot;fa fa-lightbulb-o&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-question-circle"></i></td><td>ヘルプ・疑問</td><td><code>&lt;i class=&quot;fa fa-question-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-exclamation-circle"></i></td><td>警告・注意</td><td><code>&lt;i class=&quot;fa fa-exclamation-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-arrow-right"></i></td><td>次へ</td><td><code>&lt;i class=&quot;fa fa-arrow-right&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-arrow-left"></i></td><td>戻る</td><td><code>&lt;i class=&quot;fa fa-arrow-left&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-chevron-down"></i></td><td>開く・展開</td><td><code>&lt;i class=&quot;fa fa-chevron-down&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-chevron-up"></i></td><td>閉じる・折りたたむ</td><td><code>&lt;i class=&quot;fa fa-chevron-up&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-file-text-o"></i></td><td>文書・ファイル</td><td><code>&lt;i class=&quot;fa fa-file-text-o&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-link"></i></td><td>リンク</td><td><code>&lt;i class=&quot;fa fa-link&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-external-link"></i></td><td>外部リンク</td><td><code>&lt;i class=&quot;fa fa-external-link&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-paperclip"></i></td><td>添付資料</td><td><code>&lt;i class=&quot;fa fa-paperclip&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-check-circle"></i></td><td>成功・完了</td><td><code>&lt;i class=&quot;fa fa-check-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-times-circle"></i></td><td>エラー・失敗</td><td><code>&lt;i class=&quot;fa fa-times-circle&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-spinner"></i></td><td>処理中・ロード中</td><td><code>&lt;i class=&quot;fa fa-spinner&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-refresh"></i></td><td>再読み込み</td><td><code>&lt;i class=&quot;fa fa-refresh&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-star"></i></td><td>おすすめ・注目</td><td><code>&lt;i class=&quot;fa fa-star&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-book"></i></td><td>資料・教科書</td><td><code>&lt;i class=&quot;fa fa-book&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-comments"></i></td><td>コメント・やりとり</td><td><code>&lt;i class=&quot;fa fa-comments&quot;&gt;&lt;/i&gt;</code></td></tr>
+<tr><td><i class="fa fa-cog"></i></td><td>設定・オプション</td><td><code>&lt;i class=&quot;fa fa-cog&quot;&gt;&lt;/i&gt;</code></td></tr>
+</tbody></table>
+</div>
+<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
 
                     </main>
 

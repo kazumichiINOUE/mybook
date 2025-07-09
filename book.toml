@@ -3,7 +3,7 @@ authors = ["KazumichiINOUE"]
 language = "jp"
 multilingual = false
 src = "src"
-title = "My First Book"
+title = "IRLab. Essential Notes"
 
 [output.html]
 mathjax-support = true
