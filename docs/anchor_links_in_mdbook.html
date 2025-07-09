@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>画像の埋め込み - IRLab. Essential Notes</title>
+        <title>mdBookでのアンカーリンク設定 - IRLab. Essential Notes</title>
 
 
         <!-- Custom HTML head -->
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">ロボット制御基礎手順書</li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">2.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">3.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">4.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="anchor_links_in_mdbook.html"><strong aria-hidden="true">5.</strong> mdBookでのアンカーリンク設定</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html" class="active"><strong aria-hidden="true">6.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">7.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">8.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">ロボット制御基礎手順書</li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">2.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">3.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">4.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="anchor_links_in_mdbook.html" class="active"><strong aria-hidden="true">5.</strong> mdBookでのアンカーリンク設定</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">6.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">7.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">8.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,23 +144,56 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="画像の埋め込み"><a class="header" href="#画像の埋め込み">画像の埋め込み</a></h1>
-<p><img src="images/image.jpeg" alt="image" /></p>
-<video controls style="width: 100%; height: auto;">
-  <source src="images/movie.mp4" type="video/mp4">
-  お使いのブラウザは動画に対応していません
-</video>
+                        <h1 id="mdbookでのアンカーリンクの設定"><a class="header" href="#mdbookでのアンカーリンクの設定">mdBookでのアンカーリンクの設定</a></h1>
+<p>mdBookで見出しにアンカーリンクを設定する際，スペースや特殊文字が含まれる場合に問題が発生することがある．</p>
+<h2 id="問題のあるケース"><a class="header" href="#問題のあるケース">問題のあるケース</a></h2>
+<pre><code class="language-markdown">### Hint: モーターの回転制御プログラム {#hintmotor}
+</code></pre>
+<p>この記法では，<code>{#hintmotor}</code> 部分がそのまま表示されてしまう場合がある．</p>
+<h2 id="確実に動作する方法"><a class="header" href="#確実に動作する方法">確実に動作する方法</a></h2>
+<pre><code class="language-markdown">&lt;a id=&quot;hintmotor&quot;&gt;&lt;/a&gt;
+
+### Hint: モーターの回転制御プログラム
+</code></pre>
+<p><strong>リンクの貼り方：</strong></p>
+<pre><code class="language-markdown">[Hintプログラム](#hintmotor)
+</code></pre>
+<p><strong>メリット：</strong></p>
+<ul>
+<li>HTMLアンカータグは確実に動作する</li>
+<li>見出しの表示に影響しない</li>
+<li>mdBookのバージョンに依存しない</li>
+</ul>
+<h2 id="使用例"><a class="header" href="#使用例">使用例</a></h2>
+<p><strong>マークダウンファイル内での記述：</strong></p>
+<pre><code class="language-markdown">2. **テスト用プログラムの作成**
+    - 下記の[Hintプログラム](#hintmotor)を参考に...
+
+...
+
+&lt;a id=&quot;hintmotor&quot;&gt;&lt;/a&gt;
+
+### Hint: モーターの回転制御プログラム
+
+前進パターンが分かったら，以下の雛形を使って...
+</code></pre>
+<p><strong>結果：</strong></p>
+<ul>
+<li>「Hintプログラム」がクリック可能なリンクになる</li>
+<li>クリックすると該当する見出しにジャンプする</li>
+<li>見出しは通常通り「Hint: モーターの回転制御プログラム」と表示される</li>
+</ul>
 <p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="anchor_links_in_mdbook.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="how_to_embed_code_from_files.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="how_to_use_playground.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="how_to_embed_imagefile.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -170,11 +203,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="anchor_links_in_mdbook.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="how_to_embed_code_from_files.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="how_to_use_playground.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="how_to_embed_imagefile.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

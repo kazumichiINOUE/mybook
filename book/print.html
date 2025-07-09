@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">ロボット制御基礎手順書</li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">2.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">3.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">4.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">5.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">6.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">7.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">ロボット制御基礎手順書</li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">2.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">3.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">4.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="anchor_links_in_mdbook.html"><strong aria-hidden="true">5.</strong> mdBookでのアンカーリンク設定</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">6.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">7.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">8.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -152,12 +152,12 @@
 を参照していくのが良いでしょう．
 -->
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ロボット制御基礎手順書"><a class="header" href="#ロボット制御基礎手順書">ロボット制御基礎手順書</a></h1>
-<p>2025/7/10 (Thu) 13:00 -- 14:30
-<strong>実験の様子を写真に残しておいてください．</strong></p>
+<p>2025/7/10 (Thu) 13:00 -- 14:30<br />
+<strong>実験の様子を写真に残しておいてください</strong></p>
 <h2 id="作業分担2名1組"><a class="header" href="#作業分担2名1組">作業分担（2名1組）</a></h2>
 <p><strong>全体（13:00-14:30）：協力作業</strong></p>
 <ul>
-<li><strong>担当者A・B</strong>: 協力してプログラミング実験を実施</li>
+<li>協力してプログラミング実験を実施</li>
 </ul>
 <h2 id="実験内容"><a class="header" href="#実験内容">実験内容</a></h2>
 <ol>
@@ -174,7 +174,7 @@
 # DIRECTION: &quot;f&quot;, &quot;r&quot; で正回転/逆回転を切り替え
 # SPEED: 0 -- 100% でモータースピードを制御
 </code></pre>
-<h3 id="両輪制御の考え方"><a class="header" href="#両輪制御の考え方">両輪制御の考え方</a></h3>
+<h3 id="独立二輪駆動制御の考え方"><a class="header" href="#独立二輪駆動制御の考え方">独立二輪駆動制御の考え方</a></h3>
 <p>ロボットの前進・後退は，左右のモーターの回転方向の組み合わせで決まります．
 <strong>配線の向きによって，前進に必要な回転方向の組み合わせが異なります</strong>．</p>
 <p><strong>想定される組み合わせパターン：</strong></p>
@@ -184,11 +184,15 @@
 <li>パターン3：<code>motor1=&quot;r&quot;, motor2=&quot;r&quot;</code></li>
 <li>パターン4：<code>motor1=&quot;r&quot;, motor2=&quot;f&quot;</code></li>
 </ul>
+<p><strong>f</strong>: forward (CW，時計回り，正転)<br>
+<strong>r</strong>: reverse (CCW，反時計回り，逆転)<br>
+どちらが正転になるかはモーターによります．</p>
 <h3 id="実験手順"><a class="header" href="#実験手順">実験手順</a></h3>
 <ol>
 <li>
 <p><strong>事前準備</strong></p>
 <ul>
+<li>バッテリーを接続する </li>
 <li><strong>拡張ボードのスライドスイッチをONにする</strong>（モーター動作に必要）</li>
 </ul>
 <p><img src="images/%E6%8B%A1%E5%BC%B5%E3%83%9C%E3%83%BC%E3%83%89%E9%9B%BB%E6%BA%90%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81.JPG" alt="拡張ボード電源スイッチ" /></p>
@@ -199,7 +203,7 @@
 <li>
 <p><strong>テスト用プログラムの作成</strong></p>
 <ul>
-<li>下記のHintプログラムを参考に，両輪を同時に制御するプログラムを作成</li>
+<li>下記の<a href="robot_basis_250710.html#hintmotor">Hintプログラム</a>を参考に，両輪を同時に制御するプログラムを作成</li>
 <li>まず<code>SPEED = 30</code>程度の低速で動作確認</li>
 </ul>
 </li>
@@ -291,6 +295,7 @@ board.motorOn(1, &quot;f&quot;, 0)
 board.motorOn(2, &quot;f&quot;, 0)
 print(&quot;テスト完了&quot;)
 </code></pre>
+<p><a id="hintmotor"></a></p>
 <h3 id="hint-モーターの回転制御プログラム"><a class="header" href="#hint-モーターの回転制御プログラム">Hint: モーターの回転制御プログラム</a></h3>
 <p>前進パターンが分かったら，以下の雛形を使って指定秒だけ前進するプログラムを作成してください．</p>
 <pre><code class="language-python">import PicoRobotics
@@ -891,6 +896,46 @@ language = &quot;jp&quot;
 multilingual = false
 src = &quot;src&quot;
 </code></pre>
+<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mdbookでのアンカーリンクの設定"><a class="header" href="#mdbookでのアンカーリンクの設定">mdBookでのアンカーリンクの設定</a></h1>
+<p>mdBookで見出しにアンカーリンクを設定する際，スペースや特殊文字が含まれる場合に問題が発生することがある．</p>
+<h2 id="問題のあるケース"><a class="header" href="#問題のあるケース">問題のあるケース</a></h2>
+<pre><code class="language-markdown">### Hint: モーターの回転制御プログラム {#hintmotor}
+</code></pre>
+<p>この記法では，<code>{#hintmotor}</code> 部分がそのまま表示されてしまう場合がある．</p>
+<h2 id="確実に動作する方法"><a class="header" href="#確実に動作する方法">確実に動作する方法</a></h2>
+<pre><code class="language-markdown">&lt;a id=&quot;hintmotor&quot;&gt;&lt;/a&gt;
+
+### Hint: モーターの回転制御プログラム
+</code></pre>
+<p><strong>リンクの貼り方：</strong></p>
+<pre><code class="language-markdown">[Hintプログラム](#hintmotor)
+</code></pre>
+<p><strong>メリット：</strong></p>
+<ul>
+<li>HTMLアンカータグは確実に動作する</li>
+<li>見出しの表示に影響しない</li>
+<li>mdBookのバージョンに依存しない</li>
+</ul>
+<h2 id="使用例"><a class="header" href="#使用例">使用例</a></h2>
+<p><strong>マークダウンファイル内での記述：</strong></p>
+<pre><code class="language-markdown">2. **テスト用プログラムの作成**
+    - 下記の[Hintプログラム](#hintmotor)を参考に...
+
+...
+
+&lt;a id=&quot;hintmotor&quot;&gt;&lt;/a&gt;
+
+### Hint: モーターの回転制御プログラム
+
+前進パターンが分かったら，以下の雛形を使って...
+</code></pre>
+<p><strong>結果：</strong></p>
+<ul>
+<li>「Hintプログラム」がクリック可能なリンクになる</li>
+<li>クリックすると該当する見出しにジャンプする</li>
+<li>見出しは通常通り「Hint: モーターの回転制御プログラム」と表示される</li>
+</ul>
 <p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="画像の埋め込み"><a class="header" href="#画像の埋め込み">画像の埋め込み</a></h1>
 <p><img src="images/image.jpeg" alt="image" /></p>
