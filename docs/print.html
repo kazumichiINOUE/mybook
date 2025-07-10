@@ -201,6 +201,14 @@
 </ul>
 </li>
 <li>
+<p><strong>前進方向の確認</strong></p>
+<ul>
+<li>下記の<a href="robot_basis_250710.html#patterncheck">パターン確認プログラム</a>を実行する</li>
+<li>各パターンを試し，ロボットが前進する組み合わせを見つける</li>
+<li>前進が確認できたら，後退（逆の組み合わせ）も確認</li>
+</ul>
+</li>
+<li>
 <p><strong>テスト用プログラムの作成</strong></p>
 <ul>
 <li>下記の<a href="robot_basis_250710.html#hintmotor">Hintプログラム</a>を参考に，両輪を同時に制御するプログラムを作成</li>
@@ -208,17 +216,10 @@
 </ul>
 </li>
 <li>
-<p><strong>前進方向の確認</strong></p>
+<p><strong>速度の調整</strong></p>
 <ul>
-<li>各パターンを試し，ロボットが前進する組み合わせを見つける</li>
-<li>前進が確認できたら，後退（逆の組み合わせ）も確認</li>
-</ul>
-</li>
-<li>
-<p><strong>最適速度の調整</strong></p>
-<ul>
-<li>前進・後退の組み合わせが確定したら，適切な速度を調整</li>
-<li>推奨値：<code>SPEED = 50</code>（制御しやすい速度）</li>
+<li>前進・後退の組み合わせが確定したら，いろいろな速度を試す</li>
+<li>例：<code>SPEED = 50</code>（制御しやすいかもしれない速度）</li>
 </ul>
 </li>
 <li>
@@ -236,6 +237,7 @@
 <li>各グループで配線状態が異なる可能性があるため，必ず実際に動作確認を行う</li>
 <li>エラーが発生した場合は<a href="robot_basis_250710.html#%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">トラブルシューティング</a>を参照</li>
 </ul>
+<p><a id="patterncheck"></a></p>
 <h3 id="前進後退パターン確認プログラム"><a class="header" href="#前進後退パターン確認プログラム">前進・後退パターン確認プログラム</a></h3>
 <p>4つの組み合わせパターンを順番にテストして，どのパターンで前進するかを確認してください．</p>
 <pre><code class="language-python">import PicoRobotics
