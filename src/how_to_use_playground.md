@@ -1,4 +1,8 @@
 # mdbook内でRustコードの実行
+
+**Create date:** 2025-07-05  
+**Modified date:** 2025-07-05
+
 ```rust
 #fn main() {
   println!("Hello, World!");

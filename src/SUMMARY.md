@@ -11,6 +11,9 @@
 # エディタ・ツール
 - [nvimでカーソルジャンプ](nvim_cursor_jump.md)
 
+# Raspberry Pi
+- [Raspberry Pi 4でLXTerminalの日本語入力問題を解決する方法](raspberrypi_japanese_input_fix.md)
+
 # mdBookの使い方
 
 - [gh-pagesでmdbookを公開する](how_to_deploy_from_gh-pages.md)

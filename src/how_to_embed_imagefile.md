@@ -1,5 +1,8 @@
 # 画像の埋め込み
 
+**Create date:** 2025-07-05  
+**Modified date:** 2025-07-05
+
 ![image](images/image.jpeg)
 
 <video controls style="width: 100%; height: auto;">

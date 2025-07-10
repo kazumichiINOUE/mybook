@@ -1,6 +1,9 @@
 # mdBookでのCSS開発Tips
 
-mdBookでカスタムCSSを開発する際の実用的なTipsとトラブルシューティング。
+**Create date:** 2025-07-10  
+**Modified date:** 2025-07-10
+
+mdBookでカスタムCSSを開発する際の実用的なTipsとトラブルシューティング．
 
 ## CSS反映の基本
 
@@ -44,11 +47,6 @@ mdbook serve
 - **Mac**: `Cmd + Shift + R`
 - **Windows**: `Ctrl + Shift + R`
 
-**開発者ツールでキャッシュ無効化**:
-1. F12で開発者ツールを開く
-2. Network タブで「Disable cache」をチェック
-3. 開発者ツールを開いている間はキャッシュが無効化される
-
 ## トラブルシューティング
 
 ### CSSが反映されない場合のチェックリスト
@@ -73,10 +71,6 @@ mdbook serve
 4. **ブラウザハードリフレッシュ**
    - `Cmd + Shift + R` (Mac)
    - `Ctrl + Shift + R` (Windows)
-
-5. **CSS構文エラーチェック**
-   - 開発者ツールのConsoleでエラー確認
-   - CSS Validatorでの構文チェック
 
 ### よくある問題
 
@@ -120,18 +114,6 @@ h2 {
     background-color: red !important; /* デバッグ用 */
 }
 ```
-
-### CSS変更の即座確認
-- 開発者ツールのElements > Stylesで直接編集
-- 確認後にファイルに反映する
-
-## 推奨ワークフロー
-
-1. **小さな変更から始める**
-2. **一つずつテストする**
-3. **開発者ツールで事前確認**
-4. **mdbook serve を適宜再起動**
-5. **変更履歴をコメントで記録**
 
 ```css
 /* 2025-07-09: H2見出しの上余白を増加 */

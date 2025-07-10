@@ -1,5 +1,8 @@
 # mdbookにコードやファイルの内容を埋め込む
 
+**Create date:** 2025-07-05  
+**Modified date:** 2025-07-05
+
 参照: <https://rust-lang.github.io/mdBook/format/mdbook.html?highlight=include#including-files>
 
 mdbookには，ローカルファイルを取り込む機能が提供されている．

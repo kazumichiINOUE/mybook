@@ -1,5 +1,8 @@
 # gh-pagesでmdbookを公開する
 
+**Create date:** 2025-07-05  
+**Modified date:** 2025-07-05
+
 `mdbook`とは，rust製のオンラインドキュメント制作ツールの名称．  
 <i class="fa fa-arrow-right"></i>
 [mdBook Documentation](https://rust-lang.github.io/mdBook/)
