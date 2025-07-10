@@ -1,0 +1,32 @@
+/* IRLab Essential Notes - カスタムテーマ */
+
+/* H2見出し（##）のスタイリング */
+h2 {
+    color: #374151 !important; /* ダークグレー */
+    border-bottom: 0.8px solid #6b7280; /* より細い下線 */
+    padding-bottom: 8px;
+    margin-top: 3rem; /* 上側の余白を増加 */
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.025em; /* 少し文字間隔を広く */
+}
+
+/* H2見出しにホバー効果 */
+h2:hover {
+    color: #1f2937 !important;
+    border-bottom-color: #4b5563;
+    transition: all 0.2s ease-in-out;
+}
+
+/* H2見出しの前に装飾を追加 */
+h2::before {
+    content: "▍";
+    color: #6366f1; /* インディゴアクセント */
+    margin-right: 0.5rem;
+    font-weight: bold;
+}
+
+/* セクション全体の余白調整 */
+h2 + * {
+    margin-top: 1rem;
+}

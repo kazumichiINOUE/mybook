@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>gh-pagesでmdbookを公開する - IRLab. Essential Notes</title>
+        <title>mdBookでのCSS開発Tips - IRLab. Essential Notes</title>
 
 
         <!-- Custom HTML head -->
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">ロボット制御基礎手順書</li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">2.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html" class="active"><strong aria-hidden="true">3.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">4.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="anchor_links_in_mdbook.html"><strong aria-hidden="true">5.</strong> mdBookでのアンカーリンク設定</a></li><li class="chapter-item expanded "><a href="css_tips_for_mdbook.html"><strong aria-hidden="true">6.</strong> mdBookでのCSS開発Tips</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">7.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">8.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">9.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">ロボット制御基礎手順書</li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">2.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">3.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">4.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="anchor_links_in_mdbook.html"><strong aria-hidden="true">5.</strong> mdBookでのアンカーリンク設定</a></li><li class="chapter-item expanded "><a href="css_tips_for_mdbook.html" class="active"><strong aria-hidden="true">6.</strong> mdBookでのCSS開発Tips</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">7.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">8.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">9.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,132 +145,137 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="gh-pagesでmdbookを公開する"><a class="header" href="#gh-pagesでmdbookを公開する">gh-pagesでmdbookを公開する</a></h1>
-<p><code>mdbook</code>とは，rust製のオンラインドキュメント制作ツールの名称．<br />
-<i class="fa fa-arrow-right"></i>
-<a href="https://rust-lang.github.io/mdBook/">mdBook Documentation</a></p>
-<p><code>gh-pages</code>とは，GitHubのリポジトリをWeb公開する，GitHubが提供している仕組み．<br />
-<i class="fa fa-arrow-right"></i>
-<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages?utm_source=chatgpt.com">What is GitHub Pages?</a></p>
-<blockquote>
-<p><i class="fa fa-lightbulb-o"></i> 
-このページ自体も<code>gh-pages</code>を使って公開しています．</p>
-</blockquote>
-<h2 id="mdbookをローカルで用意する"><a class="header" href="#mdbookをローカルで用意する">mdbookをローカルで用意する</a></h2>
-<pre><code class="language-bash">mdbook init mybook
-cd mybook
-# 最初に，公開用のディクレトリをdocsという名前で作成する
-mkdir docs
+                        <h1 id="mdbookでのcss開発tips"><a class="header" href="#mdbookでのcss開発tips">mdBookでのCSS開発Tips</a></h1>
+<p>mdBookでカスタムCSSを開発する際の実用的なTipsとトラブルシューティング。</p>
+<h2 id="css反映の基本"><a class="header" href="#css反映の基本">CSS反映の基本</a></h2>
+<h3 id="設定方法"><a class="header" href="#設定方法">設定方法</a></h3>
+<ol>
+<li><strong>CSSファイル作成</strong>: <code>theme/custom.css</code></li>
+<li><strong>book.toml設定</strong>:
+<pre><code class="language-toml">[output.html]
+additional-css = [&quot;theme/custom.css&quot;]
 </code></pre>
-<h2 id="githubで新しいリポジトリを作成する"><a class="header" href="#githubで新しいリポジトリを作成する">Githubで新しいリポジトリを作成する</a></h2>
-<p>ここでは，<code>mybook</code> というリポジトリを作成したとする．</p>
-<h2 id="mybookbookをgithubに連携させる"><a class="header" href="#mybookbookをgithubに連携させる">mybook/bookをgithubに連携させる</a></h2>
-<pre><code class="language-bash"># 現在の場所: mdbookのルート
-git init
-echo &quot;book&quot; &gt;&gt; .gitignore
-git remote add origin https://github.com/&lt;your-username&gt;/mybook.git
-git add .
-git commit -m &quot;deploy to GitHub Pages&quot;
-git push -f origin main
+</li>
+</ol>
+<h3 id="ディレクトリ構造"><a class="header" href="#ディレクトリ構造">ディレクトリ構造</a></h3>
+<pre><code>mybook/
+├── book.toml
+├── theme/
+│   └── custom.css
+└── src/
+    └── (mdファイル)
 </code></pre>
-<h2 id="github-pages-を有効化"><a class="header" href="#github-pages-を有効化">GitHub Pages を有効化</a></h2>
-<p>GitHub のリポジトリページ → Settings → Pages に行く．</p>
+<h2 id="css反映時の注意点"><a class="header" href="#css反映時の注意点">CSS反映時の注意点</a></h2>
+<h3 id="-mdbook-serve-の再起動が必要"><a class="header" href="#-mdbook-serve-の再起動が必要">🔄 mdbook serve の再起動が必要</a></h3>
+<p><strong>症状</strong>: CSSを変更しても見た目が変わらない</p>
+<p><strong>解決方法</strong>:</p>
+<pre><code class="language-bash"># mdbook serve を一度停止（Ctrl+C）
+# 再起動
+mdbook serve
+</code></pre>
+<p><strong>理由</strong>: </p>
 <ul>
-<li><code>Source</code>: main ブランチを選択</li>
-<li><code>Folder</code>: /docs を選択</li>
-<li>保存すると、数秒〜数分で <em>https://&lt;your-username&gt;.github.io/mybook/</em> に公開される</li>
+<li>mdbook serve はCSSファイルの変更を自動検知しない場合がある</li>
+<li>特に新しいCSSルールや大幅な変更時に発生</li>
 </ul>
-<h2 id="mdbookを編集したらビルド公開用ディレクトリにコピーをする"><a class="header" href="#mdbookを編集したらビルド公開用ディレクトリにコピーをする">mdbookを編集したら，ビルド・公開用ディレクトリにコピーをする</a></h2>
-<pre><code class="language-bash"># 何かしらmybookの中を制作
-mdbook build
-cp -r book/* docs/
+<h3 id="-ブラウザキャッシュ対策"><a class="header" href="#-ブラウザキャッシュ対策">🖥️ ブラウザキャッシュ対策</a></h3>
+<p><strong>ハードリフレッシュ</strong>:</p>
+<ul>
+<li><strong>Mac</strong>: <code>Cmd + Shift + R</code></li>
+<li><strong>Windows</strong>: <code>Ctrl + Shift + R</code></li>
+</ul>
+<p><strong>開発者ツールでキャッシュ無効化</strong>:</p>
+<ol>
+<li>F12で開発者ツールを開く</li>
+<li>Network タブで「Disable cache」をチェック</li>
+<li>開発者ツールを開いている間はキャッシュが無効化される</li>
+</ol>
+<h2 id="トラブルシューティング"><a class="header" href="#トラブルシューティング">トラブルシューティング</a></h2>
+<h3 id="cssが反映されない場合のチェックリスト"><a class="header" href="#cssが反映されない場合のチェックリスト">CSSが反映されない場合のチェックリスト</a></h3>
+<ol>
+<li>
+<p><strong>book.toml設定確認</strong></p>
+<pre><code class="language-toml">[output.html]
+additional-css = [&quot;theme/custom.css&quot;]  # パスが正しいか
 </code></pre>
-<h2 id="ページの更新"><a class="header" href="#ページの更新">ページの更新</a></h2>
-<pre><code class="language-bash">git add .
-git commit -m &quot;update&quot;
-git push origin main
+</li>
+<li>
+<p><strong>ファイル存在確認</strong></p>
+<pre><code class="language-bash">ls theme/custom.css  # ファイルが存在するか
 </code></pre>
-<h2 id="シェルスクリプトで更新を自動化"><a class="header" href="#シェルスクリプトで更新を自動化">シェルスクリプトで更新を自動化</a></h2>
-<p>以下のシェルスクリプトにより，ビルドからプッシュまでを自動化できる．</p>
-<pre><code class="language-shell  numberLines">#!/bin/bash
-#
-# mdbook自動デプロイスクリプト
-# ================================
-#
-# 【背景】
-# mdbookのデプロイを効率化するため，
-# mdbookのビルドからGit pushまでを自動化
-#
-# 【概要】
-# 1. mdbookでビルド実行
-# 2. book/からdocs/にファイルコピー
-# 3. Git差分チェック（変更なしの場合はスキップ）
-# 4. コミットメッセージ入力（カスタム or デフォルト）
-# 5. 最終確認後にcommit/push
-#
-# 【使用方法】
-# ./deploy.sh
-#
-# 作成日: 2025年7月5日
-
-set -e  # エラーで即終了
-
-# 色設定
-GREEN=$'\e[32m'
-YELLOW=$'\e[33m'
-RESET=$'\e[0m'
-
-echo -e &quot;${GREEN}🔧 ビルド中...${RESET}&quot;
-mdbook build
-
-echo -e &quot;${GREEN}📦 book/ を docs/ にコピー中...${RESET}&quot;
-rm -rf docs
-mkdir -p docs
-cp -r book/* docs/
-
-# 変更がない場合のハンドリング
-if git diff --quiet &amp;&amp; git diff --staged --quiet; then
-    echo -e &quot;${YELLOW}📋 変更がありません。スキップします。${RESET}&quot;
-    exit 0
-fi
-
-echo -e &quot;${GREEN}📤 Git にコミット＆プッシュします...${RESET}&quot;
-git add .
-
-# コミットメッセージの入力を求める
-echo -n &quot;コミットメッセージを入力してください (空白でデフォルト): &quot;
-read -r COMMIT_MESSAGE
-
-# タイムスタンプ生成
-TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
-
-# メッセージが空の場合はデフォルトメッセージを使用
-if [ -z &quot;$COMMIT_MESSAGE&quot; ]; then
-    COMMIT_MESSAGE=&quot;Update documentation&quot;
-fi
-
-# 最終的なコミットメッセージを表示して確認
-FINAL_MESSAGE=&quot;${COMMIT_MESSAGE} - ${TIMESTAMP}&quot;
-echo -e &quot;${YELLOW}コミットメッセージ: \&quot;${FINAL_MESSAGE}\&quot;${RESET}&quot;
-echo -n &quot;このメッセージでコミットしますか？ (y/n): &quot;
-read -r CONFIRM
-
-if [ &quot;$CONFIRM&quot; != &quot;y&quot; ] &amp;&amp; [ &quot;$CONFIRM&quot; != &quot;Y&quot; ]; then
-    echo -e &quot;${YELLOW}❌ コミットをキャンセルしました。${RESET}&quot;
-    exit 1
-fi
-
-# タイムスタンプを追加してコミット
-git commit -m &quot;${FINAL_MESSAGE}&quot;
-
-git push origin main
-
-echo -e &quot;${GREEN}✅ 完了しました！${RESET}&quot;
+</li>
+<li>
+<p><strong>mdbook serve の再起動</strong></p>
+<pre><code class="language-bash"># Ctrl+C で停止
+mdbook serve
 </code></pre>
-<p><strong>使い方</strong></p>
-<pre><code class="language-bash">nvim deplay.sh # 上記スクリプトを作成
-chmod +x deplay.h # 実行権限を付与．最初だけで良い
-./deplay.h
+</li>
+<li>
+<p><strong>ブラウザハードリフレッシュ</strong></p>
+<ul>
+<li><code>Cmd + Shift + R</code> (Mac)</li>
+<li><code>Ctrl + Shift + R</code> (Windows)</li>
+</ul>
+</li>
+<li>
+<p><strong>CSS構文エラーチェック</strong></p>
+<ul>
+<li>開発者ツールのConsoleでエラー確認</li>
+<li>CSS Validatorでの構文チェック</li>
+</ul>
+</li>
+</ol>
+<h3 id="よくある問題"><a class="header" href="#よくある問題">よくある問題</a></h3>
+<h4 id="特定のスタイルが効かない"><a class="header" href="#特定のスタイルが効かない">特定のスタイルが効かない</a></h4>
+<pre><code class="language-css">/* !important で強制適用 */
+h2 {
+    margin-top: 3rem !important;
+}
+</code></pre>
+<h4 id="css読み込み順序の問題"><a class="header" href="#css読み込み順序の問題">CSS読み込み順序の問題</a></h4>
+<pre><code class="language-toml"># 複数CSSファイルの場合は順序に注意
+[output.html]
+additional-css = [
+    &quot;theme/base.css&quot;,    # 先に読み込まれる
+    &quot;theme/custom.css&quot;   # 後に読み込まれる（優先される）
+]
+</code></pre>
+<h4 id="キャッシュ対策"><a class="header" href="#キャッシュ対策">キャッシュ対策</a></h4>
+<pre><code class="language-toml"># バージョン番号でキャッシュバスティング
+[output.html]
+additional-css = [&quot;theme/custom.css?v=2&quot;]
+</code></pre>
+<h2 id="開発効率化tips"><a class="header" href="#開発効率化tips">開発効率化Tips</a></h2>
+<h3 id="css変更の確認手順"><a class="header" href="#css変更の確認手順">CSS変更の確認手順</a></h3>
+<ol>
+<li>CSSファイルを編集</li>
+<li><code>mdbook serve</code> を再起動</li>
+<li>ブラウザでハードリフレッシュ</li>
+<li>開発者ツールで確認</li>
+</ol>
+<h3 id="デバッグ方法"><a class="header" href="#デバッグ方法">デバッグ方法</a></h3>
+<pre><code class="language-css">/* 一時的な背景色でエリア確認 */
+h2 {
+    background-color: red !important; /* デバッグ用 */
+}
+</code></pre>
+<h3 id="css変更の即座確認"><a class="header" href="#css変更の即座確認">CSS変更の即座確認</a></h3>
+<ul>
+<li>開発者ツールのElements &gt; Stylesで直接編集</li>
+<li>確認後にファイルに反映する</li>
+</ul>
+<h2 id="推奨ワークフロー"><a class="header" href="#推奨ワークフロー">推奨ワークフロー</a></h2>
+<ol>
+<li><strong>小さな変更から始める</strong></li>
+<li><strong>一つずつテストする</strong></li>
+<li><strong>開発者ツールで事前確認</strong></li>
+<li><strong>mdbook serve を適宜再起動</strong></li>
+<li><strong>変更履歴をコメントで記録</strong></li>
+</ol>
+<pre><code class="language-css">/* 2025-07-09: H2見出しの上余白を増加 */
+h2 {
+    margin-top: 3rem; /* 2rem から変更 */
+}
 </code></pre>
 <p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
 
@@ -278,11 +283,11 @@ chmod +x deplay.h # 実行権限を付与．最初だけで良い
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="nvim_cursor_jump.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="anchor_links_in_mdbook.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="how_to_embed_code_from_files.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="how_to_embed_imagefile.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -292,11 +297,11 @@ chmod +x deplay.h # 実行権限を付与．最初だけで良い
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="nvim_cursor_jump.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="anchor_links_in_mdbook.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="how_to_embed_code_from_files.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="how_to_embed_imagefile.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

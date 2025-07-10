@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/custom.css">
 
         <!-- MathJax -->
         <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -84,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">ロボット制御基礎手順書</li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">2.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">3.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">4.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="anchor_links_in_mdbook.html"><strong aria-hidden="true">5.</strong> mdBookでのアンカーリンク設定</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">6.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">7.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">8.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">ロボット制御基礎手順書</li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">2.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">3.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">4.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="anchor_links_in_mdbook.html"><strong aria-hidden="true">5.</strong> mdBookでのアンカーリンク設定</a></li><li class="chapter-item expanded "><a href="css_tips_for_mdbook.html"><strong aria-hidden="true">6.</strong> mdBookでのCSS開発Tips</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">7.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">8.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">9.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -878,6 +879,7 @@ title = &quot;IRLab. Essential Notes&quot;
 
 [output.html]
 mathjax-support = true
+additional-css = [&quot;theme/custom.css&quot;]
 
 #[output.pdf]
 
@@ -938,6 +940,139 @@ src = &quot;src&quot;
 <li>クリックすると該当する見出しにジャンプする</li>
 <li>見出しは通常通り「Hint: モーターの回転制御プログラム」と表示される</li>
 </ul>
+<p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mdbookでのcss開発tips"><a class="header" href="#mdbookでのcss開発tips">mdBookでのCSS開発Tips</a></h1>
+<p>mdBookでカスタムCSSを開発する際の実用的なTipsとトラブルシューティング。</p>
+<h2 id="css反映の基本"><a class="header" href="#css反映の基本">CSS反映の基本</a></h2>
+<h3 id="設定方法"><a class="header" href="#設定方法">設定方法</a></h3>
+<ol>
+<li><strong>CSSファイル作成</strong>: <code>theme/custom.css</code></li>
+<li><strong>book.toml設定</strong>:
+<pre><code class="language-toml">[output.html]
+additional-css = [&quot;theme/custom.css&quot;]
+</code></pre>
+</li>
+</ol>
+<h3 id="ディレクトリ構造"><a class="header" href="#ディレクトリ構造">ディレクトリ構造</a></h3>
+<pre><code>mybook/
+├── book.toml
+├── theme/
+│   └── custom.css
+└── src/
+    └── (mdファイル)
+</code></pre>
+<h2 id="css反映時の注意点"><a class="header" href="#css反映時の注意点">CSS反映時の注意点</a></h2>
+<h3 id="-mdbook-serve-の再起動が必要"><a class="header" href="#-mdbook-serve-の再起動が必要">🔄 mdbook serve の再起動が必要</a></h3>
+<p><strong>症状</strong>: CSSを変更しても見た目が変わらない</p>
+<p><strong>解決方法</strong>:</p>
+<pre><code class="language-bash"># mdbook serve を一度停止（Ctrl+C）
+# 再起動
+mdbook serve
+</code></pre>
+<p><strong>理由</strong>: </p>
+<ul>
+<li>mdbook serve はCSSファイルの変更を自動検知しない場合がある</li>
+<li>特に新しいCSSルールや大幅な変更時に発生</li>
+</ul>
+<h3 id="-ブラウザキャッシュ対策"><a class="header" href="#-ブラウザキャッシュ対策">🖥️ ブラウザキャッシュ対策</a></h3>
+<p><strong>ハードリフレッシュ</strong>:</p>
+<ul>
+<li><strong>Mac</strong>: <code>Cmd + Shift + R</code></li>
+<li><strong>Windows</strong>: <code>Ctrl + Shift + R</code></li>
+</ul>
+<p><strong>開発者ツールでキャッシュ無効化</strong>:</p>
+<ol>
+<li>F12で開発者ツールを開く</li>
+<li>Network タブで「Disable cache」をチェック</li>
+<li>開発者ツールを開いている間はキャッシュが無効化される</li>
+</ol>
+<h2 id="トラブルシューティング-1"><a class="header" href="#トラブルシューティング-1">トラブルシューティング</a></h2>
+<h3 id="cssが反映されない場合のチェックリスト"><a class="header" href="#cssが反映されない場合のチェックリスト">CSSが反映されない場合のチェックリスト</a></h3>
+<ol>
+<li>
+<p><strong>book.toml設定確認</strong></p>
+<pre><code class="language-toml">[output.html]
+additional-css = [&quot;theme/custom.css&quot;]  # パスが正しいか
+</code></pre>
+</li>
+<li>
+<p><strong>ファイル存在確認</strong></p>
+<pre><code class="language-bash">ls theme/custom.css  # ファイルが存在するか
+</code></pre>
+</li>
+<li>
+<p><strong>mdbook serve の再起動</strong></p>
+<pre><code class="language-bash"># Ctrl+C で停止
+mdbook serve
+</code></pre>
+</li>
+<li>
+<p><strong>ブラウザハードリフレッシュ</strong></p>
+<ul>
+<li><code>Cmd + Shift + R</code> (Mac)</li>
+<li><code>Ctrl + Shift + R</code> (Windows)</li>
+</ul>
+</li>
+<li>
+<p><strong>CSS構文エラーチェック</strong></p>
+<ul>
+<li>開発者ツールのConsoleでエラー確認</li>
+<li>CSS Validatorでの構文チェック</li>
+</ul>
+</li>
+</ol>
+<h3 id="よくある問題"><a class="header" href="#よくある問題">よくある問題</a></h3>
+<h4 id="特定のスタイルが効かない"><a class="header" href="#特定のスタイルが効かない">特定のスタイルが効かない</a></h4>
+<pre><code class="language-css">/* !important で強制適用 */
+h2 {
+    margin-top: 3rem !important;
+}
+</code></pre>
+<h4 id="css読み込み順序の問題"><a class="header" href="#css読み込み順序の問題">CSS読み込み順序の問題</a></h4>
+<pre><code class="language-toml"># 複数CSSファイルの場合は順序に注意
+[output.html]
+additional-css = [
+    &quot;theme/base.css&quot;,    # 先に読み込まれる
+    &quot;theme/custom.css&quot;   # 後に読み込まれる（優先される）
+]
+</code></pre>
+<h4 id="キャッシュ対策"><a class="header" href="#キャッシュ対策">キャッシュ対策</a></h4>
+<pre><code class="language-toml"># バージョン番号でキャッシュバスティング
+[output.html]
+additional-css = [&quot;theme/custom.css?v=2&quot;]
+</code></pre>
+<h2 id="開発効率化tips"><a class="header" href="#開発効率化tips">開発効率化Tips</a></h2>
+<h3 id="css変更の確認手順"><a class="header" href="#css変更の確認手順">CSS変更の確認手順</a></h3>
+<ol>
+<li>CSSファイルを編集</li>
+<li><code>mdbook serve</code> を再起動</li>
+<li>ブラウザでハードリフレッシュ</li>
+<li>開発者ツールで確認</li>
+</ol>
+<h3 id="デバッグ方法"><a class="header" href="#デバッグ方法">デバッグ方法</a></h3>
+<pre><code class="language-css">/* 一時的な背景色でエリア確認 */
+h2 {
+    background-color: red !important; /* デバッグ用 */
+}
+</code></pre>
+<h3 id="css変更の即座確認"><a class="header" href="#css変更の即座確認">CSS変更の即座確認</a></h3>
+<ul>
+<li>開発者ツールのElements &gt; Stylesで直接編集</li>
+<li>確認後にファイルに反映する</li>
+</ul>
+<h2 id="推奨ワークフロー"><a class="header" href="#推奨ワークフロー">推奨ワークフロー</a></h2>
+<ol>
+<li><strong>小さな変更から始める</strong></li>
+<li><strong>一つずつテストする</strong></li>
+<li><strong>開発者ツールで事前確認</strong></li>
+<li><strong>mdbook serve を適宜再起動</strong></li>
+<li><strong>変更履歴をコメントで記録</strong></li>
+</ol>
+<pre><code class="language-css">/* 2025-07-09: H2見出しの上余白を増加 */
+h2 {
+    margin-top: 3rem; /* 2rem から変更 */
+}
+</code></pre>
 <p><a href="./"><i class="fa fa-arrow-left"></i> Home</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="画像の埋め込み"><a class="header" href="#画像の埋め込み">画像の埋め込み</a></h1>
 <p><img src="images/image.jpeg" alt="image" /></p>

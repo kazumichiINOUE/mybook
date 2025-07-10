@@ -16,6 +16,7 @@
 - [gh-pagesでmdbookを公開する](how_to_deploy_from_gh-pages.md)
 - [mdbookにコードを埋め込む](how_to_embed_code_from_files.md)
 - [mdBookでのアンカーリンク設定](anchor_links_in_mdbook.md)
+- [mdBookでのCSS開発Tips](css_tips_for_mdbook.md)
 - [画像の埋め込み](how_to_embed_imagefile.md)
 - [mdbook内でRustコードの実行](how_to_use_playground.md)
 - [よく使うアイコン一覧](icon.md)

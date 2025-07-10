@@ -7,6 +7,7 @@ title = "IRLab. Essential Notes"
 
 [output.html]
 mathjax-support = true
+additional-css = ["theme/custom.css"]
 
 #[output.pdf]
 

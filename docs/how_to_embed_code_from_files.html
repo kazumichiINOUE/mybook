@@ -30,6 +30,7 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/custom.css">
 
         <!-- MathJax -->
         <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -83,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">ロボット制御基礎手順書</li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">2.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">3.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html" class="active"><strong aria-hidden="true">4.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="anchor_links_in_mdbook.html"><strong aria-hidden="true">5.</strong> mdBookでのアンカーリンク設定</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">6.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">7.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">8.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">ロボット制御基礎手順書</li><li class="chapter-item expanded "><a href="robot_basis_250710.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li class="chapter-item expanded affix "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">2.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの使い方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">3.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html" class="active"><strong aria-hidden="true">4.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="anchor_links_in_mdbook.html"><strong aria-hidden="true">5.</strong> mdBookでのアンカーリンク設定</a></li><li class="chapter-item expanded "><a href="css_tips_for_mdbook.html"><strong aria-hidden="true">6.</strong> mdBookでのCSS開発Tips</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">7.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">8.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">9.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -206,6 +207,7 @@ title = &quot;IRLab. Essential Notes&quot;
 
 [output.html]
 mathjax-support = true
+additional-css = [&quot;theme/custom.css&quot;]
 
 #[output.pdf]
 
