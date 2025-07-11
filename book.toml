@@ -3,11 +3,12 @@ authors = ["KazumichiINOUE"]
 language = "jp"
 multilingual = false
 src = "src"
-title = "IRLab. Essential Notes"
+title = "irlaben — IRLab. Essential Notes —"
 
 [output.html]
 mathjax-support = true
 additional-css = ["theme/custom.css"]
+default-theme = "rust"
 
 #[output.pdf]
 
