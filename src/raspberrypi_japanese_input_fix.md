@@ -1,7 +1,11 @@
 # Raspberry Pi 4でlxterminalの日本語入力問題を解決する方法
 
+<div class="meta-info">
+
 **Create date:** 2025-07-10  
 **Modified date:** 2025-07-10
+
+</div>
 
 ## 問題の概要
 

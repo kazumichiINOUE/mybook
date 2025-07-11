@@ -1,7 +1,11 @@
 # mdBookでのCSS開発Tips
 
+<div class="meta-info">
+
 **Create date:** 2025-07-10  
 **Modified date:** 2025-07-10
+
+</div>
 
 mdBookでカスタムCSSを開発する際の実用的なTipsとトラブルシューティング．
 

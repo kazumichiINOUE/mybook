@@ -1,7 +1,11 @@
 # mdbookにコードやファイルの内容を埋め込む
 
+<div class="meta-info">
+
 **Create date:** 2025-07-05  
 **Modified date:** 2025-07-05
+
+</div>
 
 参照: <https://rust-lang.github.io/mdBook/format/mdbook.html?highlight=include#including-files>
 

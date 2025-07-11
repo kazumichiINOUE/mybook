@@ -1,7 +1,11 @@
 # Introduction
 
+<div class="meta-info">
+
 **Create date:** 2025-07-05  
 **Modified date:** 2025-07-10
+
+</div>
 
 このWebサイトは，IRLab.が作成している，mdBookを使用した技術資料集です．
 ロボット制御，Linux，エディタ操作，マイコン設定などの技術的なノウハウ

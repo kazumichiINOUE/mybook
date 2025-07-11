@@ -1,7 +1,11 @@
 # mdbook内でRustコードの実行
 
+<div class="meta-info">
+
 **Create date:** 2025-07-05  
 **Modified date:** 2025-07-05
+
+</div>
 
 ```rust
 #fn main() {

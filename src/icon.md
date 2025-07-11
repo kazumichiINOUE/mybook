@@ -1,7 +1,11 @@
 # Font Awesome 4 アイコン一覧（表示つき＋コピペ用）
 
+<div class="meta-info">
+
 **Create date:** 2025-07-05  
 **Modified date:** 2025-07-05
+
+</div>
 
 よく使われる `Font Awesome 4` のシンプルアイコン一覧．
 

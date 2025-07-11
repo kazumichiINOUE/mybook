@@ -44,3 +44,16 @@ h2::before {
 h2 + * {
     margin-top: 1rem;
 }
+
+/* 記事のメタ情報（Create date, Modified date）を右寄せ */
+.content main p.meta-info,
+.content .meta-info,
+p.meta-info {
+    text-align: right !important;
+    font-size: 0.9em !important;
+    color: #6b7280 !important;
+    margin-top: 0.0rem !important;
+    margin-bottom: 0.0rem !important;
+    padding-bottom: 0rem !important;
+    /*border-bottom: 1px solid #e5e7eb !important;*/
+}

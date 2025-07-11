@@ -1,7 +1,11 @@
 # Neovimでカーソルジャンプ
 
+<div class="meta-info">
+
 **Create date:** 2025-07-09  
 **Modified date:** 2025-07-11
+
+</div>
 
 Neovimでのカーソル移動は効率的な編集の基本です．
 基本的な移動から高度なジャンプまで，主要な機能を紹介します．

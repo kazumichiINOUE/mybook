@@ -1,7 +1,11 @@
 # 画像の埋め込み
 
+<div class="meta-info">
+
 **Create date:** 2025-07-05  
 **Modified date:** 2025-07-05
+
+</div>
 
 ![image](images/image.jpeg)
 

@@ -1,7 +1,11 @@
 # mdBookでのアンカーリンクの設定
 
+<div class="meta-info">
+
 **Create date:** 2025-07-10  
 **Modified date:** 2025-07-10
+
+</div>
 
 mdBookで見出しにアンカーリンクを設定する際，スペースや特殊文字が含まれる場合に問題が発生することがある．
 
