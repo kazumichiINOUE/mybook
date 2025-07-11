@@ -18,6 +18,8 @@
 | <i class="fa fa-exclamation-circle"></i> | 警告・注意 | `<i class="fa fa-exclamation-circle"></i>` |
 | <i class="fa fa-arrow-right"></i> | 次へ | `<i class="fa fa-arrow-right"></i>` |
 | <i class="fa fa-arrow-left"></i> | 戻る | `<i class="fa fa-arrow-left"></i>` |
+| <i class="fa fa-long-arrow-right"></i> | 次へ（細い線） | `<i class="fa fa-long-arrow-right"></i>` |
+| <i class="fa fa-long-arrow-left"></i> | 戻る（細い線） | `<i class="fa fa-long-arrow-left"></i>` |
 | <i class="fa fa-chevron-down"></i> | 開く・展開 | `<i class="fa fa-chevron-down"></i>` |
 | <i class="fa fa-chevron-up"></i> | 閉じる・折りたたむ | `<i class="fa fa-chevron-up"></i>` |
 | <i class="fa fa-file-text-o"></i> | 文書・ファイル | `<i class="fa fa-file-text-o"></i>` |
