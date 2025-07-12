@@ -7,8 +7,10 @@
 
 </div>
 
+```admonish info
 2025/7/15 (Tue) 16:20 -- 17:50  
 **実験の様子を写真に残しておいてください**
+```
 
 ## 大きな目標設定
 - IoTの基礎をマイコンプログラミングを通して学ぶ
@@ -23,10 +25,10 @@
 
 ## 1. ブレッドボードで温度センサー計測回路を組み立てる
 ### 配線図
-![温度センサー配線図](./images/pico配線_BME280.png)
+![温度センサー配線図](../images/teaching-pico-bme280-wiring.png)
 
 ### 完成図
-![温度センサー配線完成](./images/配線完成.png)
+![温度センサー配線完成](../images/teaching-wiring-complete.png)
 
 ## 2. 温度センサーをRaspberryPi Pico で読み取る
 ### センサー利用のためのPythonモジュールをセット
@@ -34,19 +36,19 @@
 [GitHub - robert-hh/BME280: Micropython driver for the BME280 sensor](https://github.com/robert-hh/BME280/tree/master)
     
 2. 今回使うモジュール名をクリックする  
-![bme280の場所.png](attachment:9934a008-cd0f-4fb9-87a9-8afc407052c5:bme280の場所.png)
+![bme280の場所.png](../images/teaching-bme280-location.png)
     
 3. モジュールのソースコードをコピーボタンでコピーする  
-![bme280_floatのコピー.png](attachment:de98757b-8fab-4c3e-b169-fde51b6ac85b:bme280_floatのコピー.png)
+![bme280_floatのコピー.png](../images/teaching-bme280-float-copy.png)
     
 4. Thonnyで新しいファイルを作成し，先ほどコピーしたソースコードをペーストする  
-![bme280を貼り付け.png](attachment:21896237-0e48-4563-af7e-b6e2a441f05c:bme280を貼り付け.png)
+![bme280を貼り付け.png](../images/teaching-bme280-paste.png)
     
 5. ThonnyからPicoを認識させる
 6. Picoに `bme280_float.py` という名前で保存する  
-![名前をつけて保存.png](attachment:eb6818c1-cad9-4740-8234-663b18d5cb36:名前をつけて保存.png)  
-![picoを選択.png](attachment:9ee16a7e-c75b-438e-9341-9e6a2e02a6ec:picoを選択.png)  
-![ファイル名を指定して保存.png](attachment:35232d3a-0901-449c-8f5b-98ac2673e056:ファイル名を指定して保存.png)  
+![名前をつけて保存.png](../images/teaching-thonny-save-as.png)  
+![picoを選択.png](../images/teaching-thonny-select-pico.png)  
+![ファイル名を指定して保存.png](../images/teaching-thonny-save-filename.png)  
 
 ### センサーからデータ読み取り
 
@@ -80,7 +82,7 @@ while True:
 ```
     
 2. シェルに以下のような表示が出たら成功．LEDを繋いでいる場合，気温25度を超えると点灯する（点灯を判断する数値は適当を変えてよい）
-  <video controls poster="./images/温度センサー読み取り_preview.png"
+  <video controls poster="../images/teaching-temperature-sensor-preview.png"
   style="width: 100%; height: auto;">
-    <source src="./images/温度センサー読み取り.mov"
+    <source src="../images/teaching-temperature-sensor-reading.mov"
   </video>

@@ -209,8 +209,18 @@
 <p><strong>Create date:</strong> 2025-07-09<br />
 <strong>Modified date:</strong> 2025-07-10</p>
 </div>
-<p>2025/7/10 (Thu) 13:00 -- 14:30<br />
-<strong>実験の様子を写真に残しておいてください</strong></p>
+<p><strong>実施日</strong>: 2025/7/10 (Thu) 13:00 -- 14:30</p>
+<div id="admonition-todo" class="admonition admonish-info" role="note" aria-labelledby="admonition-todo-title">
+<div class="admonition-title">
+<div id="admonition-todo-title">
+<p>Todo</p>
+</div>
+<a class="admonition-anchor-link" href="robot_basis/robot_basis_250710.html#admonition-todo"></a>
+</div>
+<div>
+<p><strong>実験の様子を写真に残しておいてください</strong></p>
+</div>
+</div>
 <h2 id="作業分担2名1組"><a class="header" href="#作業分担2名1組">作業分担（2名1組）</a></h2>
 <p><strong>全体（13:00-14:30）：協力作業</strong></p>
 <ul>
@@ -222,7 +232,6 @@
 <li>超音波センサーを使ったモーターのON/OFF 制御</li>
 <li>前方障害物手前での停止処理</li>
 </ol>
-<hr />
 <h2 id="1-ロボットの前進後退制御"><a class="header" href="#1-ロボットの前進後退制御">1. ロボットの前進・後退制御</a></h2>
 <p>ロボットは2個のモーターで左右の車輪を制御します．両方のタイヤが正しく前進・後退方向に回転するようにしてください．</p>
 <h3 id="基本的な制御方法"><a class="header" href="#基本的な制御方法">基本的な制御方法</a></h3>
@@ -252,7 +261,7 @@
 <li>バッテリーを接続する </li>
 <li><strong>拡張ボードのスライドスイッチをONにする</strong>（モーター動作に必要）</li>
 </ul>
-<p><img src="robot_basis/images/%E6%8B%A1%E5%BC%B5%E3%83%9C%E3%83%BC%E3%83%89%E9%9B%BB%E6%BA%90%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81.JPG" alt="拡張ボード電源スイッチ" /></p>
+<p><img src="robot_basis/../images/%E6%8B%A1%E5%BC%B5%E3%83%9C%E3%83%BC%E3%83%89%E9%9B%BB%E6%BA%90%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81.JPG" alt="拡張ボード電源スイッチ" /></p>
 <ul>
 <li>安全な場所で実験を行う</li>
 </ul>
@@ -646,8 +655,18 @@ utime.sleep_ms(10)
 <p><strong>Create date:</strong> 2025-07-11<br />
 <strong>Modified date:</strong> 2025-07-11</p>
 </div>
+<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
+<div class="admonition-title">
+<div id="admonition-info-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="teaching_advanced/lesson1.html#admonition-info"></a>
+</div>
+<div>
 <p>2025/7/15 (Tue) 16:20 -- 17:50<br />
 <strong>実験の様子を写真に残しておいてください</strong></p>
+</div>
+</div>
 <h2 id="大きな目標設定"><a class="header" href="#大きな目標設定">大きな目標設定</a></h2>
 <ul>
 <li>IoTの基礎をマイコンプログラミングを通して学ぶ</li>
@@ -663,9 +682,9 @@ utime.sleep_ms(10)
 </ol>
 <h2 id="1-ブレッドボードで温度センサー計測回路を組み立てる"><a class="header" href="#1-ブレッドボードで温度センサー計測回路を組み立てる">1. ブレッドボードで温度センサー計測回路を組み立てる</a></h2>
 <h3 id="配線図"><a class="header" href="#配線図">配線図</a></h3>
-<p><img src="teaching_advanced/./images/pico%E9%85%8D%E7%B7%9A_BME280.png" alt="温度センサー配線図" /></p>
+<p><img src="teaching_advanced/../images/teaching-pico-bme280-wiring.png" alt="温度センサー配線図" /></p>
 <h3 id="完成図"><a class="header" href="#完成図">完成図</a></h3>
-<p><img src="teaching_advanced/./images/%E9%85%8D%E7%B7%9A%E5%AE%8C%E6%88%90.png" alt="温度センサー配線完成" /></p>
+<p><img src="teaching_advanced/../images/teaching-wiring-complete.png" alt="温度センサー配線完成" /></p>
 <h2 id="2-温度センサーをraspberrypi-pico-で読み取る"><a class="header" href="#2-温度センサーをraspberrypi-pico-で読み取る">2. 温度センサーをRaspberryPi Pico で読み取る</a></h2>
 <h3 id="センサー利用のためのpythonモジュールをセット"><a class="header" href="#センサー利用のためのpythonモジュールをセット">センサー利用のためのPythonモジュールをセット</a></h3>
 <ol>
@@ -675,24 +694,24 @@ utime.sleep_ms(10)
 </li>
 <li>
 <p>今回使うモジュール名をクリックする<br />
-<img src="attachment:9934a008-cd0f-4fb9-87a9-8afc407052c5:bme280%E3%81%AE%E5%A0%B4%E6%89%80.png" alt="bme280の場所.png" /></p>
+<img src="teaching_advanced/../images/teaching-bme280-location.png" alt="bme280の場所.png" /></p>
 </li>
 <li>
 <p>モジュールのソースコードをコピーボタンでコピーする<br />
-<img src="attachment:de98757b-8fab-4c3e-b169-fde51b6ac85b:bme280_float%E3%81%AE%E3%82%B3%E3%83%92%E3%82%9A%E3%83%BC.png" alt="bme280_floatのコピー.png" /></p>
+<img src="teaching_advanced/../images/teaching-bme280-float-copy.png" alt="bme280_floatのコピー.png" /></p>
 </li>
 <li>
 <p>Thonnyで新しいファイルを作成し，先ほどコピーしたソースコードをペーストする<br />
-<img src="attachment:21896237-0e48-4563-af7e-b6e2a441f05c:bme280%E3%82%92%E8%B2%BC%E3%82%8A%E4%BB%98%E3%81%91.png" alt="bme280を貼り付け.png" /></p>
+<img src="teaching_advanced/../images/teaching-bme280-paste.png" alt="bme280を貼り付け.png" /></p>
 </li>
 <li>
 <p>ThonnyからPicoを認識させる</p>
 </li>
 <li>
 <p>Picoに <code>bme280_float.py</code> という名前で保存する<br />
-<img src="attachment:eb6818c1-cad9-4740-8234-663b18d5cb36:%E5%90%8D%E5%89%8D%E3%82%92%E3%81%A4%E3%81%91%E3%81%A6%E4%BF%9D%E5%AD%98.png" alt="名前をつけて保存.png" /><br />
-<img src="attachment:9ee16a7e-c75b-438e-9341-9e6a2e02a6ec:pico%E3%82%92%E9%81%B8%E6%8A%9E.png" alt="picoを選択.png" /><br />
-<img src="attachment:35232d3a-0901-449c-8f5b-98ac2673e056:%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%90%8D%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6%E4%BF%9D%E5%AD%98.png" alt="ファイル名を指定して保存.png" /></p>
+<img src="teaching_advanced/../images/teaching-thonny-save-as.png" alt="名前をつけて保存.png" /><br />
+<img src="teaching_advanced/../images/teaching-thonny-select-pico.png" alt="picoを選択.png" /><br />
+<img src="teaching_advanced/../images/teaching-thonny-save-filename.png" alt="ファイル名を指定して保存.png" /></p>
 </li>
 </ol>
 <h3 id="センサーからデータ読み取り"><a class="header" href="#センサーからデータ読み取り">センサーからデータ読み取り</a></h3>
@@ -727,8 +746,8 @@ while True:
 </code></pre>
 <ol start="2">
 <li>シェルに以下のような表示が出たら成功．LEDを繋いでいる場合，気温25度を超えると点灯する（点灯を判断する数値は適当を変えてよい）
-<video controls poster="./images/温度センサー読み取り_preview.png"
-  style="width: 100%; height: auto;"><source src="./images/温度センサー読み取り.mov"
+<video controls poster="../images/teaching-temperature-sensor-preview.png"
+  style="width: 100%; height: auto;"><source src="../images/teaching-temperature-sensor-reading.mov"
 </li>
 </ol>
 </video>

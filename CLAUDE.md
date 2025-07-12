@@ -126,6 +126,48 @@ README.mdの目次はSUMMARY.mdの構造と一致させる：
   - [サブ記事](サブリンク)
 ```
 
+## 画像管理規則
+
+### 中央集約型ディレクトリ構成
+すべての画像は`src/images/`に配置する：
+
+```
+src/
+├── images/                    # 全画像を中央管理
+│   ├── teaching-*.png        # 教育関連画像
+│   ├── robot-*.jpg          # ロボット制御関連
+│   ├── raspberry-*.png      # Raspberry Pi関連
+│   └── mdbook-*.png         # mdBook関連
+├── robot_basis/
+├── teaching_advanced/
+└── README.md
+```
+
+### ファイル命名規則
+- **プレフィックス**: カテゴリを示す（`teaching-`, `robot-`, `raspberry-`等）
+- **英語命名**: 英語とハイフン区切りで統一
+- **説明的**: 内容が分かる名前を付ける
+
+例：
+- `teaching-pico-bme280-wiring.png`
+- `robot-motor-connection.jpg`
+- `raspberry-ssh-setup.png`
+
+### 画像参照方法
+```markdown
+<!-- サブディレクトリからの参照 -->
+![説明](../images/ファイル名.jpg)
+
+<!-- ルートディレクトリからの参照 -->
+![説明](images/ファイル名.jpg)
+```
+
+### 移行手順
+1. セクション専用`images/`ディレクトリから`src/images/`に移動
+2. ファイル名を命名規則に従って変更
+3. 各記事内のリンクパスを更新
+4. 空になったディレクトリを削除
+
 ## 用語統一規則
 
 ### 技術系文書での表記
