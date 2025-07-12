@@ -31,6 +31,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="theme/custom.css">
+        <link rel="stylesheet" href="theme/mdbook-admonish.css">
 
         <!-- MathJax -->
         <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -84,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html" class="active">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">講義ノート</li><li class="chapter-item expanded "><a href="robot_basis/index.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="robot_basis/robot_basis_250710.html"><strong aria-hidden="true">1.1.</strong> モーター動作確認</a></li></ol></li><li class="chapter-item expanded "><a href="teaching_advanced/index.html"><strong aria-hidden="true">2.</strong> 教科指導の発展・応用</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="teaching_advanced/lesson1.html"><strong aria-hidden="true">2.1.</strong> 講義ノート1回目</a></li><li class="chapter-item expanded "><a href="teaching_advanced/lesson2.html"><strong aria-hidden="true">2.2.</strong> 講義ノート2回目</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">3.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">Raspberry Pi</li><li class="chapter-item expanded "><a href="raspberrypi_japanese_input_fix.html"><strong aria-hidden="true">4.</strong> Raspberry Pi 4でLXTerminalの日本語入力問題を解決する方法</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの作り方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">5.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">6.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="anchor_links_in_mdbook.html"><strong aria-hidden="true">7.</strong> mdBookでのアンカーリンク設定</a></li><li class="chapter-item expanded "><a href="css_tips_for_mdbook.html"><strong aria-hidden="true">8.</strong> mdBookでのCSS開発Tips</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">9.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">10.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">11.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html" class="active">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">講義ノート</li><li class="chapter-item expanded "><a href="robot_basis/index.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="robot_basis/robot_basis_250710.html"><strong aria-hidden="true">1.1.</strong> モーター動作確認</a></li></ol></li><li class="chapter-item expanded "><a href="teaching_advanced/index.html"><strong aria-hidden="true">2.</strong> 教科指導の発展・応用</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="teaching_advanced/lesson1.html"><strong aria-hidden="true">2.1.</strong> 講義ノート1回目</a></li><li class="chapter-item expanded "><a href="teaching_advanced/lesson2.html"><strong aria-hidden="true">2.2.</strong> 講義ノート2回目</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="nvim_cursor_jump.html"><strong aria-hidden="true">3.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">Raspberry Pi</li><li class="chapter-item expanded "><a href="raspberrypi_japanese_input_fix.html"><strong aria-hidden="true">4.</strong> Raspberry Pi 4でLXTerminalの日本語入力問題を解決する方法</a></li><li class="chapter-item expanded "><a href="raspberrypi4_connect_via_ssh_mac.html"><strong aria-hidden="true">5.</strong> RaspberryPi4とType-Cケーブル経由でSSH接続（Mac編）</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの作り方</li><li class="chapter-item expanded "><a href="how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">6.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="how_to_embed_code_from_files.html"><strong aria-hidden="true">7.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="anchor_links_in_mdbook.html"><strong aria-hidden="true">8.</strong> mdBookでのアンカーリンク設定</a></li><li class="chapter-item expanded "><a href="css_tips_for_mdbook.html"><strong aria-hidden="true">9.</strong> mdBookでのCSS開発Tips</a></li><li class="chapter-item expanded "><a href="how_to_embed_imagefile.html"><strong aria-hidden="true">10.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="how_to_use_playground.html"><strong aria-hidden="true">11.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="icon.html"><strong aria-hidden="true">12.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -153,9 +154,19 @@
 <p>このWebサイトは，IRLab.が作成している，mdBookを使用した技術資料集です．
 ロボット制御，Linux，エディタ操作，マイコン設定などの技術的なノウハウ
 を共有します．</p>
+<div id="admonition-note" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>Note</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note"></a>
+</div>
+<div>
 <p><strong>irlaben</strong> <code>/ˈaɪl ˈraːbən/</code>（アイル・ラーベン）は，IRLab. Essential Notesの愛称です．</p>
+</div>
+</div>
 <h2 id="目次"><a class="header" href="#目次">目次</a></h2>
-<h3 id="講義ノート作業中"><a class="header" href="#講義ノート作業中">講義ノート（作業中）</a></h3>
+<h3 id="講義ノート"><a class="header" href="#講義ノート">講義ノート</a></h3>
 <ul>
 <li><a href="robot_basis/README.html">ロボット制御基礎手順書</a>
 <ul>
@@ -171,11 +182,12 @@
 </ul>
 <h3 id="エディタツール"><a class="header" href="#エディタツール">エディタ・ツール</a></h3>
 <ul>
-<li><a href="nvim_cursor_jump.html">nvimでカーソルジャンプ</a> - Neovimの効率的なカーソル移動</li>
+<li><a href="nvim_cursor_jump.html">nvimでカーソルジャンプ</a></li>
 </ul>
 <h3 id="raspberry-pi"><a class="header" href="#raspberry-pi">Raspberry Pi</a></h3>
 <ul>
-<li><a href="raspberrypi_japanese_input_fix.html">Raspberry Pi 4でLXTerminalの日本語入力問題を解決する方法</a> - 日本語入力の設定手順</li>
+<li><a href="raspberrypi_japanese_input_fix.html">Raspberry Pi 4でLXTerminalの日本語入力問題を解決する方法</a></li>
+<li><a href="raspberrypi4_connect_via_ssh_mac.html">RaspberryPi4とType-Cケーブル経由でSSH接続（Mac編）</a></li>
 </ul>
 <h3 id="mdbookの作り方"><a class="header" href="#mdbookの作り方">mdBookの作り方</a></h3>
 <ul>
@@ -185,7 +197,7 @@
 <li><a href="css_tips_for_mdbook.html">mdBookでのCSS開発Tips</a></li>
 <li><a href="how_to_embed_imagefile.html">画像の埋め込み</a></li>
 <li><a href="how_to_use_playground.html">mdbook内でRustコードの実行</a></li>
-<li><a href="icon.html">よく使うアイコン一覧</a> - Font Awesome 4アイコン集</li>
+<li><a href="icon.html">よく使うアイコン一覧</a></li>
 </ul>
 <hr />
 <p>mdBookの詳細については，

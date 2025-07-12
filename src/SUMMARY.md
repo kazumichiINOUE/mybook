@@ -17,6 +17,7 @@
 
 # Raspberry Pi
 - [Raspberry Pi 4でLXTerminalの日本語入力問題を解決する方法](raspberrypi_japanese_input_fix.md)
+- [RaspberryPi4とType-Cケーブル経由でSSH接続（Mac編）](raspberrypi4_connect_via_ssh_mac.md)
 
 # mdBookの作り方
 - [gh-pagesでmdbookを公開する](how_to_deploy_from_gh-pages.md)

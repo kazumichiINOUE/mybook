@@ -12,9 +12,10 @@ Neovimでのカーソル移動は効率的な編集の基本です．
 網羅はしておらず，普段使いしているものだけにしました．
 他にもたくさんあると思いますので，探求してください．
 
-> <i class="fa fa-exclamation-circle"></i>  
-> `{文字列}`とあるところは，`{}`は書かないこと．  
-> 例：`test`を検索する<i class="fa fa-long-arrow-right"></i> `/test`
+```admonish note
+`{文字列}`とあるところは，`{}`は書かないこと．  
+例：`test`を検索する<i class="fa fa-long-arrow-right"></i> `/test`
+```
 
 ## 基本的なカーソル移動
 ### 文字単位の移動
