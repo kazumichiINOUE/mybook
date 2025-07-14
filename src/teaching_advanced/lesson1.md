@@ -19,9 +19,9 @@
 
 ## 実験内容
 1. ブレッドボードで温度センサー計測回路を組み立てる
-1. 温度センサーをRaspberryPi Pico で読み取る
-2. センサー値をOLEDで表示する
-2. 計測データをファイルに保存してPCでグラフにする
+2. 温度センサーをRaspberryPi Pico で読み取る
+3. センサー値をOLEDディスプレイで表示する
+4. 計測データをファイルに保存してPCでグラフにする
 
 ## 1. ブレッドボードで温度センサー計測回路を組み立てる
 ### 配線図
@@ -86,3 +86,16 @@ while True:
   style="width: 100%; height: auto;">
     <source src="../images/teaching-temperature-sensor-reading.mov"
   </video>
+
+## 3. センサー値をOLEDディスプレイで表示する
+### 配線図
+![OLED配線図](../images/teaching-pico配線_BME280.png)
+### 完成図
+![OLED配線図](../images/teaching-pico配線_BME280_完成.jpeg)
+### OLED表示付きプログラム
+```python
+{{#include oled.py}}
+```
+
+## 4. 計測データをファイルに保存してPCでグラフにする
+[Pythonでグラフが表示されない場合の対処法](matplotlib-troubleshooting.md)

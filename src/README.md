@@ -18,12 +18,12 @@
 
 ## 目次
 
-### 講義ノート
+### 実習ガイド
 - [ロボット制御基礎手順書](robot_basis/README.md)
   - [モーター動作確認](robot_basis/robot_basis_250710.md)
-- [教科指導の発展・応用](teaching_advanced/README.md)
-  - [講義ノート1回目](teaching_advanced/lesson1.md)
-  - [講義ノート2回目](teaching_advanced/lesson2.md)
+- [マイコン・センサー活用実習](teaching_advanced/README.md)
+  - [実習資料1: センサープログラミング](teaching_advanced/lesson1.md)
+  - [実習資料2: 応用課題](teaching_advanced/lesson2.md)
 
 ### エディタ・ツール
 - [nvimでカーソルジャンプ](nvim_cursor_jump.md)
@@ -41,7 +41,20 @@
 - [mdbook内でRustコードの実行](how_to_use_playground.md)
 - [よく使うアイコン一覧](icon.md)
 
----
+## 参考資料
 
 mdBookの詳細については，
 [mdBook Documentation](https://rust-lang.github.io/mdBook/)をご参照ください．
+
+---
+---
+
+## このプロジェクトをサポート
+
+このサイトが役に立ったら，ぜひサポートをお願いします！
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://coff.ee/xnwmgvh7ryk)
+
+*あなたのサポートが，より良いコンテンツ作成の励みになります*
+
+

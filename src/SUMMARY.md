@@ -2,12 +2,13 @@
 
 [Introduction](README.md)
 
-# 講義ノート
+# 実習ガイド
 - [ロボット制御基礎手順書](robot_basis/README.md)
     - [モーター動作確認](robot_basis/robot_basis_250710.md)
-- [教科指導の発展・応用](teaching_advanced/README.md)
-    - [講義ノート1回目](teaching_advanced/lesson1.md)
-    - [講義ノート2回目](teaching_advanced/lesson2.md)
+- [マイコン・センサー活用実習](teaching_advanced/README.md)
+    - [実習資料1](teaching_advanced/lesson1.md)
+        - [Pythonでグラフが表示されない場合の対処法](teaching_advanced/matplotlib-troubleshooting.md)
+    - [実習資料2](teaching_advanced/lesson2.md)
 <!-- 
 - [OLEDコネクタ ハンダ付け手順書](oled_connector_250717.md)
 -->

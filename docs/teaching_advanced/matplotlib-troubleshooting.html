@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>実習資料2 - irlaben — IRLab. Essential Notes —</title>
+        <title>Pythonでグラフが表示されない場合の対処法 - irlaben — IRLab. Essential Notes —</title>
 
 
         <!-- Custom HTML head -->
@@ -85,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">実習ガイド</li><li class="chapter-item expanded "><a href="../robot_basis/index.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../robot_basis/robot_basis_250710.html"><strong aria-hidden="true">1.1.</strong> モーター動作確認</a></li></ol></li><li class="chapter-item expanded "><a href="../teaching_advanced/index.html"><strong aria-hidden="true">2.</strong> マイコン・センサー活用実習</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../teaching_advanced/lesson1.html"><strong aria-hidden="true">2.1.</strong> 実習資料1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../teaching_advanced/matplotlib-troubleshooting.html"><strong aria-hidden="true">2.1.1.</strong> Pythonでグラフが表示されない場合の対処法</a></li></ol></li><li class="chapter-item expanded "><a href="../teaching_advanced/lesson2.html" class="active"><strong aria-hidden="true">2.2.</strong> 実習資料2</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="../nvim_cursor_jump.html"><strong aria-hidden="true">3.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">Raspberry Pi</li><li class="chapter-item expanded "><a href="../raspberrypi_japanese_input_fix.html"><strong aria-hidden="true">4.</strong> Raspberry Pi 4でLXTerminalの日本語入力問題を解決する方法</a></li><li class="chapter-item expanded "><a href="../raspberrypi4_connect_via_ssh_mac.html"><strong aria-hidden="true">5.</strong> RaspberryPi4とType-Cケーブル経由でSSH接続（Mac編）</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの作り方</li><li class="chapter-item expanded "><a href="../how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">6.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="../how_to_embed_code_from_files.html"><strong aria-hidden="true">7.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="../anchor_links_in_mdbook.html"><strong aria-hidden="true">8.</strong> mdBookでのアンカーリンク設定</a></li><li class="chapter-item expanded "><a href="../css_tips_for_mdbook.html"><strong aria-hidden="true">9.</strong> mdBookでのCSS開発Tips</a></li><li class="chapter-item expanded "><a href="../how_to_embed_imagefile.html"><strong aria-hidden="true">10.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="../how_to_use_playground.html"><strong aria-hidden="true">11.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="../icon.html"><strong aria-hidden="true">12.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">実習ガイド</li><li class="chapter-item expanded "><a href="../robot_basis/index.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../robot_basis/robot_basis_250710.html"><strong aria-hidden="true">1.1.</strong> モーター動作確認</a></li></ol></li><li class="chapter-item expanded "><a href="../teaching_advanced/index.html"><strong aria-hidden="true">2.</strong> マイコン・センサー活用実習</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../teaching_advanced/lesson1.html"><strong aria-hidden="true">2.1.</strong> 実習資料1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../teaching_advanced/matplotlib-troubleshooting.html" class="active"><strong aria-hidden="true">2.1.1.</strong> Pythonでグラフが表示されない場合の対処法</a></li></ol></li><li class="chapter-item expanded "><a href="../teaching_advanced/lesson2.html"><strong aria-hidden="true">2.2.</strong> 実習資料2</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="../nvim_cursor_jump.html"><strong aria-hidden="true">3.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">Raspberry Pi</li><li class="chapter-item expanded "><a href="../raspberrypi_japanese_input_fix.html"><strong aria-hidden="true">4.</strong> Raspberry Pi 4でLXTerminalの日本語入力問題を解決する方法</a></li><li class="chapter-item expanded "><a href="../raspberrypi4_connect_via_ssh_mac.html"><strong aria-hidden="true">5.</strong> RaspberryPi4とType-Cケーブル経由でSSH接続（Mac編）</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの作り方</li><li class="chapter-item expanded "><a href="../how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">6.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="../how_to_embed_code_from_files.html"><strong aria-hidden="true">7.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="../anchor_links_in_mdbook.html"><strong aria-hidden="true">8.</strong> mdBookでのアンカーリンク設定</a></li><li class="chapter-item expanded "><a href="../css_tips_for_mdbook.html"><strong aria-hidden="true">9.</strong> mdBookでのCSS開発Tips</a></li><li class="chapter-item expanded "><a href="../how_to_embed_imagefile.html"><strong aria-hidden="true">10.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="../how_to_use_playground.html"><strong aria-hidden="true">11.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="../icon.html"><strong aria-hidden="true">12.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -146,17 +146,55 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="講義ノート2回目"><a class="header" href="#講義ノート2回目">講義ノート2回目</a></h1>
+                        <h1 id="pythonでグラフが表示されない場合の対処法"><a class="header" href="#pythonでグラフが表示されない場合の対処法">Pythonでグラフが表示されない場合の対処法</a></h1>
+<div class="meta-info">
+<p><strong>Create date:</strong> 2023-11-02<br />
+<strong>Modified date:</strong> 2023-11-08</p>
+</div>
+<div id="admonition-note" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>Note</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note"></a>
+</div>
+<div>
+<p>2023-11-08追記：Thonnyで「ツール &gt; パッケージ管理」の場所を明記</p>
+</div>
+</div>
+<p>お手元のThonnyで<code>matplotlib</code>がインポートされていないかもしれません．
+実行しても以下のようなエラーメッセージが出る場合があります：</p>
+<p><img src="../images/teaching-matplotlib-error.png" alt="matplotlibエラー" /></p>
+<h2 id="1-インポート文の確認"><a class="header" href="#1-インポート文の確認">1. インポート文の確認</a></h2>
+<p>まずはプログラムの先頭に以下が記載されているか確認してください：</p>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+</code></pre>
+<p>スペルミスがないかも確認してください．</p>
+<h2 id="2-matplotlibライブラリのインストール"><a class="header" href="#2-matplotlibライブラリのインストール">2. matplotlibライブラリのインストール</a></h2>
+<p><code>matplotlib</code>のライブラリがインストールされていない可能性があります．
+<code>Thonny</code>でプログラムを書いている場合は，以下の手順でライブラリをインストールしましょう．</p>
+<h3 id="手順1-パッケージ管理を開く"><a class="header" href="#手順1-パッケージ管理を開く">手順1: パッケージ管理を開く</a></h3>
+<p>画面上部の<code>ツール &gt; パッケージを管理</code>を開きます．</p>
+<p><img src="../images/teaching-thonny-tools-menu.png" alt="Thonnyツールメニュー" /></p>
+<h3 id="手順2-matplotlibを検索"><a class="header" href="#手順2-matplotlibを検索">手順2: matplotlibを検索</a></h3>
+<p>以下の検索画面が開くので<code>matplotlib</code>を検索します．</p>
+<p><img src="../images/teaching-matplotlib-search.png" alt="matplotlib検索" /></p>
+<h3 id="手順3-matplotlibを選択"><a class="header" href="#手順3-matplotlibを選択">手順3: matplotlibを選択</a></h3>
+<p>出てきたリストから<code>matplotlib</code>を選びます．</p>
+<p><img src="../images/teaching-matplotlib-select.png" alt="matplotlib選択" /></p>
+<h3 id="手順4-インストール実行"><a class="header" href="#手順4-インストール実行">手順4: インストール実行</a></h3>
+<p>インストールボタンを押してください（以下の画面ではアップグレードになっています）．</p>
+<p><img src="../images/teaching-matplotlib-install.png" alt="matplotlibインストール" /></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../teaching_advanced/matplotlib-troubleshooting.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../teaching_advanced/lesson1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../nvim_cursor_jump.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../teaching_advanced/lesson2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -166,11 +204,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../teaching_advanced/matplotlib-troubleshooting.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../teaching_advanced/lesson1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../nvim_cursor_jump.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../teaching_advanced/lesson2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
