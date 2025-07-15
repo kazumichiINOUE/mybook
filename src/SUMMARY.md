@@ -8,6 +8,7 @@
 - [マイコン・センサー活用実習](teaching_advanced/README.md)
     - [実習資料1](teaching_advanced/lesson1.md)
         - [Pythonでグラフが表示されない場合の対処法](teaching_advanced/matplotlib-troubleshooting.md)
+        - [Thonnyをインストール](teaching_advanced/install_thonny.md)
     - [実習資料2](teaching_advanced/lesson2.md)
 <!-- 
 - [OLEDコネクタ ハンダ付け手順書](oled_connector_250717.md)
@@ -19,6 +20,7 @@
 # Raspberry Pi
 - [Raspberry Pi 4でLXTerminalの日本語入力問題を解決する方法](raspberrypi_japanese_input_fix.md)
 - [RaspberryPi4とType-Cケーブル経由でSSH接続（Mac編）](raspberrypi4_connect_via_ssh_mac.md)
+- [RaspberryPi PicoでMicroPythonを使う](raspberrypi_pico_micropython_setup.md)
 
 # mdBookの作り方
 - [gh-pagesでmdbookを公開する](how_to_deploy_from_gh-pages.md)
