@@ -1,0 +1,611 @@
+<!DOCTYPE HTML>
+<html lang="jp" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>障害物前停止確認 - irlaben — IRLab. Essential Notes —</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/custom.css">
+        <link rel="stylesheet" href="../theme/mdbook-admonish.css">
+
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">実習ガイド</li><li class="chapter-item expanded "><a href="../robot_basis/index.html"><strong aria-hidden="true">1.</strong> ロボット制御基礎手順書</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../robot_basis/robot_basis_250710.html"><strong aria-hidden="true">1.1.</strong> モーター動作確認</a></li><li class="chapter-item expanded "><a href="../robot_basis/robot_basis_250717.html" class="active"><strong aria-hidden="true">1.2.</strong> 障害物前停止確認</a></li></ol></li><li class="chapter-item expanded "><a href="../teaching_advanced/index.html"><strong aria-hidden="true">2.</strong> マイコン・センサー活用実習</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../teaching_advanced/lesson1.html"><strong aria-hidden="true">2.1.</strong> 実習資料1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../teaching_advanced/matplotlib-troubleshooting.html"><strong aria-hidden="true">2.1.1.</strong> Pythonでグラフが表示されない場合の対処法</a></li><li class="chapter-item expanded "><a href="../teaching_advanced/install_thonny.html"><strong aria-hidden="true">2.1.2.</strong> Thonnyをインストール</a></li></ol></li><li class="chapter-item expanded "><a href="../teaching_advanced/lesson2.html"><strong aria-hidden="true">2.2.</strong> 実習資料2</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">エディタ・ツール</li><li class="chapter-item expanded "><a href="../nvim_cursor_jump.html"><strong aria-hidden="true">3.</strong> nvimでカーソルジャンプ</a></li><li class="chapter-item expanded affix "><li class="part-title">Raspberry Pi</li><li class="chapter-item expanded "><a href="../raspberrypi_japanese_input_fix.html"><strong aria-hidden="true">4.</strong> Raspberry Pi 4でLXTerminalの日本語入力問題を解決する方法</a></li><li class="chapter-item expanded "><a href="../raspberrypi4_connect_via_ssh_mac.html"><strong aria-hidden="true">5.</strong> RaspberryPi4とType-Cケーブル経由でSSH接続（Mac編）</a></li><li class="chapter-item expanded "><a href="../raspberrypi_pico_micropython_setup.html"><strong aria-hidden="true">6.</strong> RaspberryPi PicoでMicroPythonを使う</a></li><li class="chapter-item expanded affix "><li class="part-title">mdBookの作り方</li><li class="chapter-item expanded "><a href="../how_to_deploy_from_gh-pages.html"><strong aria-hidden="true">7.</strong> gh-pagesでmdbookを公開する</a></li><li class="chapter-item expanded "><a href="../how_to_embed_code_from_files.html"><strong aria-hidden="true">8.</strong> mdbookにコードを埋め込む</a></li><li class="chapter-item expanded "><a href="../anchor_links_in_mdbook.html"><strong aria-hidden="true">9.</strong> mdBookでのアンカーリンク設定</a></li><li class="chapter-item expanded "><a href="../css_tips_for_mdbook.html"><strong aria-hidden="true">10.</strong> mdBookでのCSS開発Tips</a></li><li class="chapter-item expanded "><a href="../how_to_embed_imagefile.html"><strong aria-hidden="true">11.</strong> 画像の埋め込み</a></li><li class="chapter-item expanded "><a href="../how_to_use_playground.html"><strong aria-hidden="true">12.</strong> mdbook内でRustコードの実行</a></li><li class="chapter-item expanded "><a href="../icon.html"><strong aria-hidden="true">13.</strong> よく使うアイコン一覧</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">irlaben — IRLab. Essential Notes —</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="指定距離の走行確認"><a class="header" href="#指定距離の走行確認">指定距離の走行確認</a></h1>
+<div class="meta-info">
+<p><strong>Create date:</strong> 2025-07-15<br />
+<strong>Modified date:</strong> 2025-07-15</p>
+</div>
+<p><strong>実施日</strong>: 2025/7/17 (Thu) 13:00 -- 14:30</p>
+<div id="admonition-todo" class="admonition admonish-info" role="note" aria-labelledby="admonition-todo-title">
+<div class="admonition-title">
+<div id="admonition-todo-title">
+<p>Todo</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-todo"></a>
+</div>
+<div>
+<p><strong>実験の様子を写真に残しておいてください</strong></p>
+</div>
+</div>
+<h2 id="作業分担2名1組"><a class="header" href="#作業分担2名1組">作業分担（2名1組）</a></h2>
+<p><strong>全体（13:00-14:30）：協力作業</strong></p>
+<ul>
+<li>ディスプレイコネクターをハンダ付け</li>
+<li>ディスプレイをシャーシに固定</li>
+<li>協力してプログラミング実験を実施</li>
+</ul>
+<h2 id="実験内容"><a class="header" href="#実験内容">実験内容</a></h2>
+<h3 id="oled接続"><a class="header" href="#oled接続">OLED接続</a></h3>
+<p><img src="../images/OLED%E6%8E%A5%E7%B6%9A.png" alt="OLED" /></p>
+<h3 id="指定距離走行プログラミング"><a class="header" href="#指定距離走行プログラミング">指定距離走行プログラミング</a></h3>
+<ol>
+<li>速度制御</li>
+<li>オドメトリによる走行距離制御</li>
+</ol>
+<h2 id="1-指定距離走行プログラミング時間指定"><a class="header" href="#1-指定距離走行プログラミング時間指定">1. 指定距離走行プログラミング（時間指定）</a></h2>
+<p>ロボットの2個のモーターに，指定速度と指定時間だけ走行指令を出すと，
+一定距離を走行します．
+<strong>走行距離を固定とし</strong>，速度をさまざまに変化させ，制御してください．</p>
+<div style="text-align: center; font-style: italic; margin-top: 0.5em;">
+    表1: モーター速度と移動距離の関係(指定距離 _______ [mm])
+</div>
+<div class="table-wrapper"><table><thead><tr><th>指定速度(%)</th><th>指定時間(s)</th><th>実測距離(m)</th></tr></thead><tbody>
+<tr><td>20</td><td></td><td></td></tr>
+<tr><td>50</td><td></td><td></td></tr>
+<tr><td>70</td><td></td><td></td></tr>
+<tr><td>100</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<h3 id="基本的な制御方法"><a class="header" href="#基本的な制御方法">基本的な制御方法</a></h3>
+<pre><code class="language-python"># MOTOR_NUM: 1, 2 で指令を出すモーターを変更
+# DIRECTION: &quot;f&quot;, &quot;r&quot; で正回転/逆回転を切り替え
+# SPEED: 0 -- 100% でモータースピードを制御
+board.motorOn(1, &quot;f&quot;, 30)  # 左輪
+board.motorOn(2, &quot;r&quot;, 30)  # 右輪
+utime.sleep_ms(2000)      # 2秒間動作
+board.motorOn(1, &quot;f&quot;, 0)  # 左輪
+board.motorOn(2, &quot;r&quot;, 0)  # 右輪
+# 2秒だけ30%の速度で走行し，停止する
+</code></pre>
+<h3 id="プログラム例"><a class="header" href="#プログラム例">プログラム例</a></h3>
+<pre><code class="language-python">from machine import Pin, PWM, reset, time_pulse_us, I2C
+import PicoRobotics
+import utime
+import ssd1306
+import time
+import math
+
+
+# ロボットの諸定数
+WHEEL_RADIUS = 
+GEAR_RATIO = 
+ENCODER_PPR = 
+PI = math.pi
+DISTANCE_PER_PULSE = 
+
+# --- ディスプレイの設定
+i2c = I2C(1, sda=Pin(6), scl=Pin(7))
+try:
+    display = ssd1306.SSD1306_I2C(128, 64, i2c)
+except:
+    print(&quot;Display Error&quot;)
+    
+display.fill(0)  # ディスプレイをクリア
+display.text(&quot;Set up done&quot;, 0, 0)
+display.show()  # ディスプレイに表示
+
+# --- エンコーダ読み取り用変数
+count_L = 0
+last_state_L = 0
+
+count_R = 0
+last_state_R = 0
+
+# --- ボードとモーター設定
+board = PicoRobotics.KitronikPicoRobotics()
+directions = [&quot;r&quot;, &quot;f&quot;]
+
+# --- エンコーダピン（AB相）
+pin_a = Pin(16, Pin.IN, Pin.PULL_UP)
+pin_b = Pin(15, Pin.IN, Pin.PULL_UP)
+
+pin_c = Pin(10, Pin.IN, Pin.PULL_UP)
+pin_d = Pin(11, Pin.IN, Pin.PULL_UP)
+
+# --- 現在の状態をビットで取得（00〜11）
+def read_encoder_L_state():
+    return (pin_a.value() &lt;&lt; 1) | pin_b.value()
+
+def read_encoder_R_state():
+    return (pin_c.value() &lt;&lt; 1) | pin_d.value()
+
+# --- 割り込み処理（両相変化対応）
+def encoder_L_callback(pin):
+    global count_L, last_state_L
+    new_state = read_encoder_L_state()
+    transition = (last_state_L &lt;&lt; 2) | new_state
+    # 有効な状態遷移パターンで方向を判断（グレイコード順）
+    if transition in [0b0001, 0b0111, 0b1110, 0b1000]:  # 正方向
+        count_L += 1
+    elif transition in [0b0010, 0b0100, 0b1101, 0b1011]:  # 逆方向
+        count_L -= 1
+    # その他（グリッチ）は無視
+    last_state_L = new_state
+    
+def encoder_R_callback(pin):
+    global count_R, last_state_R
+    new_state = read_encoder_R_state()
+    transition = (last_state_R &lt;&lt; 2) | new_state
+    # 有効な状態遷移パターンで方向を判断（グレイコード順）
+    if transition in [0b0001, 0b0111, 0b1110, 0b1000]:  # 正方向
+        count_R += 1
+    elif transition in [0b0010, 0b0100, 0b1101, 0b1011]:  # 逆方向
+        count_R -= 1
+    # その他（グリッチ）は無視
+    last_state_R = new_state
+
+# --- 初期状態を保存
+last_state_L = read_encoder_L_state()
+last_state_R = read_encoder_R_state()
+
+
+# --- 割り込み設定（両エッジ両ピン）
+pin_a.irq(trigger=Pin.IRQ_RISING | Pin.IRQ_FALLING, handler=encoder_L_callback)
+pin_b.irq(trigger=Pin.IRQ_RISING | Pin.IRQ_FALLING, handler=encoder_L_callback)
+
+pin_c.irq(trigger=Pin.IRQ_RISING | Pin.IRQ_FALLING, handler=encoder_R_callback)
+pin_d.irq(trigger=Pin.IRQ_RISING | Pin.IRQ_FALLING, handler=encoder_R_callback)
+# --- テストループ
+last_print = utime.ticks_ms()
+
+board.motorOn(1, &quot;f&quot;, 0)
+board.motorOn(2, &quot;f&quot;, 0)
+
+def display_shell(count_L, count_R, speed):
+    print(&quot;CountL:&quot;, count_L, &quot; speed:&quot;, speed)
+    print(&quot;CountR:&quot;, count_R, &quot; speed:&quot;, speed)
+    
+def display_show(count_L, count_R):
+    display.text(&quot;CountL: {}&quot;.format(count_L), 0, 20)
+    display.text(&quot;CountR: {}&quot;.format(count_R), 0, 30)
+    dist = count_R * DISTANCE_PER_PULSE
+    display.text(&quot;DIST: {}&quot;.format(dist), 0, 40)
+    
+def calc_dist(count_L, count_R):
+    return count_R * DISTANCE_PER_PULSE
+
+LIMIT_DIST = 1.0  #走行距離指定
+speed = 100
+
+while True:
+    now = utime.ticks_ms()
+    if utime.ticks_diff(now, last_print) &gt; 100:
+        display.fill(0)  # ディスプレイをクリア
+        display_shell(count_L, count_R, speed)
+        display_show(count_L, count_R)
+        display.show()  # ディスプレイに表示
+
+        last_print = now
+        
+    # ここをN秒走行に変える
+    
+    # ここまで
+
+board.motorOn(1, &quot;f&quot;, 0)
+board.motorOn(2, &quot;f&quot;, 0)
+display.fill(0)  # ディスプレイをクリア
+display_measurement(distance)
+display_shell(count_L, count_R, speed)
+display_show(count_L, count_R)
+display.show()  # ディスプレイに表示
+</code></pre>
+<h2 id="2-オドメトリによる走行距離制御"><a class="header" href="#2-オドメトリによる走行距離制御">2. オドメトリによる走行距離制御</a></h2>
+<p>オドメトリとは，タイヤの回転数から走行距離（2輪独立制御の場合は位置と方向）を計算で求めたものです．
+計算に必要なパラメーターは次のようになります．</p>
+<ul>
+<li>エンコーダーパルス（カウント）あたりのタイヤの回転数</li>
+<li>タイヤの半径</li>
+<li>ギヤ比</li>
+<li>回転時間（何秒間走行させるか）</li>
+</ul>
+<h3 id="オドメトリ計算用定数"><a class="header" href="#オドメトリ計算用定数">オドメトリ計算用定数</a></h3>
+<p>プログラムでは以下の定数を定義して使用します：</p>
+<pre><code class="language-python"># オドメトリ計算用定数
+WHEEL_RADIUS = 
+GEAR_RATIO = 
+ENCODER_PPR = 
+DISTANCE_PER_PULSE = 
+</code></pre>
+<!--
+WHEEL_RADIUS = 0.034        # [m]
+GEAR_RATIO = 56
+ENCODER_PPR = 11            # [pulses/revolution]
+DISTANCE_PER_PULSE = (2 * 3.14159 * WHEEL_RADIUS) / (GEAR_RATIO * ENCODER_PPR)
+-->
+<p>これにより，1カウントあたりの走行距離は，次のようになります．</p>
+<p>$$
+\text{走行距離/カウント} = \frac{\text{エンコーダーカウント} \times 2\pi \times \text{WHEEL_RADIUS}}{\text{GEAR_RATIO} \times \text{ENCODER_PPR}}
+$$</p>
+<!--
+ここで：
+- WHEEL_RADIUS：タイヤ半径 = 0.034 [m]
+- GEAR_RATIO：ギヤ比 = 56
+- ENCODER_PPR：エンコーダー分解能 = 22 [パルス/回転]
+
+具体的な数値を代入すると：
+
+$$
+\text{走行距離} = \text{エンコーダーカウント} \times \text{DISTANCE\_PER\_PULSE} = \text{エンコーダーカウント} \times 0.0001734 \text{ [m]}
+$$
+-->
+<pre><code class="language-python">import PicoRobotics
+import utime
+from machine import Pin, PWM, reset, time_pulse_us, I2C
+import ssd1306
+import time
+
+# --- ディスプレイの設定
+i2c = I2C(1, sda=Pin(6), scl=Pin(7))
+try:
+    display = ssd1306.SSD1306_I2C(128, 64, i2c)
+except:
+    print(&quot;Display Error&quot;)
+    
+display.fill(0)  # ディスプレイをクリア
+display.text(&quot;Set up USonic&quot;, 0, 0)
+display.show()  # ディスプレイに表示
+
+# --- エンコーダ読み取り用変数
+count = 0
+last_state = 0
+
+count_R = 0
+last_state_R = 0
+
+# --- ボードとモーター設定
+board = PicoRobotics.KitronikPicoRobotics()
+directions = [&quot;r&quot;, &quot;f&quot;]
+
+# --- エンコーダピン（AB相）
+pin_a = Pin(16, Pin.IN, Pin.PULL_UP)
+pin_b = Pin(15, Pin.IN, Pin.PULL_UP)
+
+pin_c = Pin(10, Pin.IN, Pin.PULL_UP)
+pin_d = Pin(11, Pin.IN, Pin.PULL_UP)
+
+# --- 現在の状態をビットで取得（00〜11）
+def read_encoder_state():
+    return (pin_a.value() &lt;&lt; 1) | pin_b.value()
+
+def read_encoder_R_state():
+    return (pin_c.value() &lt;&lt; 1) | pin_d.value()
+
+# --- 割り込み処理（両相変化対応）
+def encoder_callback(pin):
+    global count, last_state
+    new_state = read_encoder_state()
+    transition = (last_state &lt;&lt; 2) | new_state
+    # 有効な状態遷移パターンで方向を判断（グレイコード順）
+    if transition in [0b0001, 0b0111, 0b1110, 0b1000]:  # 正方向
+        count += 1
+    elif transition in [0b0010, 0b0100, 0b1101, 0b1011]:  # 逆方向
+        count -= 1
+    # その他（グリッチ）は無視
+    last_state = new_state
+    
+def encoder_R_callback(pin):
+    global count_R, last_state_R
+    new_state = read_encoder_R_state()
+    transition = (last_state_R &lt;&lt; 2) | new_state
+    # 有効な状態遷移パターンで方向を判断（グレイコード順）
+    if transition in [0b0001, 0b0111, 0b1110, 0b1000]:  # 正方向
+        count_R += 1
+    elif transition in [0b0010, 0b0100, 0b1101, 0b1011]:  # 逆方向
+        count_R -= 1
+    # その他（グリッチ）は無視
+    last_state_R = new_state
+
+# --- 初期状態を保存
+last_state = read_encoder_state()
+last_state_R = read_encoder_R_state()
+
+
+# --- 割り込み設定（両エッジ両ピン）
+pin_a.irq(trigger=Pin.IRQ_RISING | Pin.IRQ_FALLING, handler=encoder_callback)
+pin_b.irq(trigger=Pin.IRQ_RISING | Pin.IRQ_FALLING, handler=encoder_callback)
+
+pin_c.irq(trigger=Pin.IRQ_RISING | Pin.IRQ_FALLING, handler=encoder_R_callback)
+pin_d.irq(trigger=Pin.IRQ_RISING | Pin.IRQ_FALLING, handler=encoder_R_callback)
+# --- テストループ
+last_print = utime.ticks_ms()
+
+board.motorOn(1, &quot;f&quot;, 0)
+board.motorOn(2, &quot;f&quot;, 0)
+
+while True:
+    speed = 0
+    while speed &lt; 100:
+        speed += 1
+        board.motorOn(1, &quot;f&quot;, speed)
+        board.motorOn(2, &quot;f&quot;, speed)
+
+        utime.sleep_ms(10)
+        # 出力を制限（100msごと）
+        now = utime.ticks_ms()
+        if utime.ticks_diff(now, last_print) &gt; 100:
+            print(&quot;Count:&quot;, count, &quot; speed:&quot;, speed)
+            last_print = now
+            display.fill(0)  # ディスプレイをクリア
+            display.text(&quot;Count: {}&quot;.format(count), 0, 20)
+            display.show()  # ディスプレイに表示
+    while count &gt; -3000:
+        speed = 100
+        board.motorOn(1, &quot;f&quot;, speed)
+        board.motorOn(2, &quot;f&quot;, speed)
+
+        utime.sleep_ms(10)
+        # 出力を制限（100msごと）
+        now = utime.ticks_ms()
+        if utime.ticks_diff(now, last_print) &gt; 100:
+            print(&quot;Count:&quot;, count, &quot; speed:&quot;, speed)
+            last_print = now
+            display.fill(0)  # ディスプレイをクリア
+            display.text(&quot;Count: {}&quot;.format(count), 0, 20)
+            display.show()  # ディスプレイに表示
+    while speed &gt; 0:
+        speed -= 1
+        board.motorOn(1, &quot;f&quot;, speed)
+        board.motorOn(2, &quot;f&quot;, speed)
+
+        utime.sleep_ms(20)
+        now = utime.ticks_ms()
+        if utime.ticks_diff(now, last_print) &gt; 100:
+            print(&quot;Count:&quot;, count, &quot; speed:&quot;, speed)
+            last_print = now
+            display.fill(0)  # ディスプレイをクリア
+            display.text(&quot;Count: {}&quot;.format(count), 0, 20)
+            display.show()  # ディスプレイに表示
+
+    break
+board.motorOn(1, &quot;f&quot;, 0)
+board.motorOn(2, &quot;f&quot;, 0)
+</code></pre>
+<hr />
+<h2 id="トラブルシューティング"><a class="header" href="#トラブルシューティング">トラブルシューティング</a></h2>
+<h3 id="モーター制御でエラーが発生する場合"><a class="header" href="#モーター制御でエラーが発生する場合">モーター制御でエラーが発生する場合</a></h3>
+<h4 id="oserror-errno-5-eio-エラー"><a class="header" href="#oserror-errno-5-eio-エラー">OSError: [Errno 5] EIO エラー</a></h4>
+<p><strong>症状：</strong> <code>board.motorOn()</code>実行時にI/Oエラーが発生</p>
+<p><strong>主な原因と対処法：</strong></p>
+<ol>
+<li>
+<p><strong>金属部品のショート</strong></p>
+<ul>
+<li>エンコーダー基板周辺でネジなどの金属部品が吸着していないか確認</li>
+<li>異物を除去し，金属部品が基板に接触していないことを確認</li>
+</ul>
+</li>
+<li>
+<p><strong>配線の問題</strong></p>
+<ul>
+<li>モーター配線が正しく接続されているか確認</li>
+<li>配線の断線や接触不良がないか確認</li>
+</ul>
+</li>
+<li>
+<p><strong>電源の問題</strong></p>
+<ul>
+<li>バッテリー残量を確認</li>
+<li>電源供給が安定しているか確認</li>
+</ul>
+</li>
+</ol>
+<h4 id="超音波センサーで異常な値が表示される場合"><a class="header" href="#超音波センサーで異常な値が表示される場合">超音波センサーで異常な値が表示される場合</a></h4>
+<p><strong>症状：</strong> 距離測定で<code>None</code>や異常に大きな値が返される</p>
+<p><strong>対処法：</strong></p>
+<ul>
+<li>センサー前方に障害物がないか確認</li>
+<li>TRIGピン，ECHOピンの配線確認</li>
+<li>センサーの向きが正しいか確認</li>
+</ul>
+<h4 id="プログラムが途中で停止する場合"><a class="header" href="#プログラムが途中で停止する場合">プログラムが途中で停止する場合</a></h4>
+<p><strong>対処法：</strong></p>
+<ul>
+<li>エラーメッセージを確認し，該当するエラーの対処法を実施</li>
+<li>ハードウェアの接続状態を再確認</li>
+<li>プログラムを最初から再実行</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../robot_basis/robot_basis_250710.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../teaching_advanced/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../robot_basis/robot_basis_250710.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../teaching_advanced/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
