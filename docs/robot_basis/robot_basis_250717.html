@@ -173,6 +173,28 @@
 <h2 id="実験内容"><a class="header" href="#実験内容">実験内容</a></h2>
 <h3 id="oled接続"><a class="header" href="#oled接続">OLED接続</a></h3>
 <p><img src="../images/OLED%E6%8E%A5%E7%B6%9A.png" alt="OLED" /></p>
+<h3 id="確認プログラム"><a class="header" href="#確認プログラム">確認プログラム</a></h3>
+<h3 id="プログラム例"><a class="header" href="#プログラム例">プログラム例</a></h3>
+<pre><code class="language-python">from machine import Pin, PWM, reset, time_pulse_us, I2C
+import PicoRobotics
+import utime
+import ssd1306
+import time
+import math
+
+# --- ディスプレイの設定
+i2c = I2C(1, sda=Pin(6), scl=Pin(7))
+try:
+    display = ssd1306.SSD1306_I2C(128, 64, i2c)
+except:
+    print(&quot;Display Error&quot;)
+    
+for i in range(3):
+    display.fill(0)  # ディスプレイをクリア
+    display.text(&quot;Set up done&quot;, 0, i*10)
+    display.show()  # ディスプレイに表示
+    utime.sleep_ms(1000)      # 1秒間動作
+</code></pre>
 <h3 id="指定距離走行プログラミング"><a class="header" href="#指定距離走行プログラミング">指定距離走行プログラミング</a></h3>
 <ol>
 <li>速度制御</li>
@@ -203,7 +225,7 @@ board.motorOn(1, &quot;f&quot;, 0)  # 左輪
 board.motorOn(2, &quot;r&quot;, 0)  # 右輪
 # 2秒だけ30%の速度で走行し，停止する
 </code></pre>
-<h3 id="プログラム例"><a class="header" href="#プログラム例">プログラム例</a></h3>
+<h3 id="プログラム例-1"><a class="header" href="#プログラム例-1">プログラム例</a></h3>
 <pre><code class="language-python">from machine import Pin, PWM, reset, time_pulse_us, I2C
 import PicoRobotics
 import utime

@@ -23,6 +23,31 @@
 ### OLED接続
 ![OLED](../images/OLED接続.png)
 
+### 確認プログラム
+### プログラム例
+```python
+from machine import Pin, PWM, reset, time_pulse_us, I2C
+import PicoRobotics
+import utime
+import ssd1306
+import time
+import math
+
+# --- ディスプレイの設定
+i2c = I2C(1, sda=Pin(6), scl=Pin(7))
+try:
+    display = ssd1306.SSD1306_I2C(128, 64, i2c)
+except:
+    print("Display Error")
+    
+for i in range(3):
+    display.fill(0)  # ディスプレイをクリア
+    display.text("Set up done", 0, i*10)
+    display.show()  # ディスプレイに表示
+    utime.sleep_ms(1000)      # 1秒間動作
+```
+
+
 ### 指定距離走行プログラミング
 1. 速度制御
 2. オドメトリによる走行距離制御
