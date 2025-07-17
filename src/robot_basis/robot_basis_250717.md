@@ -220,9 +220,16 @@ DISTANCE_PER_PULSE = (2 * 3.14159 * WHEEL_RADIUS) / (GEAR_RATIO * ENCODER_PPR)
 
 これにより，1カウントあたりの走行距離は，次のようになります．
 
+**考えてみましょう**
+$$
+\text{走行距離/カウント} = 
+$$
+
+<!-- 
 $$
 \text{走行距離/カウント} = \frac{\text{エンコーダーカウント} \times 2\pi \times \text{WHEEL\_RADIUS}}{\text{GEAR\_RATIO} \times \text{ENCODER\_PPR}}
 $$
+-->
 
 <!--
 ここで：

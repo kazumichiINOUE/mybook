@@ -868,9 +868,15 @@ ENCODER_PPR = 11            # [pulses/revolution]
 DISTANCE_PER_PULSE = (2 * 3.14159 * WHEEL_RADIUS) / (GEAR_RATIO * ENCODER_PPR)
 -->
 <p>これにより，1カウントあたりの走行距離は，次のようになります．</p>
-<p>$$
-\text{走行距離/カウント} = \frac{\text{エンコーダーカウント} \times 2\pi \times \text{WHEEL_RADIUS}}{\text{GEAR_RATIO} \times \text{ENCODER_PPR}}
+<p><strong>考えてみましょう</strong>
+$$
+\text{走行距離/カウント} = 
 $$</p>
+<!-- 
+$$
+\text{走行距離/カウント} = \frac{\text{エンコーダーカウント} \times 2\pi \times \text{WHEEL\_RADIUS}}{\text{GEAR\_RATIO} \times \text{ENCODER\_PPR}}
+$$
+-->
 <!--
 ここで：
 - WHEEL_RADIUS：タイヤ半径 = 0.034 [m]
