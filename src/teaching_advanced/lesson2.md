@@ -26,7 +26,7 @@
 ### 配線図
 ![OLED配線図](../images/teaching-pico配線_BME280.png)
 ### 完成図
-![OLED配線図](../images/teaching-pico配線_BME280_完成.jpeg)
+![OLED配線図](../images/pico_with_oled.png)
 ### OLED表示付きプログラム
 
 **プログラムの雛形**
