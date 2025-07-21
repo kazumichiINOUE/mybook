@@ -250,11 +250,9 @@ $$
 \text{走行距離/カウント} = 
 $$
 
-<!-- 
 $$
 \text{走行距離/カウント} = \frac{\text{エンコーダーカウント} \times 2\pi \times \text{WHEEL\_RADIUS}}{\text{GEAR\_RATIO} \times \text{ENCODER\_PPR}}
 $$
--->
 
 <!--
 ここで：

@@ -894,11 +894,9 @@ DISTANCE_PER_PULSE = (2 * 3.14159 * WHEEL_RADIUS) / (GEAR_RATIO * ENCODER_PPR)
 $$
 \text{走行距離/カウント} = 
 $$</p>
-<!-- 
-$$
-\text{走行距離/カウント} = \frac{\text{エンコーダーカウント} \times 2\pi \times \text{WHEEL\_RADIUS}}{\text{GEAR\_RATIO} \times \text{ENCODER\_PPR}}
-$$
--->
+<p>$$
+\text{走行距離/カウント} = \frac{\text{エンコーダーカウント} \times 2\pi \times \text{WHEEL_RADIUS}}{\text{GEAR_RATIO} \times \text{ENCODER_PPR}}
+$$</p>
 <!--
 ここで：
 - WHEEL_RADIUS：タイヤ半径 = 0.034 [m]
@@ -1316,6 +1314,731 @@ print(&quot;Hello, World!&quot;)
   <source src="../images/teaching-result-movie.mov"
 </video>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="講義ノート2回目"><a class="header" href="#講義ノート2回目">講義ノート2回目</a></h1>
+<div class="meta-info">
+<p><strong>Create date:</strong> 2025-07-21<br />
+<strong>Modified date:</strong> 2025-07-21</p>
+</div>
+<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
+<div class="admonition-title">
+<div id="admonition-info-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="teaching_advanced/lesson2.html#admonition-info"></a>
+</div>
+<div>
+<p>2025/7/21 (Mon) 13:00 -- 14:30<br />
+<strong>実験の様子を写真に残しておいてください</strong></p>
+</div>
+</div>
+<h2 id="大きな目標設定-1"><a class="header" href="#大きな目標設定-1">大きな目標設定</a></h2>
+<ul>
+<li>IoTの基礎をマイコンプログラミングを通して学ぶ</li>
+<li>Pythonの文法を知る</li>
+<li>インターネット通信の仕組みを知る</li>
+</ul>
+<h2 id="実験内容-3"><a class="header" href="#実験内容-3">実験内容</a></h2>
+<ol start="2">
+<li>温度センサーをRaspberryPi Pico で読み取る</li>
+<li>センサー値をOLEDディスプレイで表示する</li>
+<li>計測データをWiFiでPCへ送信し，PCで受信する</li>
+</ol>
+<h2 id="1-センサー値をoledディスプレイで表示する"><a class="header" href="#1-センサー値をoledディスプレイで表示する">1. センサー値をOLEDディスプレイで表示する</a></h2>
+<h3 id="配線図-2"><a class="header" href="#配線図-2">配線図</a></h3>
+<p><img src="teaching_advanced/../images/teaching-pico%E9%85%8D%E7%B7%9A_BME280.png" alt="OLED配線図" /></p>
+<h3 id="完成図-2"><a class="header" href="#完成図-2">完成図</a></h3>
+<p><img src="teaching_advanced/../images/teaching-pico%E9%85%8D%E7%B7%9A_BME280_%E5%AE%8C%E6%88%90.jpeg" alt="OLED配線図" /></p>
+<h3 id="oled表示付きプログラム-1"><a class="header" href="#oled表示付きプログラム-1">OLED表示付きプログラム</a></h3>
+<p><strong>プログラムの雛形</strong></p>
+<pre><code class="language-python">from machine import Pin, PWM, reset, time_pulse_us, I2C
+import ssd1306
+import time
+import bme280_float as bme280
+
+i2c_bme = I2C(0, scl=Pin(17), sda=Pin(16), freq=100000)
+print(i2c_bme.scan())  # [118] または [119] なら正常
+
+bme = bme280.BME280(i2c=i2c_bme)
+
+led = Pin(22, Pin.OUT) # LEDについてはなくても問題ない
+led.value(1)           # 
+
+#=====&lt;ここにディスプレイの初期設定を書く&gt;=====
+
+#=====&lt;ここまで&gt;=====
+
+# --- 計測開始
+while True:
+    # 気温，気圧，湿度を読み取る
+    temp, pres, hum = bme.read_compensated_data()
+    print('気温: {:.2f}°C  気圧: {:.2f}hPa  湿度: {:.2f}%'.format(temp, pres / 100, hum))
+
+    # (オプション）気温が25度を超えたらLEDを点灯させる
+    if temp &gt; 25.0:
+        led.value(0)
+    else:
+        led.value(1)
+
+    #=====&lt;ここにディスプレイ表示処理を書く&gt;=====
+
+    #=====&lt;ここまで&gt;=====
+
+    # 1秒間隔で計測を続ける
+    time.sleep(1)
+
+
+
+</code></pre>
+<p><strong>ディスプレイの初期設定</strong>
+<img src="teaching_advanced/../images/display_init.png" alt="display_init" /></p>
+<!--
+```python
+# --- ディスプレイの設定
+i2c_oled = I2C(1, sda=Pin(14), scl=Pin(15))
+try:
+    display = ssd1306.SSD1306_I2C(128, 64, i2c_oled)
+except:
+    print("Display Error")
+    
+display.fill(0)  # ディスプレイをクリア
+display.text("Set up sensor", 0, 0)
+display.show()  # ディスプレイに表示
+```
+-->
+<p><strong>ディスプレイの表示処理</strong>
+<img src="teaching_advanced/../images/display_process.png" alt="display_process" /></p>
+<!--
+```python
+display.fill(0)  # ディスプレイをクリア
+display.text("Temp: {:.1f} deg".format(float(temp)), 0,  0)
+display.text("Pres: {:.1f} hPa".format(float(pres)/100), 0, 10)
+display.text("Humi: {:.1f} %".format(float(hum)), 0, 20)
+display.show()  # ディスプレイに表示
+```
+-->
+<!--
+```python
+from machine import Pin, PWM, reset, time_pulse_us, I2C
+import ssd1306
+import time
+import bme280_float as bme280
+
+i2c_bme = I2C(0, scl=Pin(17), sda=Pin(16), freq=100000)
+print(i2c_bme.scan())  # [118] または [119] なら正常
+
+bme = bme280.BME280(i2c=i2c_bme)
+
+led = Pin(22, Pin.OUT) # LEDについてはなくても問題ない
+led.value(1)           # 
+
+# --- ディスプレイの設定
+i2c_oled = I2C(1, sda=Pin(14), scl=Pin(15))
+try:
+    display = ssd1306.SSD1306_I2C(128, 64, i2c_oled)
+except:
+    print("Display Error")
+    
+display.fill(0)  # ディスプレイをクリア
+display.text("Set up sensor", 0, 0)
+display.show()  # ディスプレイに表示
+
+# --- 計測開始
+while True:
+    # 気温，気圧，湿度を読み取る
+    temp, pres, hum = bme.read_compensated_data()
+    print('気温: {:.2f}°C  気圧: {:.2f}hPa  湿度: {:.2f}%'.format(temp, pres / 100, hum))
+
+    # (オプション）気温が25度を超えたらLEDを点灯させる
+    if temp > 25.0:
+        led.value(0)
+    else:
+        led.value(1)
+
+    display.fill(0)  # ディスプレイをクリア
+    display.text("Temp: {:.1f} deg".format(float(temp)), 0,  0)
+    display.text("Pres: {:.1f} hPa".format(float(pres)/100), 0, 10)
+    display.text("Humi: {:.1f} %".format(float(hum)), 0, 20)
+    display.show()  # ディスプレイに表示
+
+    # 1秒間隔で計測を続ける
+    time.sleep(1)
+
+
+```
+-->
+<h3 id="課題"><a class="header" href="#課題">課題</a></h3>
+<p>設定温度よりも気温が高かったら，<code>Hot!!</code>，そうでなければ<code>Comfortable</code>と表示する処理を追加しよう．</p>
+<h2 id="2-インターネット通信の仕組み"><a class="header" href="#2-インターネット通信の仕組み">2. インターネット通信の仕組み</a></h2>
+<h3 id="21-一般的な説明"><a class="header" href="#21-一般的な説明">2.1 一般的な説明</a></h3>
+<p><img src="teaching_advanced/../images/internet.png" alt="internet_explanation" /></p>
+<h3 id="22-実験環境のネットワーク設定"><a class="header" href="#22-実験環境のネットワーク設定">2.2 実験環境のネットワーク設定</a></h3>
+<h2 id="3-リモート計測プログラム"><a class="header" href="#3-リモート計測プログラム">3. リモート計測プログラム</a></h2>
+<h3 id="31-picoからwifi通信をするプログラム"><a class="header" href="#31-picoからwifi通信をするプログラム">3.1 PicoからWiFi通信をするプログラム</a></h3>
+<ul>
+<li><code>SSID/PASSWORD</code> を，使用しているネットワーク設定に書き換える</li>
+<li><code>PICO_ID</code>を<code>1,2,3</code>のどれかに変える（他のPicoと重複しないこと）</li>
+<li>プログラムを，Picoに<code>main.py</code>というファイル名で保存する</li>
+</ul>
+<pre><code class="language-python">&quot;&quot;&quot;
+# Pico 温度・気圧・湿度計測データ送信プログラム
+
+## 1. 概要
+このプログラムは，Raspberry Pi Pico (以下，Pico) 上で動作する，
+温度・気圧・湿度センサーによる計測と，その計測データをネットワーク接続したクライアントPCへ送信
+するプログラムです．
+計測データは，Picoに接続したOLEDディスプレイにも表示されます．
+基本的には，USB電源によるスタンドアローン (PCなどには接続せず，単独で動作させる)な使い方を想定して
+います．
+
+## 2. 接続しているデバイス
+- 温度・気圧・湿度センサー: BME280 (5V仕様) 1台
+- OLEDディスプレイ: SSD1306 1台
+- LED: 砲弾型LED 1個
+
+## 3. 動作フロー
+1) main()関数より，`start_server()` を呼び出し（実質的なメイン関数）
+2) WiFi接続を確立（失敗したら停止）
+3) BME280接続を確立（失敗したら停止）
+4) サーバーを起動し，リクエストを待機
+5) `handle_client()`にて，リクエストに対応
+5-1) &quot;led_on&quot;: led.on()
+5-2) &quot;led_off&quot;: led.off()
+5-3) &quot;get_status&quot;: response
+5-4) &quot;ping&quot;: response
+5-5) &quot;get_sensor_data&quot;: 
+        bmeが初期化できている場合: response {temp, pres, hum}
+        それ以外: response error
+5-6) それ以外: response 
+
+## 4. 設定項目
+SSID = ユーザーにより設定
+PASSWORD = ユーザーにより設定
+SERVER_PORT = ユーザーにより設定 (デフォルト: 8080)
+PICO_ID = XX  (各Picoで1，2，3に変更)
+
+## 5. ライブラリ
+- bme280_float.py
+- ssd1306
+
+## 6. 使用方法
+`main.py`として起動する (Picoに書き込まれている場合，電源を入れれば自動でスタートする)
+PCで，`multi_client.py`を起動し，リクエストを送信することでデータ収集ができるようになる．
+&quot;&quot;&quot;
+import network
+import socket
+import time
+import machine
+import json
+import bme280_float as bme280
+
+# WiFi設定
+SSID = &quot;Buffalo-9EC0&quot;
+PASSWORD = &quot;66x6h6hjjtvbk&quot;
+
+# サーバー設定
+SERVER_PORT = 8080
+
+# Pico固有ID設定（各Picoで1，2，3に変更）
+PICO_ID = XX
+
+# LED設定
+led = machine.Pin(&quot;LED&quot;, machine.Pin.OUT)
+
+# BME280設定（I2C）
+bme = None
+
+def init_bme280():
+    &quot;&quot;&quot;BME280センサーの初期化&quot;&quot;&quot;
+    global bme
+    try:
+        # I2C設定
+        i2c_bme = machine.I2C(0, scl=machine.Pin(17), sda=machine.Pin(16), freq=100000)
+        devices = i2c_bme.scan()
+        print(f&quot;I2Cデバイス検出: {devices}&quot;)  # [118] または [119] なら正常
+        
+        if not devices:
+            print(&quot;I2Cデバイスが見つかりません&quot;)
+            return False
+            
+        # BME280の初期化
+        bme = bme280.BME280(i2c=i2c_bme)
+        print(&quot;BME280センサーが正常に初期化されました&quot;)
+        return True
+        
+    except Exception as e:
+        print(f&quot;BME280初期化エラー: {e}&quot;)
+        return False
+
+def connect_wifi():
+    &quot;&quot;&quot;WiFiに接続&quot;&quot;&quot;
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    
+    if not wlan.isconnected():
+        print(&quot;WiFiに接続中...&quot;)
+        wlan.connect(SSID, PASSWORD)
+        
+        timeout = 10
+        while not wlan.isconnected() and timeout &gt; 0:
+            time.sleep(1)
+            timeout -= 1
+            print(&quot;.&quot;, end=&quot;&quot;)
+        
+        if wlan.isconnected():
+            print(f&quot;\nWiFi接続成功: {wlan.ifconfig()}&quot;)
+            return wlan.ifconfig()[0]  # IPアドレスを返す
+        else:
+            print(&quot;WiFi接続に失敗しました&quot;)
+            return None
+    else:
+        print(f&quot;既にWiFiに接続済み: {wlan.ifconfig()}&quot;)
+        return wlan.ifconfig()[0]
+
+def handle_client(client_socket):
+    &quot;&quot;&quot;クライアントからのリクエストを処理&quot;&quot;&quot;
+    try:
+        # データ受信（最大1024バイト）
+        data = client_socket.recv(1024)
+        if data:
+            message = data.decode('utf-8')
+            print(f&quot;受信メッセージ: {message}&quot;)
+            
+            # JSONデータの解析
+            try:
+                request = json.loads(message)
+                command = request.get(&quot;command&quot;)
+                
+                # コマンドに応じた処理
+                if command == &quot;led_on&quot;:
+                    led.on()
+                    response = {&quot;status&quot;: &quot;success&quot;, &quot;message&quot;: &quot;LED点灯&quot;, &quot;led_state&quot;: &quot;on&quot;, &quot;pico_id&quot;: PICO_ID}
+                elif command == &quot;led_off&quot;:
+                    led.off()
+                    response = {&quot;status&quot;: &quot;success&quot;, &quot;message&quot;: &quot;LED消灯&quot;, &quot;led_state&quot;: &quot;off&quot;, &quot;pico_id&quot;: PICO_ID}
+                elif command == &quot;get_status&quot;:
+                    response = {&quot;status&quot;: &quot;success&quot;, &quot;message&quot;: &quot;Pico W is running&quot;, &quot;uptime&quot;: time.ticks_ms(), &quot;pico_id&quot;: PICO_ID}
+                elif command == &quot;ping&quot;:
+                    response = {&quot;status&quot;: &quot;success&quot;, &quot;message&quot;: &quot;pong&quot;, &quot;pico_id&quot;: PICO_ID}
+                elif command == &quot;get_sensor_data&quot;:
+                    if bme:
+                        try:
+                            # 参考プログラムと同じ方法でデータを取得
+                            temp, pres, hum = bme.read_compensated_data()
+                            sensor_data = {
+                                &quot;temperature&quot;: round(float(temp), 2),
+                                &quot;pressure&quot;: round(float(pres) / 100, 2),  # Paから hPaに変換
+                                &quot;humidity&quot;: round(float(hum), 2),
+                                &quot;timestamp&quot;: time.ticks_ms()
+                            }
+                            response = {&quot;status&quot;: &quot;success&quot;, &quot;data&quot;: sensor_data, &quot;pico_id&quot;: PICO_ID}
+                        except Exception as e:
+                            response = {&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: f&quot;センサー読み取りエラー: {e}&quot;, &quot;pico_id&quot;: PICO_ID}
+                    else:
+                        response = {&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: &quot;BME280が初期化されていません&quot;, &quot;pico_id&quot;: PICO_ID}
+                else:
+                    response = {&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: &quot;未知のコマンド&quot;, &quot;pico_id&quot;: PICO_ID}
+                
+            except:
+                # プレーンテキストメッセージの場合
+                if message.strip() == &quot;hello&quot;:
+                    response = {&quot;status&quot;: &quot;success&quot;, &quot;message&quot;: &quot;Hello from Pico W!&quot;, &quot;pico_id&quot;: PICO_ID}
+                else:
+                    response = {&quot;status&quot;: &quot;success&quot;, &quot;message&quot;: f&quot;受信: {message}&quot;, &quot;pico_id&quot;: PICO_ID}
+            
+            # レスポンス送信
+            response_json = json.dumps(response)
+            client_socket.send(response_json.encode('utf-8'))
+            
+    except Exception as e:
+        print(f&quot;エラー: {e}&quot;)
+        error_response = {&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: str(e)}
+        client_socket.send(json.dumps(error_response).encode('utf-8'))
+    
+    finally:
+        client_socket.close()
+
+def start_server():
+    &quot;&quot;&quot;サーバーを開始&quot;&quot;&quot;
+    # WiFi接続
+    ip_address = connect_wifi()
+    if not ip_address:
+        return
+    
+    # BME280初期化
+    init_bme280()
+    
+    # ソケット作成
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    
+    try:
+        # サーバーをバインド
+        server_socket.bind((ip_address, SERVER_PORT))
+        server_socket.listen(5)
+        print(f&quot;サーバー開始: {ip_address}:{SERVER_PORT}&quot;)
+        print(&quot;クライアントからの接続を待機中...&quot;)
+        
+        while True:
+            try:
+                # クライアント接続を受け付け
+                client_socket, client_address = server_socket.accept()
+                print(f&quot;クライアント接続: {client_address}&quot;)
+                
+                # クライアントリクエストを処理
+                handle_client(client_socket)
+                
+            except KeyboardInterrupt:
+                print(&quot;\nサーバーを停止します&quot;)
+                break
+            except Exception as e:
+                print(f&quot;接続エラー: {e}&quot;)
+                continue
+    
+    finally:
+        server_socket.close()
+
+# メイン実行
+if __name__ == &quot;__main__&quot;:
+    start_server()
+</code></pre>
+<h3 id="32-モニタープログラムpc"><a class="header" href="#32-モニタープログラムpc">3.2 モニタープログラム(PC)</a></h3>
+<p>以下のプログラムはThonnyの<strong>ローカルPython</strong>で実行する．</p>
+<pre><code class="language-python">import socket
+import json
+import time
+import threading
+import csv
+import os
+from datetime import datetime
+
+class MultiPicoClient:
+    def __init__(self, pico_configs):
+        &quot;&quot;&quot;
+        複数のPico W用クライアント
+        
+        Args:
+            pico_configs (list): Pico設定のリスト
+            例: [{&quot;id&quot;: 1, &quot;ip&quot;: &quot;192.168.1.100&quot;, &quot;port&quot;: 8080}, ...]
+        &quot;&quot;&quot;
+        self.pico_configs = pico_configs
+        self.timeout = 5
+        self.monitoring = False
+        self.monitor_thread = None
+        self.csv_logging = False
+        self.csv_filename = None
+        self.csv_file = None
+        self.csv_writer = None
+        
+    def send_command_to_pico(self, pico_config, command, data=None):
+        &quot;&quot;&quot;
+        指定されたPico Wにコマンドを送信
+        
+        Args:
+            pico_config (dict): Pico設定
+            command (str): 送信するコマンド
+            data (dict): 追加データ（オプション）
+        
+        Returns:
+            dict: Pico Wからのレスポンス
+        &quot;&quot;&quot;
+        try:
+            client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            client_socket.settimeout(self.timeout)
+            
+            client_socket.connect((pico_config[&quot;ip&quot;], pico_config[&quot;port&quot;]))
+            
+            if data:
+                message = {&quot;command&quot;: command, **data}
+            else:
+                message = {&quot;command&quot;: command}
+            
+            json_message = json.dumps(message)
+            client_socket.send(json_message.encode('utf-8'))
+            
+            response = client_socket.recv(1024).decode('utf-8')
+            
+            try:
+                response_data = json.loads(response)
+                return response_data
+            except json.JSONDecodeError:
+                return {&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: &quot;Invalid JSON response&quot;, &quot;raw_response&quot;: response}
+        
+        except socket.timeout:
+            return {&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: &quot;接続タイムアウト&quot;, &quot;pico_id&quot;: pico_config.get(&quot;id&quot;)}
+        except ConnectionRefusedError:
+            return {&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: &quot;接続が拒否されました&quot;, &quot;pico_id&quot;: pico_config.get(&quot;id&quot;)}
+        except Exception as e:
+            return {&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: f&quot;エラー: {str(e)}&quot;, &quot;pico_id&quot;: pico_config.get(&quot;id&quot;)}
+        finally:
+            try:
+                client_socket.close()
+            except:
+                pass
+    
+    def ping_all(self):
+        &quot;&quot;&quot;全てのPico Wにpingを送信&quot;&quot;&quot;
+        results = {}
+        for pico in self.pico_configs:
+            print(f&quot;Pico {pico['id']} ({pico['ip']}) にping送信中...&quot;)
+            response = self.send_command_to_pico(pico, &quot;ping&quot;)
+            results[pico['id']] = response
+            if response.get(&quot;status&quot;) == &quot;success&quot;:
+                print(f&quot;  ✓ Pico {pico['id']}: {response.get('message')}&quot;)
+            else:
+                print(f&quot;  ✗ Pico {pico['id']}: {response.get('message')}&quot;)
+        return results
+    
+    def get_all_sensor_data(self):
+        &quot;&quot;&quot;全てのPico Wからセンサーデータを取得&quot;&quot;&quot;
+        results = {}
+        for pico in self.pico_configs:
+            response = self.send_command_to_pico(pico, &quot;get_sensor_data&quot;)
+            results[pico['id']] = response
+        return results
+    
+    def setup_csv_logging(self, filename=None):
+        &quot;&quot;&quot;CSV保存の設定&quot;&quot;&quot;
+        if filename is None:
+            timestamp = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+            filename = f&quot;pico_sensor_data_{timestamp}.csv&quot;
+        
+        self.csv_filename = filename
+        
+        # CSVヘッダーの作成（台数に応じた列形式）
+        headers = [&quot;timestamp&quot;, &quot;datetime&quot;]
+        for pico in self.pico_configs:
+            pico_id = pico[&quot;id&quot;]
+            headers.extend([
+                f&quot;pico{pico_id}_temp&quot;,
+                f&quot;pico{pico_id}_pressure&quot;, 
+                f&quot;pico{pico_id}_humidity&quot;,
+                f&quot;pico{pico_id}_status&quot;
+            ])
+        
+        # CSVファイルを開いてヘッダーを書き込み
+        self.csv_file = open(self.csv_filename, 'w', newline='', encoding='utf-8')
+        self.csv_writer = csv.writer(self.csv_file)
+        self.csv_writer.writerow(headers)
+        self.csv_file.flush()
+        
+        self.csv_logging = True
+        print(f&quot;CSV保存を開始しました: {self.csv_filename}&quot;)
+        
+    def stop_csv_logging(self):
+        &quot;&quot;&quot;CSV保存の停止&quot;&quot;&quot;
+        if self.csv_logging and self.csv_file:
+            self.csv_file.close()
+            self.csv_logging = False
+            print(f&quot;CSV保存を停止しました: {self.csv_filename}&quot;)
+    
+    def save_to_csv(self, results):
+        &quot;&quot;&quot;センサーデータをCSVに保存&quot;&quot;&quot;
+        if not self.csv_logging or not self.csv_writer:
+            return
+            
+        try:
+            # タイムスタンプ
+            now = datetime.now()
+            timestamp = int(now.timestamp())
+            datetime_str = now.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)
+            
+            # データ行の作成
+            row = [timestamp, datetime_str]
+            
+            for pico in self.pico_configs:
+                pico_id = pico[&quot;id&quot;]
+                result = results.get(pico_id, {})
+                
+                if result.get(&quot;status&quot;) == &quot;success&quot;:
+                    data = result.get(&quot;data&quot;, {})
+                    row.extend([
+                        data.get(&quot;temperature&quot;, &quot;&quot;),
+                        data.get(&quot;pressure&quot;, &quot;&quot;),
+                        data.get(&quot;humidity&quot;, &quot;&quot;),
+                        &quot;OK&quot;
+                    ])
+                else:
+                    # エラーの場合は空値とエラーステータス
+                    row.extend([&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;ERROR&quot;])
+            
+            # CSVに書き込み
+            self.csv_writer.writerow(row)
+            self.csv_file.flush()
+            
+        except Exception as e:
+            print(f&quot;CSV保存エラー: {e}&quot;)
+    
+    def display_sensor_data(self, results):
+        &quot;&quot;&quot;センサーデータを見やすく表示&quot;&quot;&quot;
+        print(f&quot;[{datetime.now().strftime('%H:%M:%S')}] センサーデータ:&quot;)
+        for pico_id, response in results.items():
+            if response.get(&quot;status&quot;) == &quot;success&quot;:
+                data = response.get(&quot;data&quot;, {})
+                print(f&quot;  Pico {pico_id}: 温度={data.get('temperature', 'N/A')}°C, &quot;
+                      f&quot;気圧={data.get('pressure', 'N/A')}hPa, &quot;
+                      f&quot;湿度={data.get('humidity', 'N/A')}%&quot;)
+            else:
+                print(f&quot;  Pico {pico_id}: エラー - {response.get('message')}&quot;)
+        
+        # CSV保存が有効な場合は保存
+        if self.csv_logging:
+            self.save_to_csv(results)
+    
+    def start_monitoring(self, interval=5):
+        &quot;&quot;&quot;全Picoのセンサーデータを定期取得開始&quot;&quot;&quot;
+        self.monitoring = True
+        self.monitor_thread = threading.Thread(target=self._monitor_loop, args=(interval,))
+        self.monitor_thread.daemon = True
+        self.monitor_thread.start()
+        print(f&quot;定期取得を開始しました（間隔: {interval}秒）&quot;)
+    
+    def stop_monitoring(self):
+        &quot;&quot;&quot;定期取得を停止&quot;&quot;&quot;
+        self.monitoring = False
+        if self.monitor_thread:
+            self.monitor_thread.join()
+        print(&quot;定期取得を停止しました&quot;)
+        
+        # CSV保存も停止
+        if self.csv_logging:
+            self.stop_csv_logging()
+    
+    def _monitor_loop(self, interval):
+        &quot;&quot;&quot;定期取得のメインループ&quot;&quot;&quot;
+        while self.monitoring:
+            try:
+                results = self.get_all_sensor_data()
+                self.display_sensor_data(results)
+                time.sleep(interval)
+            except Exception as e:
+                print(f&quot;監視エラー: {e}&quot;)
+                time.sleep(1)
+    
+    def control_led(self, pico_id, action):
+        &quot;&quot;&quot;指定されたPicoのLEDを制御&quot;&quot;&quot;
+        pico_config = next((p for p in self.pico_configs if p['id'] == pico_id), None)
+        if not pico_config:
+            return {&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: f&quot;Pico {pico_id} が見つかりません&quot;}
+        
+        command = &quot;led_on&quot; if action == &quot;on&quot; else &quot;led_off&quot;
+        return self.send_command_to_pico(pico_config, command)
+    
+    def get_status_all(self):
+        &quot;&quot;&quot;全てのPico Wのステータスを取得&quot;&quot;&quot;
+        results = {}
+        for pico in self.pico_configs:
+            response = self.send_command_to_pico(pico, &quot;get_status&quot;)
+            results[pico['id']] = response
+        return results
+
+def main():
+    &quot;&quot;&quot;メイン関数&quot;&quot;&quot;
+    print(&quot;複数Pico W センサー監視システム&quot;)
+    print(&quot;=&quot; * 40)
+    
+    # Pico設定を入力
+    pico_configs = []
+    #num_picos = int(input(&quot;Picoの台数を入力してください (1-3): &quot;))
+    #
+    #for i in range(num_picos):
+    #    print(f&quot;\nPico {i+1} の設定:&quot;)
+    #    ip = input(f&quot;  IPアドレス: &quot;).strip()
+    #    port = int(input(f&quot;  ポート番号 (デフォルト: 8080): &quot;) or 8080)
+    #    pico_configs.append({&quot;id&quot;: i+1, &quot;ip&quot;: ip, &quot;port&quot;: port})
+    pico_configs.append({&quot;id&quot;: 1, &quot;ip&quot;: &quot;192.168.11.5&quot;, &quot;port&quot;:8080})
+    #pico_configs.append({&quot;id&quot;: 2, &quot;ip&quot;: &quot;192.168.11.XX&quot;, &quot;port&quot;:8080})
+    #pico_configs.append({&quot;id&quot;: 3, &quot;ip&quot;: &quot;192.168.11.XX&quot;, &quot;port&quot;:8080})
+    
+    # クライアント作成
+    client = MultiPicoClient(pico_configs)
+    
+    print(&quot;\n接続テスト中...&quot;)
+    client.ping_all()
+    
+    print(&quot;\nコマンド一覧:&quot;)
+    print(&quot;  ping      - 全Picoにpingを送信&quot;)
+    print(&quot;  sensor    - 全Picoからセンサーデータを取得&quot;)
+    print(&quot;  monitor   - センサーデータの定期取得を開始/停止&quot;)
+    print(&quot;  csv       - CSV保存の開始/停止&quot;)
+    print(&quot;  led       - 指定PicoのLED制御&quot;)
+    print(&quot;  status    - 全Picoのステータスを取得&quot;)
+    print(&quot;  quit      - 終了&quot;)
+    print()
+    
+    monitoring = False
+    
+    while True:
+        try:
+            if not monitoring:
+                command = input(&quot;コマンドを入力してください: &quot;).strip().lower()
+            else:
+                command = input(&quot;コマンドを入力してください (monitor中): &quot;).strip().lower()
+            
+            if command == &quot;quit&quot;:
+                if monitoring:
+                    client.stop_monitoring()
+                print(&quot;終了します&quot;)
+                break
+            
+            elif command == &quot;ping&quot;:
+                client.ping_all()
+            
+            elif command == &quot;sensor&quot;:
+                results = client.get_all_sensor_data()
+                client.display_sensor_data(results)
+            
+            elif command == &quot;monitor&quot;:
+                if not monitoring:
+                    interval = int(input(&quot;取得間隔（秒）を入力してください (デフォルト: 5): &quot;) or 5)
+                    client.start_monitoring(interval)
+                    monitoring = True
+                else:
+                    client.stop_monitoring()
+                    monitoring = False
+            
+            elif command == &quot;csv&quot;:
+                if not client.csv_logging:
+                    filename = input(&quot;CSVファイル名を入力してください (空白で自動生成): &quot;).strip()
+                    if not filename:
+                        filename = None
+                    client.setup_csv_logging(filename)
+                else:
+                    client.stop_csv_logging()
+            
+            elif command == &quot;led&quot;:
+                pico_id = int(input(&quot;制御するPico ID (1-3): &quot;))
+                action = input(&quot;動作 (on/off): &quot;).strip().lower()
+                response = client.control_led(pico_id, action)
+                print(f&quot;LED制御結果: {response}&quot;)
+            
+            elif command == &quot;status&quot;:
+                results = client.get_status_all()
+                print(&quot;ステータス一覧:&quot;)
+                for pico_id, response in results.items():
+                    if response.get(&quot;status&quot;) == &quot;success&quot;:
+                        uptime = response.get(&quot;uptime&quot;, &quot;N/A&quot;)
+                        print(f&quot;  Pico {pico_id}: 稼働中 (uptime: {uptime}ms)&quot;)
+                    else:
+                        print(f&quot;  Pico {pico_id}: エラー - {response.get('message')}&quot;)
+            
+            else:
+                print(&quot;無効なコマンドです&quot;)
+            
+            print()
+            
+        except KeyboardInterrupt:
+            print(&quot;\n終了します&quot;)
+            if monitoring:
+                client.stop_monitoring()
+                monitoring = False
+        except Exception as e:
+            print(f&quot;エラー: {e}&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<h2 id="4-取得データの可視化グラフ"><a class="header" href="#4-取得データの可視化グラフ">4. 取得データの可視化（グラフ）</a></h2>
+<h3 id="41-csvファイル"><a class="header" href="#41-csvファイル">4.1 CSVファイル</a></h3>
+<h3 id="42-csvファイルをグラフ化"><a class="header" href="#42-csvファイルをグラフ化">4.2 CSVファイルをグラフ化</a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="neovimでカーソルジャンプ"><a class="header" href="#neovimでカーソルジャンプ">Neovimでカーソルジャンプ</a></h1>
 <div class="meta-info">
 <p><strong>Create date:</strong> 2025-07-09<br />
