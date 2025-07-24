@@ -51,7 +51,7 @@ time.sleep(1)
 # 続いて，詳細機能に必要なモジュールをインポートして，1秒待機して起動を待つ
 import PicoRobotics
 import utime
-import ssd1306
+#import ssd1306
 import math
 time.sleep(1)
 
@@ -75,9 +75,9 @@ def main():
         now = utime.ticks_ms()
         if utime.ticks_diff(now, last_print) > REFRESH_TIME:
             display_shell(count_L, count_R)
-            display.fill(0)  # ディスプレイをクリア
-            display_show(count_L, count_R)
-            display.show()  # ディスプレイに表示
+            #display.fill(0)  # ディスプレイをクリア
+            #display_show(count_L, count_R)
+            #display.show()  # ディスプレイに表示
 
             last_print = now
         
@@ -94,9 +94,9 @@ def main():
         now = utime.ticks_ms()
         if utime.ticks_diff(now, last_print) > REFRESH_TIME:
             display_shell(count_L, count_R)
-            display.fill(0)  # ディスプレイをクリア
-            display_show(count_L, count_R)
-            display.show()  # ディスプレイに表示
+            #display.fill(0)  # ディスプレイをクリア
+            #display_show(count_L, count_R)
+            #display.show()  # ディスプレイに表示
 
             last_print = now
             
@@ -113,9 +113,9 @@ def main():
         now = utime.ticks_ms()
         if utime.ticks_diff(now, last_print) > REFRESH_TIME:
             display_shell(count_L, count_R)
-            display.fill(0)  # ディスプレイをクリア
-            display_show(count_L, count_R)
-            display.show()  # ディスプレイに表示
+            #display.fill(0)  # ディスプレイをクリア
+            #display_show(count_L, count_R)
+            #display.show()  # ディスプレイに表示
 
             last_print = now
 
@@ -146,15 +146,15 @@ DISTANCE_PER_PULSE = (2 * 3.14159 * WHEEL_RADIUS) / (GEAR_RATIO * ENCODER_PPR)
 
 # ディスプレイの設定を行う
 # 接続に失敗すると，エラーメッセージを表示して停止する
-i2c = I2C(1, sda=Pin(6), scl=Pin(7))
-try:
-    display = ssd1306.SSD1306_I2C(128, 64, i2c)
-    display.fill(0)  # ディスプレイをクリア
-    display.text("Set up done", 0, 0)
-    display.show()  # ディスプレイに表示
-except:
-    print("Display Error")
-    raise SystemExit
+#i2c = I2C(1, sda=Pin(6), scl=Pin(7))
+#try:
+#    display = ssd1306.SSD1306_I2C(128, 64, i2c)
+#    display.fill(0)  # ディスプレイをクリア
+#    display.text("Set up done", 0, 0)
+#    display.show()  # ディスプレイに表示
+#except:
+#    print("Display Error")
+#    raise SystemExit
 
 # エンコーダーの設定
 # エンコーダピン（AB相）を両輪分定義
@@ -231,10 +231,10 @@ def display_show(count_L, count_R):
     dist_L = -count_L * DISTANCE_PER_PULSE
     dist_R =  count_R * DISTANCE_PER_PULSE
     
-    display.text("CountL: {}".format(-count_L), 0,  0)
-    display.text("CountR: {}".format(count_R),  0, 10)
-    display.text("DIST_L: {}".format(dist_L),   0, 20)
-    display.text("DIST_R: {}".format(dist_R),   0, 30)
+    #display.text("CountL: {}".format(-count_L), 0,  0)
+    #display.text("CountR: {}".format(count_R),  0, 10)
+    #display.text("DIST_L: {}".format(dist_L),   0, 20)
+    #display.text("DIST_R: {}".format(dist_R),   0, 30)
 
 main()
 ```
