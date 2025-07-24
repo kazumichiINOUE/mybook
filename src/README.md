@@ -21,6 +21,8 @@
 ### 実習ガイド
 - [ロボット制御基礎手順書](robot_basis/README.md)
   - [モーター動作確認](robot_basis/robot_basis_250710.md)
+  - [障害物前停止確認](robot_basis/robot_basis_250717.md)
+  - [指定距離の走行確認](robot_basis/robot_basis_250723.md)
 - [マイコン・センサー活用実習](teaching_advanced/README.md)
   - [実習資料1: センサープログラミング](teaching_advanced/lesson1.md)
   - [実習資料2: 応用課題](teaching_advanced/lesson2.md)
